@@ -6,9 +6,9 @@ import (
 	"strings"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func (c *goBinaryCataloger) newGoBinaryPackage(resolver source.FileResolver, dep *debug.Module, mainModule, goVersion, architecture string, buildSettings map[string]string, locations ...source.Location) pkg.Package {

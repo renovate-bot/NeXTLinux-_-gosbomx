@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"fmt"
@@ -6,23 +6,23 @@ import (
 	"strconv"
 
 	stereoscopeFile "github.com/nextlinux/stereoscope/pkg/file"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 // ToFormatModel transforms the sbom import a format-specific model.
 func ToFormatModel(s sbom.SBOM) model.Document {
 	src, err := toSourceModel(s.Source)
 	if err != nil {
-		log.Warnf("unable to create syft-json source object: %+v", err)
+		log.Warnf("unable to create gosbom-json source object: %+v", err)
 	}
 
 	return model.Document{
@@ -35,7 +35,7 @@ func ToFormatModel(s sbom.SBOM) model.Document {
 		Descriptor:            toDescriptor(s.Descriptor),
 		Schema: model.Schema{
 			Version: internal.JSONSchemaVersion,
-			URL:     fmt.Sprintf("https://raw.githubusercontent.com/nextlinux/syft/main/schema/json/schema-%s.json", internal.JSONSchemaVersion),
+			URL:     fmt.Sprintf("https://raw.githubusercontent.com/nextlinux/gosbom/main/schema/json/schema-%s.json", internal.JSONSchemaVersion),
 		},
 	}
 }

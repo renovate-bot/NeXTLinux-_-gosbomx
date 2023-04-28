@@ -3,18 +3,18 @@ package java
 import (
 	"fmt"
 
-	"github.com/nextlinux/syft/internal/file"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/file"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 var genericZipGlobs = []string{
 	"**/*.zip",
 }
 
-// TODO: when the generic archive cataloger is implemented, this should be removed (https://github.com/nextlinux/syft/issues/246)
+// TODO: when the generic archive cataloger is implemented, this should be removed (https://github.com/nextlinux/gosbom/issues/246)
 
 // parseZipWrappedJavaArchive is a parser function for java archive contents contained within arbitrary zip files.
 func parseZipWrappedJavaArchive(_ source.FileResolver, _ *generic.Environment, reader source.LocationReadCloser) ([]pkg.Package, []artifact.Relationship, error) {

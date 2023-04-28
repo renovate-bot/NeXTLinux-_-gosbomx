@@ -6,7 +6,7 @@ import (
 
 	"github.com/go-test/deep"
 
-	"github.com/nextlinux/syft/syft/formats/internal/testutils"
+	"github.com/nextlinux/gosbom/gosbom/formats/internal/testutils"
 )
 
 var updateTableGoldenFiles = flag.Bool("update-table", false, "update the *.golden files for table format")

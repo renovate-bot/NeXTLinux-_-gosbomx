@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	syftjsonModel "github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	gosbomjsonModel "github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func TestPackageOwnershipRelationships(t *testing.T) {
@@ -26,12 +26,12 @@ func TestPackageOwnershipRelationships(t *testing.T) {
 			sbom, _ := catalogFixtureImage(t, test.fixture, source.SquashedScope, nil)
 
 			output := bytes.NewBufferString("")
-			err := syftjson.Format().Encode(output, sbom)
+			err := gosbomjson.Format().Encode(output, sbom)
 			if err != nil {
 				t.Fatalf("unable to present: %+v", err)
 			}
 
-			var doc syftjsonModel.Document
+			var doc gosbomjsonModel.Document
 			decoder := json.NewDecoder(output)
 			if err := decoder.Decode(&doc); err != nil {
 				t.Fatalf("unable to decode json doc: %+v", err)

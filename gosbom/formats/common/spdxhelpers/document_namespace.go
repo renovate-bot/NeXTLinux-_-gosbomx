@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 const (

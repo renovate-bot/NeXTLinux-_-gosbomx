@@ -1,7 +1,7 @@
 (registered 2021-11-05, last updated 2021-11-05)
 
 Media type name: application
-Media subtype name: vnd.syft+json
+Media subtype name: vnd.gosbom+json
 
 Required parameters: N/A
 
@@ -28,7 +28,7 @@ Interoperability considerations:
 This media type has the same interoperability considerations of application/json as described in [RFC8259].
 
 Published specification:
-The specification can be found on the main Gosbom GitHub repository under the schema directory https://github.com/nextlinux/syft/blob/main/schema/json
+The specification can be found on the main Gosbom GitHub repository under the schema directory https://github.com/nextlinux/gosbom/blob/main/schema/json
 
 Applications which use this media:
 This media type is used to specify a software bill of materials.
@@ -51,7 +51,7 @@ Additional information:
 
 1. Deprecated alias names for this type: N/A
 2. Magic number(s): N/A
-3. File extension(s): .syft.json
+3. File extension(s): .gosbom.json
 4. Macintosh file type code: N/A
 5. Object Identifiers: N/A
 

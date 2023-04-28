@@ -6,14 +6,14 @@ import (
 	"io"
 	"os"
 
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/formats"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/formats"
 )
 
 func Run(_ context.Context, app *config.Application, args []string) error {
-	log.Warn("convert is an experimental feature, run `syft convert -h` for help")
+	log.Warn("convert is an experimental feature, run `gosbom convert -h` for help")
 	writer, err := options.MakeWriter(app.Outputs, app.File, app.OutputTemplatePath)
 	if err != nil {
 		return err

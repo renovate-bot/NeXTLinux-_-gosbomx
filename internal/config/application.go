@@ -15,11 +15,11 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/nextlinux/gologger"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/pkg/cataloger"
-	golangCataloger "github.com/nextlinux/syft/syft/pkg/cataloger/golang"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/kernel"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger"
+	golangCataloger "github.com/nextlinux/gosbom/gosbom/pkg/cataloger/golang"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/kernel"
 )
 
 var (
@@ -35,9 +35,9 @@ type parser interface {
 	parseConfigValues() error
 }
 
-// Application is the main syft application configuration.
+// Application is the main gosbom application configuration.
 type Application struct {
-	// the location where the application config was read from (either from -c or discovered while loading); default .syft.yaml
+	// the location where the application config was read from (either from -c or discovered while loading); default .gosbom.yaml
 	ConfigPath string `yaml:"configPath,omitempty" json:"configPath" mapstructure:"config"`
 	Verbosity  uint   `yaml:"verbosity,omitempty" json:"verbosity" mapstructure:"verbosity"`
 	// -q, indicates to not show any status output to stderr (ETUI or logging UI)
@@ -249,14 +249,14 @@ func loadConfig(v *viper.Viper, configPath string) error {
 	confFilePath := "." + internal.ApplicationName
 
 	// TODO: Remove this before v1.0.0
-	// See syft #1634
+	// See gosbom #1634
 	v.AddConfigPath(".")
 	v.SetConfigName(confFilePath)
 
 	// check if config.yaml exists in the current directory
 	// DEPRECATED: this will be removed in v1.0.0
 	if _, err := os.Stat("config.yaml"); err == nil {
-		log.Warn("DEPRECATED: ./config.yaml as a configuration file is deprecated and will be removed as an option in v1.0.0, please rename to .syft.yaml")
+		log.Warn("DEPRECATED: ./config.yaml as a configuration file is deprecated and will be removed as an option in v1.0.0, please rename to .gosbom.yaml")
 	}
 
 	if _, err := os.Stat(confFilePath + ".yaml"); err == nil {

@@ -9,15 +9,15 @@ import (
 	"github.com/spdx/tools-golang/spdx"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/formats/common/util"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/formats/common/util"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func ToGosbomModel(doc *spdx.Document) (*sbom.SBOM, error) {
@@ -108,9 +108,9 @@ func findLinuxReleaseByPURL(doc *spdx.Document) *linux.Release {
 
 func collectGosbomPackages(s *sbom.SBOM, spdxIDMap map[string]interface{}, doc *spdx.Document) {
 	for _, p := range doc.Packages {
-		syftPkg := toGosbomPackage(p)
-		spdxIDMap[string(p.PackageSPDXIdentifier)] = syftPkg
-		s.Artifacts.PackageCatalog.Add(*syftPkg)
+		gosbomPkg := toGosbomPackage(p)
+		spdxIDMap[string(p.PackageSPDXIdentifier)] = gosbomPkg
+		s.Artifacts.PackageCatalog.Add(*gosbomPkg)
 	}
 }
 

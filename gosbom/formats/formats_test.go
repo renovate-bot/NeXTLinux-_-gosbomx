@@ -9,16 +9,16 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/formats/cyclonedxjson"
-	"github.com/nextlinux/syft/syft/formats/cyclonedxxml"
-	"github.com/nextlinux/syft/syft/formats/github"
-	"github.com/nextlinux/syft/syft/formats/spdxjson"
-	"github.com/nextlinux/syft/syft/formats/spdxtagvalue"
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/formats/table"
-	"github.com/nextlinux/syft/syft/formats/template"
-	"github.com/nextlinux/syft/syft/formats/text"
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/formats/cyclonedxjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/cyclonedxxml"
+	"github.com/nextlinux/gosbom/gosbom/formats/github"
+	"github.com/nextlinux/gosbom/gosbom/formats/spdxjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/spdxtagvalue"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/table"
+	"github.com/nextlinux/gosbom/gosbom/formats/template"
+	"github.com/nextlinux/gosbom/gosbom/formats/text"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 func TestIdentify(t *testing.T) {
@@ -27,8 +27,8 @@ func TestIdentify(t *testing.T) {
 		expected sbom.FormatID
 	}{
 		{
-			fixture:  "test-fixtures/alpine-syft.json",
-			expected: syftjson.ID,
+			fixture:  "test-fixtures/alpine-gosbom.json",
+			expected: gosbomjson.ID,
 		},
 	}
 	for _, test := range tests {
@@ -133,7 +133,7 @@ func TestByName(t *testing.T) {
 			want: table.ID,
 		},
 		{
-			name: "syft-table",
+			name: "gosbom-table",
 			want: table.ID,
 		},
 
@@ -143,22 +143,22 @@ func TestByName(t *testing.T) {
 			want: text.ID,
 		},
 		{
-			name: "syft-text",
+			name: "gosbom-text",
 			want: text.ID,
 		},
 
 		// Gosbom JSON
 		{
 			name: "json",
-			want: syftjson.ID,
+			want: gosbomjson.ID,
 		},
 		{
-			name: "syft-json",
-			want: syftjson.ID,
+			name: "gosbom-json",
+			want: gosbomjson.ID,
 		},
 		{
-			name: "syftjson", // clean variant
-			want: syftjson.ID,
+			name: "gosbomjson", // clean variant
+			want: gosbomjson.ID,
 		},
 
 		// GitHub JSON

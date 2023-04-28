@@ -8,17 +8,17 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/cmd/syft/cli/convert"
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/syft/formats"
-	"github.com/nextlinux/syft/syft/formats/cyclonedxjson"
-	"github.com/nextlinux/syft/syft/formats/cyclonedxxml"
-	"github.com/nextlinux/syft/syft/formats/spdxjson"
-	"github.com/nextlinux/syft/syft/formats/spdxtagvalue"
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/formats/table"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/convert"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/gosbom/formats"
+	"github.com/nextlinux/gosbom/gosbom/formats/cyclonedxjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/cyclonedxxml"
+	"github.com/nextlinux/gosbom/gosbom/formats/spdxjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/spdxtagvalue"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/table"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 // TestConvertCmd tests if the converted SBOM is a valid document according
@@ -32,8 +32,8 @@ func TestConvertCmd(t *testing.T) {
 		format sbom.Format
 	}{
 		{
-			name:   "syft-json",
-			format: syftjson.Format(),
+			name:   "gosbom-json",
+			format: gosbomjson.Format(),
 		},
 		{
 			name:   "spdx-json",
@@ -54,22 +54,22 @@ func TestConvertCmd(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			syftSbom, _ := catalogFixtureImage(t, "image-pkg-coverage", source.SquashedScope, nil)
-			syftFormat := syftjson.Format()
+			gosbomSbom, _ := catalogFixtureImage(t, "image-pkg-coverage", source.SquashedScope, nil)
+			gosbomFormat := gosbomjson.Format()
 
-			syftFile, err := os.CreateTemp("", "test-convert-sbom-")
+			gosbomFile, err := os.CreateTemp("", "test-convert-sbom-")
 			require.NoError(t, err)
 			defer func() {
-				_ = os.Remove(syftFile.Name())
+				_ = os.Remove(gosbomFile.Name())
 			}()
 
-			err = syftFormat.Encode(syftFile, syftSbom)
+			err = gosbomFormat.Encode(gosbomFile, gosbomSbom)
 			require.NoError(t, err)
 
 			formatFile, err := os.CreateTemp("", "test-convert-sbom-")
 			require.NoError(t, err)
 			defer func() {
-				_ = os.Remove(syftFile.Name())
+				_ = os.Remove(gosbomFile.Name())
 			}()
 
 			ctx := context.Background()
@@ -84,7 +84,7 @@ func TestConvertCmd(t *testing.T) {
 				os.Stdout = rescue
 			}()
 
-			err = convert.Run(ctx, app, []string{syftFile.Name()})
+			err = convert.Run(ctx, app, []string{gosbomFile.Name()})
 			require.NoError(t, err)
 			contents, err := os.ReadFile(formatFile.Name())
 			require.NoError(t, err)

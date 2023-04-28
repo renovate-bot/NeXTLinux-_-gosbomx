@@ -11,12 +11,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/formats"
-	"github.com/nextlinux/syft/syft/formats/cyclonedxjson"
-	"github.com/nextlinux/syft/syft/formats/cyclonedxxml"
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/formats"
+	"github.com/nextlinux/gosbom/gosbom/formats/cyclonedxjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/cyclonedxxml"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 // TestEncodeDecodeEncodeCycleComparison is testing for differences in how SBOM documents get encoded on multiple cycles.
@@ -34,7 +34,7 @@ func TestEncodeDecodeEncodeCycleComparison(t *testing.T) {
 		json         bool
 	}{
 		{
-			formatOption: syftjson.ID,
+			formatOption: gosbomjson.ID,
 			redactor: func(in []byte) []byte {
 				// no redactions necessary
 				return in

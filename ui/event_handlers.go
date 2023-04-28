@@ -20,9 +20,9 @@ import (
 
 	stereoEventParsers "github.com/nextlinux/stereoscope/pkg/event/parsers"
 	"github.com/nextlinux/stereoscope/pkg/image/docker"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/ui/components"
-	syftEventParsers "github.com/nextlinux/syft/syft/event/parsers"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/ui/components"
+	gosbomEventParsers "github.com/nextlinux/gosbom/gosbom/event/parsers"
 )
 
 const maxBarWidth = 50
@@ -278,7 +278,7 @@ func ReadImageHandler(ctx context.Context, fr *frame.Frame, event partybus.Event
 
 // PackageCatalogerStartedHandler periodically writes catalog statistics to a single line.
 func PackageCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	monitor, err := syftEventParsers.ParsePackageCatalogerStarted(event)
+	monitor, err := gosbomEventParsers.ParsePackageCatalogerStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -319,7 +319,7 @@ func PackageCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, event 
 
 // SecretsCatalogerStartedHandler shows the intermittent secrets searching progress.
 func SecretsCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	prog, err := syftEventParsers.ParseSecretsCatalogingStarted(event)
+	prog, err := gosbomEventParsers.ParseSecretsCatalogingStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -365,7 +365,7 @@ func SecretsCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, event 
 //
 //nolint:dupl
 func FileMetadataCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	prog, err := syftEventParsers.ParseFileMetadataCatalogingStarted(event)
+	prog, err := gosbomEventParsers.ParseFileMetadataCatalogingStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -407,7 +407,7 @@ func FileMetadataCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, e
 
 // FileIndexingStartedHandler shows the intermittent indexing progress from a directory resolver.
 func FileIndexingStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	path, prog, err := syftEventParsers.ParseFileIndexingStarted(event)
+	path, prog, err := gosbomEventParsers.ParseFileIndexingStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -451,7 +451,7 @@ func FileIndexingStartedHandler(ctx context.Context, fr *frame.Frame, event part
 //
 //nolint:dupl
 func FileDigestsCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	prog, err := syftEventParsers.ParseFileDigestsCatalogingStarted(event)
+	prog, err := gosbomEventParsers.ParseFileDigestsCatalogingStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -493,7 +493,7 @@ func FileDigestsCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, ev
 
 // ImportStartedHandler shows the intermittent upload progress to Nextlinux Enterprise.
 func ImportStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	host, prog, err := syftEventParsers.ParseImportStarted(event)
+	host, prog, err := gosbomEventParsers.ParseImportStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -539,7 +539,7 @@ func ImportStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.E
 //
 //nolint:funlen,gocognit
 func AttestationStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	reader, prog, taskInfo, err := syftEventParsers.ParseAttestationStartedEvent(event)
+	reader, prog, taskInfo, err := gosbomEventParsers.ParseAttestationStartedEvent(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}
@@ -653,7 +653,7 @@ func AttestationStartedHandler(ctx context.Context, fr *frame.Frame, event party
 
 // CatalogerTaskStartedHandler shows the intermittent progress for a cataloger subprocess messages
 func CatalogerTaskStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
-	prog, err := syftEventParsers.ParseCatalogerTaskStarted(event)
+	prog, err := gosbomEventParsers.ParseCatalogerTaskStarted(event)
 	if err != nil {
 		return fmt.Errorf("bad %s event: %w", event.Type, err)
 	}

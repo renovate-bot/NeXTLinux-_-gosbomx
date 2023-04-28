@@ -9,10 +9,10 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/internal/version"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/internal/version"
 )
 
 func Version(v *viper.Viper, _ *config.Application) *cobra.Command {

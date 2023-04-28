@@ -6,12 +6,12 @@ import (
 	"github.com/bmatcuk/doublestar/v4"
 	"github.com/scylladb/go-set/strset"
 
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
 )
 
 // AltRpmDBGlob allows db matches against new locations introduced in fedora:{36,37}
-// See https://github.com/nextlinux/syft/issues/1077 for larger context
+// See https://github.com/nextlinux/gosbom/issues/1077 for larger context
 const AltRpmDBGlob = "**/rpm/{Packages,Packages.db,rpmdb.sqlite}"
 
 var globsForbiddenFromBeingOwned = []string{

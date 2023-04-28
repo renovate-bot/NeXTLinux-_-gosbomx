@@ -8,7 +8,7 @@ import (
 
 	"github.com/mitchellh/mapstructure"
 
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 const pomPropertiesGlob = "*pom.properties"

@@ -3,7 +3,7 @@ package spdxhelpers
 import (
 	"fmt"
 
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 // Originator needs to conform to the SPDX spec here:

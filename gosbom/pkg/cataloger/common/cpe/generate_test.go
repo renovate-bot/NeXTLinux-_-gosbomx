@@ -10,8 +10,8 @@ import (
 	"github.com/scylladb/go-set/strset"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func TestGeneratePackageCPEs(t *testing.T) {

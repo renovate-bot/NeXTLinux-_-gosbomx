@@ -5,7 +5,7 @@ import (
 
 	"github.com/mitchellh/hashstructure/v2"
 
-	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/gosbom/internal/log"
 )
 
 type LocationSet struct {

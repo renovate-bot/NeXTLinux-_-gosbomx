@@ -3,8 +3,8 @@ package ui
 import (
 	"github.com/wagoodman/go-partybus"
 
-	"github.com/nextlinux/syft/internal/log"
-	syftEvent "github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/gosbom/internal/log"
+	gosbomEvent "github.com/nextlinux/gosbom/gosbom/event"
 )
 
 type loggerUI struct {
@@ -23,7 +23,7 @@ func (l *loggerUI) Setup(unsubscribe func() error) error {
 
 func (l loggerUI) Handle(event partybus.Event) error {
 	// ignore all events except for the final event
-	if event.Type != syftEvent.Exit {
+	if event.Type != gosbomEvent.Exit {
 		return nil
 	}
 

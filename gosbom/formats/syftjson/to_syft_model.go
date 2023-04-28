@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"os"
@@ -8,15 +8,15 @@ import (
 	"github.com/google/go-cmp/cmp"
 
 	stereoscopeFile "github.com/nextlinux/stereoscope/pkg/file"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func toGosbomModel(doc model.Document) (*sbom.SBOM, error) {
@@ -151,9 +151,9 @@ func toGosbomRelationships(doc *model.Document, catalog *pkg.Collection, relatio
 
 	var out []artifact.Relationship
 	for _, r := range relationships {
-		syftRelationship := toGosbomRelationship(idMap, r, idAliases)
-		if syftRelationship != nil {
-			out = append(out, *syftRelationship)
+		gosbomRelationship := toGosbomRelationship(idMap, r, idAliases)
+		if gosbomRelationship != nil {
+			out = append(out, *gosbomRelationship)
 		}
 	}
 	return out

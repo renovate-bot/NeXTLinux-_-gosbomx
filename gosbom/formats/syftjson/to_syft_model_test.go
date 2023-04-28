@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"testing"
@@ -7,11 +7,11 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	stereoFile "github.com/nextlinux/stereoscope/pkg/file"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Test_toGosbomSourceData(t *testing.T) {

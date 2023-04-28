@@ -12,19 +12,19 @@ import (
 	"golang.org/x/exp/slices"
 
 	"github.com/nextlinux/stereoscope"
-	"github.com/nextlinux/syft/cmd/syft/cli/eventloop"
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/cmd/syft/cli/packages"
-	"github.com/nextlinux/syft/internal/bus"
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/internal/ui"
-	"github.com/nextlinux/syft/syft"
-	"github.com/nextlinux/syft/syft/event"
-	"github.com/nextlinux/syft/syft/event/monitor"
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/formats/table"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/eventloop"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/packages"
+	"github.com/nextlinux/gosbom/internal/bus"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/internal/ui"
+	"github.com/nextlinux/gosbom/gosbom"
+	"github.com/nextlinux/gosbom/gosbom/event"
+	"github.com/nextlinux/gosbom/gosbom/event/monitor"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/formats/table"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Run(_ context.Context, app *config.Application, args []string) error {
@@ -58,7 +58,7 @@ func Run(_ context.Context, app *config.Application, args []string) error {
 
 	eventBus := partybus.NewBus()
 	stereoscope.SetBus(eventBus)
-	syft.SetBus(eventBus)
+	gosbom.SetBus(eventBus)
 	subscription := eventBus.Subscribe()
 
 	return eventloop.EventLoop(
@@ -201,7 +201,7 @@ func ValidateOutputOptions(app *config.Application) error {
 
 	// cannot use table as default output format when using template output
 	if slices.Contains(app.Outputs, table.ID.String()) {
-		app.Outputs = []string{syftjson.ID.String()}
+		app.Outputs = []string{gosbomjson.ID.String()}
 	}
 
 	return nil

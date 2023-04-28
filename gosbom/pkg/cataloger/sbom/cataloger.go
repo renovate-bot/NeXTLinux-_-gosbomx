@@ -1,12 +1,12 @@
 package sbom
 
 import (
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/formats"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/formats"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 const catalogerName = "sbom-cataloger"
@@ -15,7 +15,7 @@ const catalogerName = "sbom-cataloger"
 func NewSBOMCataloger() *generic.Cataloger {
 	return generic.NewCataloger(catalogerName).
 		WithParserByGlobs(parseSBOM,
-			"**/*.syft.json",
+			"**/*.gosbom.json",
 			"**/*.bom.*",
 			"**/*.bom",
 			"**/bom",

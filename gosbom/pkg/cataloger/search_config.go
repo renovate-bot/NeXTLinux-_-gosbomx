@@ -1,6 +1,6 @@
 package cataloger
 
-import "github.com/nextlinux/syft/syft/source"
+import "github.com/nextlinux/gosbom/gosbom/source"
 
 type SearchConfig struct {
 	IncludeIndexedArchives   bool

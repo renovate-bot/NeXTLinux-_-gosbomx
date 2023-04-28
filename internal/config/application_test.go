@@ -31,7 +31,7 @@ func TestApplicationConfig(t *testing.T) {
 	})
 
 	// config is picked up at desired configuration paths
-	// VALID: .syft.yaml, .syft/config.yaml, ~/.syft.yaml, <XDG_CONFIG_HOME>/syft/config.yaml
+	// VALID: .gosbom.yaml, .gosbom/config.yaml, ~/.gosbom.yaml, <XDG_CONFIG_HOME>/gosbom/config.yaml
 	// DEPRECATED: config.yaml is currently supported by
 	tests := []struct {
 		name       string
@@ -42,7 +42,7 @@ func TestApplicationConfig(t *testing.T) {
 		{
 			name: "explicit config",
 			setup: func(t *testing.T) string {
-				return "./test-fixtures/.syft.yaml"
+				return "./test-fixtures/.gosbom.yaml"
 			}, // no-op for explicit config
 			assertions: func(t *testing.T, app *Application) {
 				assert.Equal(t, "test-explicit-config", app.File)
@@ -60,7 +60,7 @@ func TestApplicationConfig(t *testing.T) {
 			},
 		},
 		{
-			name: "current working directory syft dir config",
+			name: "current working directory gosbom dir config",
 			setup: func(t *testing.T) string {
 				err := os.Chdir("./test-fixtures/config-dir-test") // change application cwd to test-fixtures
 				require.NoError(t, err)
@@ -114,7 +114,7 @@ func TestApplicationConfig(t *testing.T) {
 			application := &Application{}
 			viperInstance := viper.New()
 
-			// this will override home in case you are running this test locally and DO have a syft config
+			// this will override home in case you are running this test locally and DO have a gosbom config
 			// in your home directory... now it will be ignored. Same for XDG_CONFIG_DIRS.
 			t.Setenv("HOME", "/foo/bar")
 			t.Setenv("XDG_CONFIG_DIRS", "/foo/bar")

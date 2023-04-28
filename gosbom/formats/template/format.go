@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 const ID sbom.FormatID = "template"
@@ -46,7 +46,7 @@ func (f OutputFormat) Encode(output io.Writer, s sbom.SBOM) error {
 		return err
 	}
 
-	doc := syftjson.ToFormatModel(s)
+	doc := gosbomjson.ToFormatModel(s)
 	return tmpl.Execute(output, doc)
 }
 

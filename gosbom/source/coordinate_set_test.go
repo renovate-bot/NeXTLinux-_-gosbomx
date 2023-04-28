@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
 )
 
 func TestCoordinatesSet(t *testing.T) {

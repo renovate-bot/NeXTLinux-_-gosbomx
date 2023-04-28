@@ -1,7 +1,7 @@
 /*
-Package syft is a "one-stop-shop" for helper utilities for all major functionality provided by child packages of the syft library.
+Package gosbom is a "one-stop-shop" for helper utilities for all major functionality provided by child packages of the gosbom library.
 
-Here is what the main execution path for syft does:
+Here is what the main execution path for gosbom does:
 
  1. Parse a user image string to get a stereoscope image.Source object
  2. Invoke all catalogers to catalog the image, adding discovered packages to a single catalog object
@@ -14,7 +14,7 @@ image, a filesystem, etc) and how it is cataloged (the individual catalogers).
 
 Similar to the cataloging process, Linux distribution identification is also performed based on what is discovered within the image.
 */
-package syft
+package gosbom
 
 import (
 	"fmt"
@@ -22,13 +22,13 @@ import (
 	"github.com/wagoodman/go-partybus"
 
 	"github.com/nextlinux/gologger"
-	"github.com/nextlinux/syft/internal/bus"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/bus"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 // CatalogPackages takes an inventory of packages from the given image from a particular perspective
@@ -89,12 +89,12 @@ func newSourceRelationshipsFromCatalog(src *source.Source, c *pkg.Collection) []
 	return relationships
 }
 
-// SetLogger sets the logger object used for all syft logging calls.
+// SetLogger sets the logger object used for all gosbom logging calls.
 func SetLogger(logger logger.Logger) {
 	log.Log = logger
 }
 
-// SetBus sets the event bus for all syft library bus publish events onto (in-library subscriptions are not allowed).
+// SetBus sets the event bus for all gosbom library bus publish events onto (in-library subscriptions are not allowed).
 func SetBus(b *partybus.Bus) {
 	bus.SetPublisher(b)
 }

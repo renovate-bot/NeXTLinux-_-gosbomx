@@ -23,7 +23,7 @@ import (
 
 	"github.com/nextlinux/stereoscope/pkg/image"
 	"github.com/nextlinux/stereoscope/pkg/imagetest"
-	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
 )
 
 func TestParseInput(t *testing.T) {
@@ -898,7 +898,7 @@ func createArchive(t testing.TB, sourceDirPath, destinationArchivePath string, l
 func setupArchiveTest(t testing.TB, sourceDirPath string, layer2 bool) string {
 	t.Helper()
 
-	archivePrefix, err := ioutil.TempFile("", "syft-archive-TEST-")
+	archivePrefix, err := ioutil.TempFile("", "gosbom-archive-TEST-")
 	require.NoError(t, err)
 
 	t.Cleanup(

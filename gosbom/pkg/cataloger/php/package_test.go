@@ -5,7 +5,7 @@ import (
 
 	"github.com/sergi/go-diff/diffmatchpatch"
 
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func Test_packageURL(t *testing.T) {

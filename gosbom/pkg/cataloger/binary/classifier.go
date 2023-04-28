@@ -12,12 +12,12 @@ import (
 	"text/template"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/unionreader"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/internal/unionreader"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 var emptyPURL = packageurl.PackageURL{}

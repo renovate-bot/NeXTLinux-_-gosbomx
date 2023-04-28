@@ -4,7 +4,7 @@ Package javascript provides a concrete Cataloger implementation for JavaScript e
 package javascript
 
 import (
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
 )
 
 // NewPackageCataloger returns a new JavaScript cataloger object based on detection of npm based packages.

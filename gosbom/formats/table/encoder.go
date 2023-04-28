@@ -8,7 +8,7 @@ import (
 
 	"github.com/olekukonko/tablewriter"
 
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 func encoder(output io.Writer, s sbom.SBOM) error {

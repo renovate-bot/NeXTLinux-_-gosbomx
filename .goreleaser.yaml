@@ -9,8 +9,8 @@ env:
 
 builds:
   - id: linux-build
-    dir: ./cmd/syft
-    binary: syft
+    dir: ./cmd/gosbom
+    binary: gosbom
     goos:
       - linux
     goarch:
@@ -24,14 +24,14 @@ builds:
       -w
       -s
       -extldflags '-static'
-      -X github.com/nextlinux/syft/internal/version.version={{.Version}}
-      -X github.com/nextlinux/syft/internal/version.gitCommit={{.Commit}}
-      -X github.com/nextlinux/syft/internal/version.buildDate={{.Date}}
-      -X github.com/nextlinux/syft/internal/version.gitDescription={{.Summary}}
+      -X github.com/nextlinux/gosbom/internal/version.version={{.Version}}
+      -X github.com/nextlinux/gosbom/internal/version.gitCommit={{.Commit}}
+      -X github.com/nextlinux/gosbom/internal/version.buildDate={{.Date}}
+      -X github.com/nextlinux/gosbom/internal/version.gitDescription={{.Summary}}
 
   - id: darwin-build
-    dir: ./cmd/syft
-    binary: syft
+    dir: ./cmd/gosbom
+    binary: gosbom
     goos:
       - darwin
     goarch:
@@ -46,8 +46,8 @@ builds:
             - QUILL_LOG_FILE=/tmp/quill-{{ .Target }}.log
 
   - id: windows-build
-    dir: ./cmd/syft
-    binary: syft
+    dir: ./cmd/gosbom
+    binary: gosbom
     goos:
       - windows
     goarch:
@@ -73,7 +73,7 @@ archives:
 nfpms:
   - license: "Apache 2.0"
     maintainer: "Nextlinux, Inc"
-    homepage: &website "https://github.com/nextlinux/syft"
+    homepage: &website "https://github.com/nextlinux/gosbom"
     description: &description "A tool that generates a Software Bill Of Materials (SBOM) from container images and filesystems"
     formats:
       - rpm
@@ -82,7 +82,7 @@ nfpms:
 brews:
   - tap:
       owner: nextlinux
-      name: homebrew-syft
+      name: homebrew-gosbom
       token: "{{.Env.GITHUB_BREW_TOKEN}}"
     ids:
       - darwin-archives
@@ -93,10 +93,10 @@ brews:
 
 dockers:
   - image_templates:
-      - nextlinux/syft:debug
-      - nextlinux/syft:{{.Tag}}-debug
-      - ghcr.io/nextlinux/syft:debug
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug
+      - nextlinux/gosbom:debug
+      - nextlinux/gosbom:{{.Tag}}-debug
+      - ghcr.io/nextlinux/gosbom:debug
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug
     goarch: amd64
     dockerfile: Dockerfile.debug
     use: buildx
@@ -108,10 +108,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:debug-arm64v8
-      - nextlinux/syft:{{.Tag}}-debug-arm64v8
-      - ghcr.io/nextlinux/syft:debug-arm64v8
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug-arm64v8
+      - nextlinux/gosbom:debug-arm64v8
+      - nextlinux/gosbom:{{.Tag}}-debug-arm64v8
+      - ghcr.io/nextlinux/gosbom:debug-arm64v8
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug-arm64v8
     goarch: arm64
     dockerfile: Dockerfile.debug
     use: buildx
@@ -123,10 +123,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:debug-ppc64le
-      - nextlinux/syft:{{.Tag}}-debug-ppc64le
-      - ghcr.io/nextlinux/syft:debug-ppc64le
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug-ppc64le
+      - nextlinux/gosbom:debug-ppc64le
+      - nextlinux/gosbom:{{.Tag}}-debug-ppc64le
+      - ghcr.io/nextlinux/gosbom:debug-ppc64le
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug-ppc64le
     goarch: ppc64le
     dockerfile: Dockerfile.debug
     use: buildx
@@ -138,10 +138,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:debug-s390x
-      - nextlinux/syft:{{.Tag}}-debug-s390x
-      - ghcr.io/nextlinux/syft:debug-s390x
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug-s390x
+      - nextlinux/gosbom:debug-s390x
+      - nextlinux/gosbom:{{.Tag}}-debug-s390x
+      - ghcr.io/nextlinux/gosbom:debug-s390x
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug-s390x
     goarch: s390x
     dockerfile: Dockerfile.debug
     use: buildx
@@ -153,10 +153,10 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:latest
-      - nextlinux/syft:{{.Tag}}
-      - ghcr.io/nextlinux/syft:latest
-      - ghcr.io/nextlinux/syft:{{.Tag}}
+      - nextlinux/gosbom:latest
+      - nextlinux/gosbom:{{.Tag}}
+      - ghcr.io/nextlinux/gosbom:latest
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}
     goarch: amd64
     dockerfile: Dockerfile
     use: buildx
@@ -168,8 +168,8 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:{{.Tag}}-arm64v8
-      - ghcr.io/nextlinux/syft:{{.Tag}}-arm64v8
+      - nextlinux/gosbom:{{.Tag}}-arm64v8
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-arm64v8
     goarch: arm64
     dockerfile: Dockerfile
     use: buildx
@@ -181,8 +181,8 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:{{.Tag}}-ppc64le
-      - ghcr.io/nextlinux/syft:{{.Tag}}-ppc64le
+      - nextlinux/gosbom:{{.Tag}}-ppc64le
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-ppc64le
     goarch: ppc64le
     dockerfile: Dockerfile
     use: buildx
@@ -194,8 +194,8 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
   - image_templates:
-      - nextlinux/syft:{{.Tag}}-s390x
-      - ghcr.io/nextlinux/syft:{{.Tag}}-s390x
+      - nextlinux/gosbom:{{.Tag}}-s390x
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-s390x
     goarch: s390x
     dockerfile: Dockerfile
     use: buildx
@@ -207,43 +207,43 @@ dockers:
       - "--build-arg=VCS_URL={{.GitURL}}"
 
 docker_manifests:
-  - name_template: nextlinux/syft:latest
+  - name_template: nextlinux/gosbom:latest
     image_templates:
-      - nextlinux/syft:{{.Tag}}
-      - nextlinux/syft:{{.Tag}}-arm64v8
-      - nextlinux/syft:{{.Tag}}-ppc64le
-      - nextlinux/syft:{{.Tag}}-s390x
+      - nextlinux/gosbom:{{.Tag}}
+      - nextlinux/gosbom:{{.Tag}}-arm64v8
+      - nextlinux/gosbom:{{.Tag}}-ppc64le
+      - nextlinux/gosbom:{{.Tag}}-s390x
 
-  - name_template: nextlinux/syft:debug
-      - nextlinux/syft:{{.Tag}}-debug
-      - nextlinux/syft:{{.Tag}}-debug-arm64v8
-      - nextlinux/syft:{{.Tag}}-debug-ppc64le
-      - nextlinux/syft:{{.Tag}}-debug-s390x
+  - name_template: nextlinux/gosbom:debug
+      - nextlinux/gosbom:{{.Tag}}-debug
+      - nextlinux/gosbom:{{.Tag}}-debug-arm64v8
+      - nextlinux/gosbom:{{.Tag}}-debug-ppc64le
+      - nextlinux/gosbom:{{.Tag}}-debug-s390x
 
-  - name_template: nextlinux/syft:{{.Tag}}
+  - name_template: nextlinux/gosbom:{{.Tag}}
     image_templates:
-      - nextlinux/syft:{{.Tag}}
-      - nextlinux/syft:{{.Tag}}-arm64v8
-      - nextlinux/syft:{{.Tag}}-ppc64le
-      - nextlinux/syft:{{.Tag}}-s390x
+      - nextlinux/gosbom:{{.Tag}}
+      - nextlinux/gosbom:{{.Tag}}-arm64v8
+      - nextlinux/gosbom:{{.Tag}}-ppc64le
+      - nextlinux/gosbom:{{.Tag}}-s390x
 
-  - name_template: ghcr.io/nextlinux/syft:latest
+  - name_template: ghcr.io/nextlinux/gosbom:latest
     image_templates:
-      - ghcr.io/nextlinux/syft:{{.Tag}}
-      - ghcr.io/nextlinux/syft:{{.Tag}}-arm64v8
-      - ghcr.io/nextlinux/syft:{{.Tag}}-ppc64le
-      - ghcr.io/nextlinux/syft:{{.Tag}}-s390x
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-arm64v8
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-ppc64le
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-s390x
 
-  - name_template: ghcr.io/nextlinux/syft:debug
+  - name_template: ghcr.io/nextlinux/gosbom:debug
     image_templates:
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug-arm64v8
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug-ppc64le
-      - ghcr.io/nextlinux/syft:{{.Tag}}-debug-s390x
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug-arm64v8
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug-ppc64le
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-debug-s390x
 
-  - name_template: ghcr.io/nextlinux/syft:{{.Tag}}
+  - name_template: ghcr.io/nextlinux/gosbom:{{.Tag}}
     image_templates:
-      - ghcr.io/nextlinux/syft:{{.Tag}}
-      - ghcr.io/nextlinux/syft:{{.Tag}}-arm64v8
-      - ghcr.io/nextlinux/syft:{{.Tag}}-ppc64le
-      - ghcr.io/nextlinux/syft:{{.Tag}}-s390x
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-arm64v8
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-ppc64le
+      - ghcr.io/nextlinux/gosbom:{{.Tag}}-s390x

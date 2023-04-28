@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/gosbom/internal"
 )
 
 var (

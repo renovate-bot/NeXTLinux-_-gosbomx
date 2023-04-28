@@ -12,7 +12,7 @@ import (
 
 	"github.com/nextlinux/stereoscope/pkg/file"
 	"github.com/nextlinux/stereoscope/pkg/filetree"
-	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/gosbom/internal/log"
 )
 
 const WindowsOS = "windows"

@@ -1,5 +1,5 @@
 /*
-Package log contains the singleton object and helper functions for facilitating logging within the syft library.
+Package log contains the singleton object and helper functions for facilitating logging within the gosbom library.
 */
 package log
 
@@ -8,7 +8,7 @@ import (
 	"github.com/nextlinux/gologger/adapter/discard"
 )
 
-// Log is the singleton used to facilitate logging internally within syft
+// Log is the singleton used to facilitate logging internally within gosbom
 var Log logger.Logger = discard.New()
 
 // Errorf takes a formatted template string and template arguments for the error logging level.

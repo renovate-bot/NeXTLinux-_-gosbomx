@@ -4,7 +4,7 @@ import (
 	"flag"
 	"testing"
 
-	"github.com/nextlinux/syft/syft/formats/internal/testutils"
+	"github.com/nextlinux/gosbom/gosbom/formats/internal/testutils"
 )
 
 var updateTextEncoderGoldenFiles = flag.Bool("update-text", false, "update the *.golden files for text encoder")

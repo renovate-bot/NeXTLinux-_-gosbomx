@@ -13,22 +13,22 @@ import (
 
 	"github.com/nextlinux/gologger/adapter/logrus"
 	"github.com/nextlinux/stereoscope"
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/bus"
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/internal/version"
-	"github.com/nextlinux/syft/syft"
-	"github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/bus"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/internal/version"
+	"github.com/nextlinux/gosbom/gosbom"
+	"github.com/nextlinux/gosbom/gosbom/event"
 )
 
 const indent = "  "
 
-// New constructs the `syft packages` command, aliases the root command to `syft packages`,
-// and constructs the `syft power-user` command. It is also responsible for
+// New constructs the `gosbom packages` command, aliases the root command to `gosbom packages`,
+// and constructs the `gosbom power-user` command. It is also responsible for
 // organizing flag usage and injecting the application config for each command.
-// It also constructs the syft attest command and the syft version command.
+// It also constructs the gosbom attest command and the gosbom version command.
 
 // Because of how the `cobra` library behaves, the application's configuration is initialized
 // at this level. Values from the config should only be used after `app.LoadAllValues` has been called.
@@ -91,7 +91,7 @@ func New() (*cobra.Command, error) {
 		convertCmd,
 		attestCmd,
 		Version(v, app),
-		cranecmd.NewCmdAuthLogin("syft"), // syft login uses the same command as crane
+		cranecmd.NewCmdAuthLogin("gosbom"), // gosbom login uses the same command as crane
 	}
 
 	// Add sub-commands.
@@ -162,6 +162,6 @@ func newLogWrapper(app *config.Application) {
 		log.Error("unable to initialize logger: %+v", err)
 		return
 	}
-	syft.SetLogger(logWrapper)
+	gosbom.SetLogger(logWrapper)
 	stereoscope.SetLogger(logWrapper.Nested("from-lib", "stereoscope"))
 }

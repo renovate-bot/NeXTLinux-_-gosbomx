@@ -9,25 +9,25 @@ import (
 	"github.com/wagoodman/go-partybus"
 
 	"github.com/nextlinux/stereoscope"
-	"github.com/nextlinux/syft/cmd/syft/cli/eventloop"
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/cmd/syft/cli/packages"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/bus"
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/internal/ui"
-	"github.com/nextlinux/syft/internal/version"
-	"github.com/nextlinux/syft/syft"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/event"
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/eventloop"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/packages"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/bus"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/internal/ui"
+	"github.com/nextlinux/gosbom/internal/version"
+	"github.com/nextlinux/gosbom/gosbom"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/event"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Run(_ context.Context, app *config.Application, args []string) error {
-	f := syftjson.Format()
+	f := gosbomjson.Format()
 	writer, err := sbom.NewWriter(sbom.WriterOption{
 		Format: f,
 		Path:   app.File,
@@ -54,7 +54,7 @@ func Run(_ context.Context, app *config.Application, args []string) error {
 
 	eventBus := partybus.NewBus()
 	stereoscope.SetBus(eventBus)
-	syft.SetBus(eventBus)
+	gosbom.SetBus(eventBus)
 	subscription := eventBus.Subscribe()
 
 	return eventloop.EventLoop(

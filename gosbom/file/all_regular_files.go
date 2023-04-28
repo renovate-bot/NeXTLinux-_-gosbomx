@@ -2,8 +2,8 @@ package file
 
 import (
 	"github.com/nextlinux/stereoscope/pkg/file"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func allRegularFiles(resolver source.FileResolver) (locations []source.Location) {

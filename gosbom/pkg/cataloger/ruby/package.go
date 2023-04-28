@@ -2,8 +2,8 @@ package ruby
 
 import (
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func newGemfileLockPackage(name, version string, locations ...source.Location) pkg.Package {

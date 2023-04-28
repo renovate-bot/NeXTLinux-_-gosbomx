@@ -13,7 +13,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Test_LocalLicenseSearch(t *testing.T) {
@@ -166,7 +166,7 @@ func Test_remotesForModule(t *testing.T) {
 		expected []string
 	}{
 		{
-			module:   "github.com/nextlinux/syft",
+			module:   "github.com/nextlinux/gosbom",
 			expected: allProxies,
 		},
 		{

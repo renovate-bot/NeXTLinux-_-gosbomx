@@ -1,8 +1,8 @@
 package pkg
 
 import (
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 // Cataloger describes behavior for an object to participate in parsing container image or file system

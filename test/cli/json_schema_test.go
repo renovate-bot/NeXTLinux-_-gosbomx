@@ -9,7 +9,7 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 
 	"github.com/nextlinux/stereoscope/pkg/imagetest"
-	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/gosbom/internal"
 )
 
 // this is the path to the json schema directory relative to the root of the repo
@@ -64,7 +64,7 @@ func TestJSONSchema(t *testing.T) {
 			_, stdout, stderr := runGosbom(t, nil, args...)
 
 			if len(strings.Trim(stdout, "\n ")) < 100 {
-				t.Fatalf("bad syft run:\noutput: %q\n:error: %q", stdout, stderr)
+				t.Fatalf("bad gosbom run:\noutput: %q\n:error: %q", stdout, stderr)
 			}
 
 			validateJsonAgainstSchema(t, stdout)

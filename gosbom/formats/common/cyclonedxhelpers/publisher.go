@@ -1,7 +1,7 @@
 package cyclonedxhelpers
 
 import (
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func encodePublisher(p pkg.Package) string {

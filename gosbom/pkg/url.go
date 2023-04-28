@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/syft/linux"
+	"github.com/nextlinux/gosbom/gosbom/linux"
 )
 
 const (

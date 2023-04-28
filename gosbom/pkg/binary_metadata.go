@@ -1,6 +1,6 @@
 package pkg
 
-import "github.com/nextlinux/syft/syft/source"
+import "github.com/nextlinux/gosbom/gosbom/source"
 
 type BinaryMetadata struct {
 	Matches []ClassifierMatch `mapstructure:"Matches" json:"matches"`

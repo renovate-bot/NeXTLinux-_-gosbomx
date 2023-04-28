@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 var _ generic.Parser = parseDotnetDeps

@@ -1,12 +1,12 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/5199289/136844524-1527b09f-c5cb-4aa9-be54-5aa92a6086c1.png" width="271" alt="Cute pink owl syft logo">
+    <img src="https://user-images.githubusercontent.com/5199289/136844524-1527b09f-c5cb-4aa9-be54-5aa92a6086c1.png" width="271" alt="Cute pink owl gosbom logo">
 </p>
 
-[![Validations](https://github.com/nextlinux/syft/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/syft/actions/workflows/validations.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/syft)](https://goreportcard.com/report/github.com/nextlinux/syft)
-[![GitHub release](https://img.shields.io/github/release/nextlinux/syft.svg)](https://github.com/nextlinux/syft/releases/latest)
-[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/nextlinux/syft.svg)](https://github.com/nextlinux/syft)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/syft/blob/main/LICENSE)
+[![Validations](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/gosbom)](https://goreportcard.com/report/github.com/nextlinux/gosbom)
+[![GitHub release](https://img.shields.io/github/release/nextlinux/gosbom.svg)](https://github.com/nextlinux/gosbom/releases/latest)
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/nextlinux/gosbom.svg)](https://github.com/nextlinux/gosbom)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/gosbom/blob/main/LICENSE)
 [![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://nextlinux.com/slack)
 
 A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Grype](https://github.com/nextlinux/grype).
@@ -19,7 +19,7 @@ A CLI tool and Go library for generating a Software Bill of Materials (SBOM) fro
 
 For commercial support options with Gosbom or Grype, please [contact Nextlinux](https://get.nextlinux.com/contact/)
 
-![syft-demo](https://user-images.githubusercontent.com/590471/90277200-2a253000-de33-11ea-893f-32c219eea11a.gif)
+![gosbom-demo](https://user-images.githubusercontent.com/590471/90277200-2a253000-de33-11ea-893f-32c219eea11a.gif)
 
 ## Features
 - Generates SBOMs for container images, filesystems, archives, and more to discover packages and libraries
@@ -61,40 +61,40 @@ For commercial support options with Gosbom or Grype, please [contact Nextlinux](
 
 ### Recommended
 ```bash
-curl -sSfL https://raw.githubusercontent.com/nextlinux/syft/main/install.sh | sh -s -- -b /usr/local/bin
+curl -sSfL https://raw.githubusercontent.com/nextlinux/gosbom/main/install.sh | sh -s -- -b /usr/local/bin
 ```
 
 ... or, you can specify a release version and destination directory for the installation:
 
 ```
-curl -sSfL https://raw.githubusercontent.com/nextlinux/syft/main/install.sh | sh -s -- -b <DESTINATION_DIR> <RELEASE_VERSION>
+curl -sSfL https://raw.githubusercontent.com/nextlinux/gosbom/main/install.sh | sh -s -- -b <DESTINATION_DIR> <RELEASE_VERSION>
 ```
 
 ### Chocolatey
 
-The chocolatey distribution of syft is community maintained and not distributed by the nextlinux team
+The chocolatey distribution of gosbom is community maintained and not distributed by the nextlinux team
 
 ```powershell
-choco install syft -y
+choco install gosbom -y
 ```
 
 ### Homebrew
 ```bash
-brew install syft
+brew install gosbom
 ```
 
 ### Nix
 
-**Note**: Nix packaging of Gosbom is [community maintained](https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/admin/syft/default.nix). Gosbom is available in the [stable channel](https://nixos.wiki/wiki/Nix_channels#The_official_channels) since NixOS `22.05`.
+**Note**: Nix packaging of Gosbom is [community maintained](https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/admin/gosbom/default.nix). Gosbom is available in the [stable channel](https://nixos.wiki/wiki/Nix_channels#The_official_channels) since NixOS `22.05`.
 
 ```bash
-nix-env -i syft
+nix-env -i gosbom
 ```
 
 ... or, just try it out in an ephemeral nix shell:
 
 ```bash
-nix-shell -p syft
+nix-shell -p gosbom
 ```
 
 ## Getting started
@@ -104,13 +104,13 @@ nix-shell -p syft
 To generate an SBOM for a container image:
 
 ```
-syft <image>
+gosbom <image>
 ```
 
 The above output includes only software that is visible in the container (i.e., the squashed representation of the image). To include software from all image layers in the SBOM, regardless of its presence in the final image, provide `--scope all-layers`:
 
 ```
-syft <image> --scope all-layers
+gosbom <image> --scope all-layers
 ```
 
 ### Supported sources
@@ -119,13 +119,13 @@ Gosbom can generate a SBOM from a variety of sources:
 
 ```
 # catalog a container image archive (from the result of `docker image save ...`, `podman save ...`, or `skopeo copy` commands)
-syft path/to/image.tar
+gosbom path/to/image.tar
 
 # catalog a Singularity Image Format (SIF) container
-syft path/to/image.sif
+gosbom path/to/image.sif
 
 # catalog a directory
-syft path/to/dir
+gosbom path/to/dir
 ```
 
 Sources can be explicitly provided with a scheme:
@@ -146,7 +146,7 @@ If an image source is not provided and cannot be detected from the given referen
 If docker is not present, then the Podman daemon is attempted next, followed by reaching out directly to the image registry last.
 
 
-This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](https://github.com/nextlinux/syft#configuration) for more details).
+This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](https://github.com/nextlinux/gosbom#configuration) for more details).
 
 ### Default Cataloger Configuration by scan type
 
@@ -194,7 +194,7 @@ This default behavior can be overridden with the `default-image-pull-source` con
 Gosbom can exclude files and paths from being scanned within a source by using glob expressions
 with one or more `--exclude` parameters:
 ```
-syft <source> --exclude './out/**/*.json' --exclude /etc
+gosbom <source> --exclude './out/**/*.json' --exclude /etc
 ```
 **Note:** in the case of _image scanning_, since the entire filesystem is scanned it is
 possible to use absolute paths like `/etc` or `/usr/**/*.txt` whereas _directory scans_
@@ -212,7 +212,7 @@ The output format for Gosbom is configurable as well using the
 `-o` (or `--output`) option:
 
 ```
-syft <image> -o <format>
+gosbom <image> -o <format>
 ```
 
 Where the `formats` available are:
@@ -238,9 +238,9 @@ Gosbom lets you define custom output formats, using [Go templates](https://pkg.g
 
 - Specify the path to the template file (`-t ./path/to/custom.template`).
 
-- Gosbom's template processing uses the same data models as the `json` output format — so if you're wondering what data is available as you author a template, you can use the output from `syft <image> -o json` as a reference.
+- Gosbom's template processing uses the same data models as the `json` output format — so if you're wondering what data is available as you author a template, you can use the output from `gosbom <image> -o json` as a reference.
 
-**Example:** You could make Gosbom output data in CSV format by writing a Go template that renders CSV data and then running `syft <image> -o template -t ~/path/to/csv.tmpl`.
+**Example:** You could make Gosbom output data in CSV format by writing a Go template that renders CSV data and then running `gosbom <image> -o template -t ~/path/to/csv.tmpl`.
 
 Here's what the `csv.tmpl` file might look like:
 ```gotemplate
@@ -261,7 +261,7 @@ Which would produce output like:
 
 Gosbom also includes a vast array of utility templating functions from [sprig](http://masterminds.github.io/sprig/) apart from the default Golang [text/template](https://pkg.go.dev/text/template#hdr-Functions) to allow users to customize the output format.
 
-Lastly, Gosbom has custom templating functions defined in `./syft/format/template/encoder.go` to help parse the passed-in JSON structs.
+Lastly, Gosbom has custom templating functions defined in `./gosbom/format/template/encoder.go` to help parse the passed-in JSON structs.
 
 ## Multiple outputs
 
@@ -269,7 +269,7 @@ Gosbom can also output _multiple_ files in differing formats by appending
 `=<file>` to the option, for example to output Gosbom JSON and SPDX JSON:
 
 ```shell
-syft <image> -o json=sbom.syft.json -o spdx-json=sbom.spdx.json
+gosbom <image> -o json=sbom.gosbom.json -o spdx-json=sbom.spdx.json
 ```
 
 ## Private Registry Authentication
@@ -292,7 +292,7 @@ An example `config.json` looks something like this:
 You can run the following command as an example. It details the mount/environment configuration a container needs to access a private registry:
 
 ```
-docker run -v ./config.json:/config/config.json -e "DOCKER_CONFIG=/config" nextlinux/syft:latest  <private_image>
+docker run -v ./config.json:/config/config.json -e "DOCKER_CONFIG=/config" nextlinux/gosbom:latest  <private_image>
 ```
 
 ### Docker Credentials in Kubernetes
@@ -308,7 +308,7 @@ Here's a simple workflow to mount this config file as a secret into a container 
     kind: Secret
     metadata:
       name: registry-config
-      namespace: syft
+      namespace: gosbom
     data:
       config.json: <base64 encoded config.json>
     ```
@@ -316,7 +316,7 @@ Here's a simple workflow to mount this config file as a secret into a container 
    `kubectl apply -f secret.yaml`
 
 
-2. Create your pod running syft. The env `DOCKER_CONFIG` is important because it advertises where to look for the credential file. In the below example, setting `DOCKER_CONFIG=/config` informs syft that credentials can be found at `/config/config.json`. This is why we used `config.json` as the key for our secret. When mounted into containers the secrets' key is used as the filename. The `volumeMounts` section mounts our secret to `/config`. The `volumes` section names our volume and leverages the secret we created in step one.
+2. Create your pod running gosbom. The env `DOCKER_CONFIG` is important because it advertises where to look for the credential file. In the below example, setting `DOCKER_CONFIG=/config` informs gosbom that credentials can be found at `/config/config.json`. This is why we used `config.json` as the key for our secret. When mounted into containers the secrets' key is used as the filename. The `volumeMounts` section mounts our secret to `/config`. The `volumes` section names our volume and leverages the secret we created in step one.
 
     ```yaml
     # pod.yaml
@@ -324,11 +324,11 @@ Here's a simple workflow to mount this config file as a secret into a container 
     apiVersion: v1
     kind: Pod
     metadata:
-      name: syft-k8s-usage
+      name: gosbom-k8s-usage
     spec:
       containers:
-        - image: nextlinux/syft:latest
-          name: syft-private-registry-demo
+        - image: nextlinux/gosbom:latest
+          name: gosbom-private-registry-demo
           env:
             - name: DOCKER_CONFIG
               value: /config
@@ -347,16 +347,16 @@ Here's a simple workflow to mount this config file as a secret into a container 
    `kubectl apply -f pod.yaml`
 
 
-3. The user can now run `kubectl logs syft-private-registry-demo`. The logs should show the Gosbom analysis for the `<private_image>` provided in the pod configuration.
+3. The user can now run `kubectl logs gosbom-private-registry-demo`. The logs should show the Gosbom analysis for the `<private_image>` provided in the pod configuration.
 
-Using the above information, users should be able to configure private registry access without having to do so in the `grype` or `syft` configuration files.  They will also not be dependent on a Docker daemon, (or some other runtime software) for registry configuration and access.
+Using the above information, users should be able to configure private registry access without having to do so in the `grype` or `gosbom` configuration files.  They will also not be dependent on a Docker daemon, (or some other runtime software) for registry configuration and access.
 
 ## Format conversion (experimental)
 
 The ability to convert existing SBOMs means you can create SBOMs in different formats quickly, without the need to regenerate the SBOM from scratch, which may take significantly more time.
 
 ```
-syft convert <ORIGINAL-SBOM-FILE> -o <NEW-SBOM-FORMAT>[=<NEW-SBOM-FILE>]
+gosbom convert <ORIGINAL-SBOM-FILE> -o <NEW-SBOM-FORMAT>[=<NEW-SBOM-FILE>]
 ```
 
 This feature is experimental and data might be lost when converting formats. Packages are the main SBOM component easily transferable across formats, whereas files and relationships, as well as other information Gosbom doesn't support, are more likely to be lost.
@@ -370,8 +370,8 @@ We support formats with wide community usage AND good encode/decode support by G
 
 Conversion example:
 ```sh
-syft alpine:latest -o syft-json=sbom.syft.json # generate a syft SBOM
-syft convert sbom.syft.json -o cyclonedx-json=sbom.cdx.json  # convert it to CycloneDX
+gosbom alpine:latest -o gosbom-json=sbom.gosbom.json # generate a gosbom SBOM
+gosbom convert sbom.gosbom.json -o cyclonedx-json=sbom.cdx.json  # convert it to CycloneDX
 ```
 
 ## Attestation (experimental)
@@ -382,7 +382,7 @@ Note: users need to have >= v1.12.0 of cosign installed for this command to func
 
 To use this feature with a format like CycloneDX json simply run:
 ```
-syft attest --output cyclonedx-json <IMAGE WITH OCI WRITE ACCESS>
+gosbom attest --output cyclonedx-json <IMAGE WITH OCI WRITE ACCESS>
 ```
 This command will open a web browser and allow the user to authenticate their OIDC identity as the root of trust for the attestation (Github, Google, Microsoft).
 
@@ -406,11 +406,11 @@ Certificate issuer URL:  https://accounts.google.com
 
 To generate an SBOM attestation for a container image using a local private key:
 ```
-syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
+gosbom attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
 ```
 
 The above output is in the form of the [DSSE envelope](https://github.com/secure-systems-lab/dsse/blob/master/envelope.md#dsse-envelope).
-The payload is a base64 encoded `in-toto` statement with the generated SBOM as the predicate. For details on workflows using this command see [here](#adding-an-sbom-to-an-image-as-an-attestation-using-syft).
+The payload is a base64 encoded `in-toto` statement with the generated SBOM as the predicate. For details on workflows using this command see [here](#adding-an-sbom-to-an-image-as-an-attestation-using-gosbom).
 
 
 
@@ -418,10 +418,10 @@ The payload is a base64 encoded `in-toto` statement with the generated SBOM as t
 
 Configuration search paths:
 
-- `.syft.yaml`
-- `.syft/config.yaml`
-- `~/.syft.yaml`
-- `<XDG_CONFIG_HOME>/syft/config.yaml`
+- `.gosbom.yaml`
+- `.gosbom/config.yaml`
+- `~/.gosbom.yaml`
+- `<XDG_CONFIG_HOME>/gosbom/config.yaml`
 
 Configuration options (example values are the default):
 
@@ -430,7 +430,7 @@ Configuration options (example values are the default):
 # same as -o, --output, and GOSBOM_OUTPUT env var
 # to specify multiple output files in differing formats, use a list:
 # output:
-#   - "json=<syft-json-output-file>"
+#   - "json=<gosbom-json-output-file>"
 #   - "spdx-json=<spdx-json-output-file>"
 output: "table"
 
@@ -653,16 +653,16 @@ log:
 
 ### Adding an SBOM to an image as an attestation using Gosbom
 
-`syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]`
+`gosbom attest --output [FORMAT] --key [KEY] [SOURCE] [flags]`
 
-SBOMs themselves can serve as input to different analysis tools. [Grype](https://github.com/nextlinux/grype), a vulnerability scanner CLI tool from Nextlinux, is one such tool. Publishers of container images can use attestations to enable their consumers to trust Gosbom-generated SBOM descriptions of those container images. To create and provide these attestations, image publishers can run `syft attest` in conjunction with the [cosign](https://github.com/sigstore/cosign) tool to attach SBOM attestations to their images.
+SBOMs themselves can serve as input to different analysis tools. [Grype](https://github.com/nextlinux/grype), a vulnerability scanner CLI tool from Nextlinux, is one such tool. Publishers of container images can use attestations to enable their consumers to trust Gosbom-generated SBOM descriptions of those container images. To create and provide these attestations, image publishers can run `gosbom attest` in conjunction with the [cosign](https://github.com/sigstore/cosign) tool to attach SBOM attestations to their images.
 
 #### Example attestation
 Note for the following example replace `docker.io/image:latest` with an image you own. You should also have push access to
 its remote reference. Replace `$MY_PRIVATE_KEY` with a private key you own or have generated with cosign.
 
 ```bash
-syft attest --key $MY_PRIVATE_KEY -o spdx-json docker.io/image:latest > image_latest_sbom_attestation.json
+gosbom attest --key $MY_PRIVATE_KEY -o spdx-json docker.io/image:latest > image_latest_sbom_attestation.json
 cosign attach attestation --attestation image_latest_sbom_attestation.json docker.io/image:latest
 ```
 

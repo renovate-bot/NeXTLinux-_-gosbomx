@@ -8,8 +8,8 @@ import (
 	"github.com/sergi/go-diff/diffmatchpatch"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func Test_PackageURL(t *testing.T) {

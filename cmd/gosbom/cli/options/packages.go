@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 
-	"github.com/nextlinux/syft/syft/formats"
-	"github.com/nextlinux/syft/syft/formats/table"
-	"github.com/nextlinux/syft/syft/pkg/cataloger"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/formats"
+	"github.com/nextlinux/gosbom/gosbom/formats/table"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 type PackagesOptions struct {

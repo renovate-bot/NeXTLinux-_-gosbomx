@@ -1,8 +1,8 @@
 package model
 
 import (
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 type File struct {

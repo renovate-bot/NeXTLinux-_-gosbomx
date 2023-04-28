@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 // nameAndVersionPattern finds the package name and version (as named capture

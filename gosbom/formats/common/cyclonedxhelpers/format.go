@@ -6,14 +6,14 @@ import (
 	"github.com/CycloneDX/cyclonedx-go"
 	"github.com/google/uuid"
 
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func ToFormatModel(s sbom.SBOM) *cyclonedx.BOM {
@@ -75,7 +75,7 @@ func toOSComponent(distro *linux.Release) []cyclonedx.Component {
 	if len(*eRefs) == 0 {
 		eRefs = nil
 	}
-	props := encodeProperties(distro, "syft:distro")
+	props := encodeProperties(distro, "gosbom:distro")
 	var properties *[]cyclonedx.Property
 	if len(props) > 0 {
 		properties = &props
@@ -109,7 +109,7 @@ func formatCPE(cpeString string) string {
 	return cpe.String(c)
 }
 
-// NewBomDescriptor returns a new BomDescriptor tailored for the current time and "syft" tool details.
+// NewBomDescriptor returns a new BomDescriptor tailored for the current time and "gosbom" tool details.
 func toBomDescriptor(name, version string, srcMetadata source.Metadata) *cyclonedx.Metadata {
 	return &cyclonedx.Metadata{
 		Timestamp: time.Now().Format(time.RFC3339),
@@ -124,7 +124,7 @@ func toBomDescriptor(name, version string, srcMetadata source.Metadata) *cyclone
 	}
 }
 
-// used to indicate that a relationship listed under the syft artifact package can be represented as a cyclonedx dependency.
+// used to indicate that a relationship listed under the gosbom artifact package can be represented as a cyclonedx dependency.
 // NOTE: CycloneDX provides the ability to describe components and their dependency on other components.
 // The dependency graph is capable of representing both direct and transitive relationships.
 // If a relationship is either direct or transitive it can be included in this function.

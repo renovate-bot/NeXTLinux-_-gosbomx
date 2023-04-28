@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"flag"
@@ -6,14 +6,14 @@ import (
 	"testing"
 
 	stereoFile "github.com/nextlinux/stereoscope/pkg/file"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/formats/internal/testutils"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/formats/internal/testutils"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 var updateJson = flag.Bool("update-json", false, "update the *.golden files for json encoders")
@@ -194,7 +194,7 @@ func TestEncodeFullJSONDocument(t *testing.T) {
 			},
 		},
 		Descriptor: sbom.Descriptor{
-			Name:    "syft",
+			Name:    "gosbom",
 			Version: "v0.42.0-bogus",
 			// the application configuration should be persisted here, however, we do not want to import
 			// the application configuration in this package (it's reserved only for ingestion by the cmd package)

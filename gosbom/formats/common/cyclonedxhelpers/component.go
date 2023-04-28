@@ -6,20 +6,20 @@ import (
 	"github.com/CycloneDX/cyclonedx-go"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/syft/formats/common"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/formats/common"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func encodeComponent(p pkg.Package) cyclonedx.Component {
-	props := encodeProperties(p, "syft:package")
+	props := encodeProperties(p, "gosbom:package")
 	props = append(props, encodeCPEs(p)...)
 	locations := p.Locations.ToSlice()
 	if len(locations) > 0 {
-		props = append(props, encodeProperties(locations, "syft:location")...)
+		props = append(props, encodeProperties(locations, "gosbom:location")...)
 	}
 	if hasMetadata(p) {
-		props = append(props, encodeProperties(p.Metadata, "syft:metadata")...)
+		props = append(props, encodeProperties(p.Metadata, "gosbom:metadata")...)
 	}
 
 	var properties *[]cyclonedx.Property
@@ -50,7 +50,7 @@ func encodeComponent(p pkg.Package) cyclonedx.Component {
 }
 
 func deriveBomRef(p pkg.Package) string {
-	// try and parse the PURL if possible and append syft id to it, to make
+	// try and parse the PURL if possible and append gosbom id to it, to make
 	// the purl unique in the BOM.
 	// TODO: In the future we may want to dedupe by PURL and combine components with
 	// the same PURL while preserving their unique metadata.
@@ -83,7 +83,7 @@ func decodeComponent(c *cyclonedx.Component) *pkg.Package {
 		PURL:      c.PackageURL,
 	}
 
-	common.DecodeInto(p, values, "syft:package", CycloneDXFields)
+	common.DecodeInto(p, values, "gosbom:package", CycloneDXFields)
 
 	p.MetadataType = pkg.CleanMetadataType(p.MetadataType)
 
@@ -101,7 +101,7 @@ func decodeComponent(c *cyclonedx.Component) *pkg.Package {
 }
 
 func decodeLocations(vals map[string]string) source.LocationSet {
-	v := common.Decode(reflect.TypeOf([]source.Location{}), vals, "syft:location", CycloneDXFields)
+	v := common.Decode(reflect.TypeOf([]source.Location{}), vals, "gosbom:location", CycloneDXFields)
 	out, ok := v.([]source.Location)
 	if !ok {
 		out = nil
@@ -116,7 +116,7 @@ func decodePackageMetadata(vals map[string]string, c *cyclonedx.Component, typ p
 			return nil
 		}
 		metaPtrTyp := reflect.PtrTo(metaTyp)
-		metaPtr := common.Decode(metaPtrTyp, vals, "syft:metadata", CycloneDXFields)
+		metaPtr := common.Decode(metaPtrTyp, vals, "gosbom:metadata", CycloneDXFields)
 
 		// Map all explicit metadata properties
 		decodeAuthor(c.Author, metaPtr)

@@ -13,7 +13,7 @@ import (
 	"github.com/wagoodman/jotframe/pkg/frame"
 
 	stereoscopeEvent "github.com/nextlinux/stereoscope/pkg/event"
-	syftEvent "github.com/nextlinux/syft/syft/event"
+	gosbomEvent "github.com/nextlinux/gosbom/gosbom/event"
 )
 
 // Handler is an aggregated event handler for the set of supported events (PullDockerImage, ReadImage, FetchImage, PackageCatalogerStarted)
@@ -31,14 +31,14 @@ func (r *Handler) RespondsTo(event partybus.Event) bool {
 	case stereoscopeEvent.PullDockerImage,
 		stereoscopeEvent.ReadImage,
 		stereoscopeEvent.FetchImage,
-		syftEvent.PackageCatalogerStarted,
-		syftEvent.SecretsCatalogerStarted,
-		syftEvent.FileDigestsCatalogerStarted,
-		syftEvent.FileMetadataCatalogerStarted,
-		syftEvent.FileIndexingStarted,
-		syftEvent.ImportStarted,
-		syftEvent.AttestationStarted,
-		syftEvent.CatalogerTaskStarted:
+		gosbomEvent.PackageCatalogerStarted,
+		gosbomEvent.SecretsCatalogerStarted,
+		gosbomEvent.FileDigestsCatalogerStarted,
+		gosbomEvent.FileMetadataCatalogerStarted,
+		gosbomEvent.FileIndexingStarted,
+		gosbomEvent.ImportStarted,
+		gosbomEvent.AttestationStarted,
+		gosbomEvent.CatalogerTaskStarted:
 		return true
 	default:
 		return false
@@ -57,28 +57,28 @@ func (r *Handler) Handle(ctx context.Context, fr *frame.Frame, event partybus.Ev
 	case stereoscopeEvent.FetchImage:
 		return FetchImageHandler(ctx, fr, event, wg)
 
-	case syftEvent.PackageCatalogerStarted:
+	case gosbomEvent.PackageCatalogerStarted:
 		return PackageCatalogerStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.SecretsCatalogerStarted:
+	case gosbomEvent.SecretsCatalogerStarted:
 		return SecretsCatalogerStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.FileDigestsCatalogerStarted:
+	case gosbomEvent.FileDigestsCatalogerStarted:
 		return FileDigestsCatalogerStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.FileMetadataCatalogerStarted:
+	case gosbomEvent.FileMetadataCatalogerStarted:
 		return FileMetadataCatalogerStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.FileIndexingStarted:
+	case gosbomEvent.FileIndexingStarted:
 		return FileIndexingStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.ImportStarted:
+	case gosbomEvent.ImportStarted:
 		return ImportStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.AttestationStarted:
+	case gosbomEvent.AttestationStarted:
 		return AttestationStartedHandler(ctx, fr, event, wg)
 
-	case syftEvent.CatalogerTaskStarted:
+	case gosbomEvent.CatalogerTaskStarted:
 		return CatalogerTaskStartedHandler(ctx, fr, event, wg)
 	}
 	return nil

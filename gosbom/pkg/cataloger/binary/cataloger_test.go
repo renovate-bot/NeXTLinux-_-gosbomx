@@ -13,8 +13,8 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/nextlinux/stereoscope/pkg/imagetest"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Test_Cataloger_DefaultClassifiers_PositiveCases(t *testing.T) {

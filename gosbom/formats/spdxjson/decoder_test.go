@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func TestSPDXJSONDecoder(t *testing.T) {
@@ -19,7 +19,7 @@ func TestSPDXJSONDecoder(t *testing.T) {
 		relationships []string
 	}{
 		{
-			path:          "alpine-3.10.syft.spdx.json",
+			path:          "alpine-3.10.gosbom.spdx.json",
 			packages:      []string{"busybox", "libssl1.1", "ssl_client"},
 			relationships: []string{"busybox", "busybox", "libssl1.1", "libssl1.1"},
 		},

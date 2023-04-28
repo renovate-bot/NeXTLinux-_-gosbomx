@@ -6,7 +6,7 @@ import (
 	"io"
 
 	macho "github.com/nextlinux/go-macholibre"
-	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/gosbom/internal/log"
 )
 
 // unionReader is a single interface with all reading functions needed by multi-arch binary catalogers

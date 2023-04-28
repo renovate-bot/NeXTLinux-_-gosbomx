@@ -7,13 +7,13 @@ import (
 	"path"
 	"strings"
 
-	"github.com/nextlinux/syft/internal/file"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
-	syftFile "github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/file"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	gosbomFile "github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 var _ generic.Parser = parseJavaArchive
@@ -180,7 +180,7 @@ func (j *archiveParser) discoverMainPackage() (*pkg.Package, error) {
 	defer archiveCloser.Close()
 
 	// grab and assign digest for the entire archive
-	digests, err := syftFile.DigestsFromFile(archiveCloser, javaArchiveHashes)
+	digests, err := gosbomFile.DigestsFromFile(archiveCloser, javaArchiveHashes)
 	if err != nil {
 		log.Warnf("failed to create digest for file=%q: %+v", j.archivePath, err)
 	}

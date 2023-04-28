@@ -1,10 +1,10 @@
 package text
 
 import (
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
-const ID sbom.FormatID = "syft-text"
+const ID sbom.FormatID = "gosbom-text"
 
 func Format() sbom.Format {
 	return sbom.NewFormat(

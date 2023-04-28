@@ -3,8 +3,8 @@ package cyclonedxhelpers
 import (
 	"github.com/CycloneDX/cyclonedx-go"
 
-	"github.com/nextlinux/syft/internal/spdxlicense"
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/internal/spdxlicense"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func encodeLicenses(p pkg.Package) *cyclonedx.Licenses {

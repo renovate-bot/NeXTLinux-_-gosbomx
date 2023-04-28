@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/nextlinux/syft/cmd/syft/cli/attest"
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/config"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/attest"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/config"
 )
 
 const (
@@ -49,13 +49,13 @@ func Attest(v *viper.Viper, app *config.Application, ro *options.RootOptions, po
 		},
 	}
 
-	// syft attest is an enhancement of the packages command, so it should have the same flags
+	// gosbom attest is an enhancement of the packages command, so it should have the same flags
 	err := po.AddFlags(cmd, v)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// syft attest has its own options not included as part of the packages command
+	// gosbom attest has its own options not included as part of the packages command
 	err = ao.AddFlags(cmd, v)
 	if err != nil {
 		log.Fatal(err)

@@ -13,11 +13,11 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/vbatts/go-mtree"
 
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 var _ generic.Parser = parseAlpmDB
@@ -89,7 +89,7 @@ func parseAlpmDBEntry(reader io.Reader) (*pkg.AlpmMetadata, error) {
 
 func newScanner(reader io.Reader) *bufio.Scanner {
 	// This is taken from the apk parser
-	// https://github.com/nextlinux/syft/blob/v0.47.0/syft/pkg/cataloger/apkdb/parse_apk_db.go#L37
+	// https://github.com/nextlinux/gosbom/blob/v0.47.0/gosbom/pkg/cataloger/apkdb/parse_apk_db.go#L37
 	const maxScannerCapacity = 1024 * 1024
 	bufScan := make([]byte, maxScannerCapacity)
 	scanner := bufio.NewScanner(reader)

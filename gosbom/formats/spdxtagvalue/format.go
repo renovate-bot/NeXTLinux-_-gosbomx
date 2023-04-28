@@ -1,14 +1,14 @@
 package spdxtagvalue
 
 import (
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 const ID sbom.FormatID = "spdx-tag-value"
 
 var IDs = []sbom.FormatID{ID, "spdx", "spdx-tv"}
 
-// note: this format is LOSSY relative to the syftjson format
+// note: this format is LOSSY relative to the gosbomjson format
 func Format2_1() sbom.Format {
 	return sbom.NewFormat(
 		"2.1",

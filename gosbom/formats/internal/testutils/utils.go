@@ -15,12 +15,12 @@ import (
 	"github.com/nextlinux/stereoscope/pkg/filetree"
 	"github.com/nextlinux/stereoscope/pkg/image"
 	"github.com/nextlinux/stereoscope/pkg/imagetest"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 type redactor func(s []byte) []byte
@@ -131,7 +131,7 @@ func ImageInput(t testing.TB, testImage string, options ...ImageOption) sbom.SBO
 		},
 		Source: src.Metadata,
 		Descriptor: sbom.Descriptor{
-			Name:    "syft",
+			Name:    "gosbom",
 			Version: "v0.42.0-bogus",
 			// the application configuration should be persisted here, however, we do not want to import
 			// the application configuration in this package (it's reserved only for ingestion by the cmd package)
@@ -212,7 +212,7 @@ func DirectoryInput(t testing.TB) sbom.SBOM {
 		},
 		Source: src.Metadata,
 		Descriptor: sbom.Descriptor{
-			Name:    "syft",
+			Name:    "gosbom",
 			Version: "v0.42.0-bogus",
 			// the application configuration should be persisted here, however, we do not want to import
 			// the application configuration in this package (it's reserved only for ingestion by the cmd package)
@@ -243,7 +243,7 @@ func DirectoryInputWithAuthorField(t testing.TB) sbom.SBOM {
 		},
 		Source: src.Metadata,
 		Descriptor: sbom.Descriptor{
-			Name:    "syft",
+			Name:    "gosbom",
 			Version: "v0.42.0-bogus",
 			// the application configuration should be persisted here, however, we do not want to import
 			// the application configuration in this package (it's reserved only for ingestion by the cmd package)

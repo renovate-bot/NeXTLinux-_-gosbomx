@@ -6,10 +6,10 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/nextlinux/stereoscope/pkg/imagetest"
-	"github.com/nextlinux/syft/syft"
-	"github.com/nextlinux/syft/syft/pkg/cataloger"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func catalogFixtureImage(t *testing.T, fixtureImageName string, scope source.Scope, catalogerCfg []string) (sbom.SBOM, *source.Source) {
@@ -26,7 +26,7 @@ func catalogFixtureImage(t *testing.T, fixtureImageName string, scope source.Sco
 	c.Catalogers = catalogerCfg
 
 	c.Search.Scope = scope
-	pkgCatalog, relationships, actualDistro, err := syft.CatalogPackages(theSource, c)
+	pkgCatalog, relationships, actualDistro, err := gosbom.CatalogPackages(theSource, c)
 	if err != nil {
 		t.Fatalf("failed to catalog image: %+v", err)
 	}
@@ -39,7 +39,7 @@ func catalogFixtureImage(t *testing.T, fixtureImageName string, scope source.Sco
 		Relationships: relationships,
 		Source:        theSource.Metadata,
 		Descriptor: sbom.Descriptor{
-			Name:    "syft",
+			Name:    "gosbom",
 			Version: "v0.42.0-bogus",
 			// the application configuration should be persisted here, however, we do not want to import
 			// the application configuration in this package (it's reserved only for ingestion by the cmd package)
@@ -61,7 +61,7 @@ func catalogDirectory(t *testing.T, dir string) (sbom.SBOM, *source.Source) {
 	// TODO: this would be better with functional options (after/during API refactor)
 	c := cataloger.DefaultConfig()
 	c.Search.Scope = source.AllLayersScope
-	pkgCatalog, relationships, actualDistro, err := syft.CatalogPackages(theSource, c)
+	pkgCatalog, relationships, actualDistro, err := gosbom.CatalogPackages(theSource, c)
 	if err != nil {
 		t.Fatalf("failed to catalog image: %+v", err)
 	}

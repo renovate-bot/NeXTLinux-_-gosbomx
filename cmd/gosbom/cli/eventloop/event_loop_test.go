@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/wagoodman/go-partybus"
 
-	"github.com/nextlinux/syft/internal/ui"
-	"github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/gosbom/internal/ui"
+	"github.com/nextlinux/gosbom/gosbom/event"
 )
 
 var _ ui.UI = (*uiMock)(nil)

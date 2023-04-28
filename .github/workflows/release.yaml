@@ -135,7 +135,7 @@ jobs:
           QUILL_NOTARY_KEY: ${{ secrets.APPLE_NOTARY_KEY }}
           # for creating the release (requires write access to packages and content)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # for updating brew formula in nextlinux/homebrew-syft
+          # for updating brew formula in nextlinux/homebrew-gosbom
           GITHUB_BREW_TOKEN: ${{ secrets.NEXTLINUX_GIT_READ_TOKEN }}
           # for updating the VERSION file in S3...
           AWS_ACCESS_KEY_ID: ${{ secrets.TOOLBOX_AWS_ACCESS_KEY_ID }}
@@ -151,7 +151,7 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,workflow,action,eventName
-          text: "A new Gosbom release has been published: https://github.com/nextlinux/syft/releases/tag/${{ github.event.inputs.version }}"
+          text: "A new Gosbom release has been published: https://github.com/nextlinux/gosbom/releases/tag/${{ github.event.inputs.version }}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_TOOLBOX_WEBHOOK_URL }}
         if: ${{ success() }}

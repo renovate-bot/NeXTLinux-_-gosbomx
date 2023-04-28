@@ -182,7 +182,7 @@
   "versionID": "7"
  },
  "descriptor": {
-  "name": "syft",
+  "name": "gosbom",
   "version": "v0.42.0-bogus",
   "configuration": {
    "config-key": "config-value"

@@ -6,12 +6,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/gosbom/internal/log"
 )
 
 func saveArchiveToTmp(archiveVirtualPath string, reader io.Reader) (string, string, func(), error) {
 	name := filepath.Base(archiveVirtualPath)
-	tempDir, err := os.MkdirTemp("", "syft-archive-contents-")
+	tempDir, err := os.MkdirTemp("", "gosbom-archive-contents-")
 	if err != nil {
 		return "", "", func() {}, fmt.Errorf("unable to create tempdir for archive processing: %w", err)
 	}

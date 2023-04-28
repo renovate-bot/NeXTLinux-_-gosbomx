@@ -4,10 +4,10 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/go-progress"
 
-	"github.com/nextlinux/syft/internal/bus"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/event"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/bus"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/event"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 type MetadataCataloger struct {

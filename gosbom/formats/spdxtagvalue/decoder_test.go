@@ -12,7 +12,7 @@ import (
 // we're currently blocked on a couple of SPDX fields that change often
 // which causes backward compatibility issues.
 // This test was added specifically to smoke test the decode function when
-// It failed on a released version of syft.
+// It failed on a released version of gosbom.
 func TestSPDXTagValueDecoder(t *testing.T) {
 	tests := []struct {
 		name    string

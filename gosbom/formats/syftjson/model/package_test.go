@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func TestUnmarshalPackageGolang(t *testing.T) {
@@ -27,7 +27,7 @@ func TestUnmarshalPackageGolang(t *testing.T) {
 				"foundBy": "go-module-binary-cataloger",
 				"locations": [
 				  {
-				    "path": "/Users/hal/go/bin/syft"
+				    "path": "/Users/hal/go/bin/gosbom"
 				  }
 				],
 				"licenses": [],
@@ -58,7 +58,7 @@ func TestUnmarshalPackageGolang(t *testing.T) {
 				"foundBy": "go-mod-cataloger",
 				"locations": [
 				  {
-				    "path": "/Users/hal/go/bin/syft"
+				    "path": "/Users/hal/go/bin/gosbom"
 				  }
 				],
 				"licenses": [],
@@ -102,7 +102,7 @@ func Test_unpackMetadata(t *testing.T) {
 				"foundBy": "go-module-binary-cataloger",
 				"locations": [
 				  {
-				    "path": "/Users/hal/go/bin/syft"
+				    "path": "/Users/hal/go/bin/gosbom"
 				  }
 				],
 				"licenses": [],
@@ -128,7 +128,7 @@ func Test_unpackMetadata(t *testing.T) {
 				"foundBy": "go-mod-cataloger",
 				"locations": [
 				  {
-				    "path": "/Users/hal/go/bin/syft"
+				    "path": "/Users/hal/go/bin/gosbom"
 				  }
 				],
 				"licenses": [],
@@ -188,7 +188,7 @@ func Test_unpackMetadata(t *testing.T) {
 				"foundBy": "go-mod-cataloger",
 				"locations": [
 				  {
-				    "path": "/Users/hal/go/bin/syft"
+				    "path": "/Users/hal/go/bin/gosbom"
 				  }
 				],
 				"licenses": [],

@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/gosbom/internal"
 )
 
 const valueNotProvided = "[not provided]"

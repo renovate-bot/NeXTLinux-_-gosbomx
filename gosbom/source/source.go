@@ -20,8 +20,8 @@ import (
 
 	"github.com/nextlinux/stereoscope"
 	"github.com/nextlinux/stereoscope/pkg/image"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
 )
 
 // Source is an object that captures the data source to be cataloged, configuration, and a specific resolver used
@@ -493,7 +493,7 @@ func (s *Source) FileResolver(scope Scope) (FileResolver, error) {
 }
 
 func unarchiveToTmp(path string, unarchiver archiver.Unarchiver) (string, func(), error) {
-	tempDir, err := os.MkdirTemp("", "syft-archive-contents-")
+	tempDir, err := os.MkdirTemp("", "gosbom-archive-contents-")
 	if err != nil {
 		return "", func() {}, fmt.Errorf("unable to create tempdir for archive processing: %w", err)
 	}

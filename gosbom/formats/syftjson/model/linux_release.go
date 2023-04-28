@@ -31,7 +31,7 @@ func (s *IDLikes) UnmarshalJSON(data []byte) error {
 	var str string
 	var strSlice []string
 
-	// we support unmarshalling from a single value to support syft json schema v2
+	// we support unmarshalling from a single value to support gosbom json schema v2
 	if err := json.Unmarshal(data, &str); err == nil {
 		*s = []string{str}
 	} else if err := json.Unmarshal(data, &strSlice); err == nil {

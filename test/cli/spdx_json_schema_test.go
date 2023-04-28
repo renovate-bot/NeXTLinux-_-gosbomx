@@ -57,7 +57,7 @@ func TestSPDXJSONSchema(t *testing.T) {
 			_, stdout, _ := runGosbom(t, nil, args...)
 
 			if len(strings.Trim(stdout, "\n ")) < 100 {
-				t.Fatalf("bad syft output: %q", stdout)
+				t.Fatalf("bad gosbom output: %q", stdout)
 			}
 
 			validateSpdxJsonAgainstSchema(t, stdout)

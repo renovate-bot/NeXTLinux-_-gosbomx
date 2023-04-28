@@ -28,7 +28,7 @@ const (
 	Swift           Language = "swift"
 )
 
-// AllLanguages is a set of all programming languages detected by syft.
+// AllLanguages is a set of all programming languages detected by gosbom.
 var AllLanguages = []Language{
 	CPP,
 	Dart,

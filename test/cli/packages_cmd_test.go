@@ -47,8 +47,8 @@ func TestPackagesCmdFlags(t *testing.T) {
 		},
 		// I haven't been able to reproduce locally yet, but in CI this has proven to be unstable:
 		// For the same commit:
-		//   pass: https://github.com/nextlinux/syft/runs/4611344142?check_suite_focus=true
-		//   fail: https://github.com/nextlinux/syft/runs/4611343586?check_suite_focus=true
+		//   pass: https://github.com/nextlinux/gosbom/runs/4611344142?check_suite_focus=true
+		//   fail: https://github.com/nextlinux/gosbom/runs/4611343586?check_suite_focus=true
 		// For the meantime this test will be commented out, but should be added back in as soon as possible.
 		//
 		//{
@@ -133,7 +133,7 @@ func TestPackagesCmdFlags(t *testing.T) {
 			},
 		},
 		{
-			// we want to make certain that syft can catalog a single go binary and get a SBOM report that is not empty
+			// we want to make certain that gosbom can catalog a single go binary and get a SBOM report that is not empty
 			name: "catalog-single-go-binary",
 			args: []string{"packages", "-o", "json", getGosbomBinaryLocation(t)},
 			assertions: []traitAssertion{

@@ -130,9 +130,9 @@ func runGosbomInDocker(t testing.TB, env map[string]string, image string, args .
 			"-e",
 			"GOSBOM_CHECK_FOR_APP_UPDATE=false",
 			"-v",
-			fmt.Sprintf("%s:/syft", getGosbomBinaryLocationByOS(t, "linux")),
+			fmt.Sprintf("%s:/gosbom", getGosbomBinaryLocationByOS(t, "linux")),
 			image,
-			"/syft",
+			"/gosbom",
 		},
 		args...,
 	)
@@ -184,7 +184,7 @@ func runGosbomCommand(t testing.TB, env map[string]string, expectError bool, arg
 	stdout, stderr, err := runCommand(cmd, env)
 
 	if !expectError && err != nil && stdout == "" {
-		t.Errorf("error running syft: %+v", err)
+		t.Errorf("error running gosbom: %+v", err)
 		t.Errorf("STDOUT: %s", stdout)
 		t.Errorf("STDERR: %s", stderr)
 
@@ -196,7 +196,7 @@ func runGosbomCommand(t testing.TB, env map[string]string, expectError bool, arg
 		stdout, stderr, err = runCommand(cmd, env)
 
 		if err != nil {
-			t.Errorf("error rerunning syft: %+v", err)
+			t.Errorf("error rerunning gosbom: %+v", err)
 			t.Errorf("STDOUT: %s", stdout)
 			t.Errorf("STDERR: %s", stderr)
 		}
@@ -239,7 +239,7 @@ func runCommandObj(t testing.TB, cmd *exec.Cmd, env map[string]string, expectErr
 	stdout, stderr, err := runCommand(cmd, env)
 
 	if !expectError && err != nil && stdout == "" {
-		t.Errorf("error running syft: %+v", err)
+		t.Errorf("error running gosbom: %+v", err)
 		t.Errorf("STDOUT: %s", stdout)
 		t.Errorf("STDERR: %s", stderr)
 	}
@@ -312,7 +312,7 @@ func getGosbomBinaryLocationByOS(t testing.TB, goOS string) string {
 	// note: there is a subtle - vs _ difference between these versions
 	switch goOS {
 	case "darwin", "linux":
-		return path.Join(repoRoot(t), fmt.Sprintf("snapshot/%s-build_%s_%s/syft", goOS, goOS, archPath))
+		return path.Join(repoRoot(t), fmt.Sprintf("snapshot/%s-build_%s_%s/gosbom", goOS, goOS, archPath))
 	default:
 		t.Fatalf("unsupported OS: %s", runtime.GOOS)
 	}

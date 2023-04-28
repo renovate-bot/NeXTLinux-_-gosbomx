@@ -16,5 +16,5 @@ assignees: ''
 **Anything else we need to know?**:
 
 **Environment**:
-- Output of `syft version`:
+- Output of `gosbom version`:
 - OS (e.g: `cat /etc/os-release` or similar):

@@ -33,20 +33,20 @@ func TestSpdxValidationTooling(t *testing.T) {
 
 	tests := []struct {
 		name     string
-		syftArgs []string
+		gosbomArgs []string
 		images   []string
 		setup    func(t *testing.T)
 		env      map[string]string
 	}{
 		{
 			name:     "spdx validation tooling tag value",
-			syftArgs: []string{"packages", "-o", "spdx"},
+			gosbomArgs: []string{"packages", "-o", "spdx"},
 			images:   images,
 			env:      env,
 		},
 		{
 			name:     "spdx validation tooling json",
-			syftArgs: []string{"packages", "-o", "spdx-json"},
+			gosbomArgs: []string{"packages", "-o", "spdx-json"},
 			images:   images,
 			env:      env,
 		},
@@ -56,7 +56,7 @@ func TestSpdxValidationTooling(t *testing.T) {
 		for _, image := range test.images {
 			t.Run(test.name+"_"+image, func(t *testing.T) {
 
-				args := append(test.syftArgs, image)
+				args := append(test.gosbomArgs, image)
 
 				var suffix string
 				if strings.Contains(test.name, "json") {
@@ -72,7 +72,7 @@ func TestSpdxValidationTooling(t *testing.T) {
 
 				cmd, _, stderr := runGosbom(t, test.env, args...)
 				if cmd.ProcessState.ExitCode() != 0 {
-					t.Fatalf("failed to run syft: %s", stderr)
+					t.Fatalf("failed to run gosbom: %s", stderr)
 				}
 
 				cwd, err := os.Getwd()

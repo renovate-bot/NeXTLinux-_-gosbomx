@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/nextlinux/syft/syft/formats/internal/testutils"
+	"github.com/nextlinux/gosbom/gosbom/formats/internal/testutils"
 )
 
 var updateCycloneDx = flag.Bool("update-cyclonedx", false, "update the *.golden files for cyclone-dx encoders")

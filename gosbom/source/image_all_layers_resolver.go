@@ -7,7 +7,7 @@ import (
 	"github.com/nextlinux/stereoscope/pkg/file"
 	"github.com/nextlinux/stereoscope/pkg/filetree"
 	"github.com/nextlinux/stereoscope/pkg/image"
-	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/gosbom/internal/log"
 )
 
 var _ FileResolver = (*imageAllLayersResolver)(nil)

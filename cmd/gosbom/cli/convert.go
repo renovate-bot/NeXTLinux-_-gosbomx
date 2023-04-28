@@ -7,15 +7,15 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/nextlinux/syft/cmd/syft/cli/convert"
-	"github.com/nextlinux/syft/cmd/syft/cli/options"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/config"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/convert"
+	"github.com/nextlinux/gosbom/cmd/gosbom/cli/options"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/config"
 )
 
 const (
-	convertExample = `  {{.appName}} {{.command}} img.syft.json -o spdx-json                      convert a syft SBOM to spdx-json, output goes to stdout
-  {{.appName}} {{.command}} img.syft.json -o cyclonedx-json=img.cdx.json    convert a syft SBOM to CycloneDX, output is written to the file "img.cdx.json""
+	convertExample = `  {{.appName}} {{.command}} img.gosbom.json -o spdx-json                      convert a gosbom SBOM to spdx-json, output goes to stdout
+  {{.appName}} {{.command}} img.gosbom.json -o cyclonedx-json=img.cdx.json    convert a gosbom SBOM to CycloneDX, output is written to the file "img.cdx.json""
   {{.appName}} {{.command}} - -o spdx-json                                  convert an SBOM from STDIN to spdx-json
 `
 )
@@ -25,7 +25,7 @@ func Convert(v *viper.Viper, app *config.Application, ro *options.RootOptions, p
 	cmd := &cobra.Command{
 		Use:   "convert [SOURCE-SBOM] -o [FORMAT]",
 		Short: "Convert between SBOM formats",
-		Long:  "[Experimental] Convert SBOM files to, and from, SPDX, CycloneDX and Gosbom's format. For more info about data loss between formats see https://github.com/nextlinux/syft#format-conversion-experimental",
+		Long:  "[Experimental] Convert SBOM files to, and from, SPDX, CycloneDX and Gosbom's format. For more info about data loss between formats see https://github.com/nextlinux/gosbom#format-conversion-experimental",
 		Example: internal.Tprintf(convertExample, map[string]interface{}{
 			"appName": internal.ApplicationName,
 			"command": "convert",

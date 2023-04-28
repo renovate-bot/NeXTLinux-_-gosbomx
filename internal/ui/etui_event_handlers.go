@@ -13,13 +13,13 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/jotframe/pkg/frame"
 
-	"github.com/nextlinux/syft/internal"
-	syftEventParsers "github.com/nextlinux/syft/syft/event/parsers"
+	"github.com/nextlinux/gosbom/internal"
+	gosbomEventParsers "github.com/nextlinux/gosbom/gosbom/event/parsers"
 )
 
 // handleAppUpdateAvailable is a UI handler function to display a new application version to the top of the screen.
 func handleAppUpdateAvailable(_ context.Context, fr *frame.Frame, event partybus.Event, _ *sync.WaitGroup) error {
-	newVersion, err := syftEventParsers.ParseAppUpdateAvailable(event)
+	newVersion, err := gosbomEventParsers.ParseAppUpdateAvailable(event)
 	if err != nil {
 		return fmt.Errorf("bad AppUpdateAvailable event: %w", err)
 	}

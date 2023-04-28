@@ -1,6 +1,6 @@
 package cpe
 
-import "github.com/nextlinux/syft/syft/pkg"
+import "github.com/nextlinux/gosbom/gosbom/pkg"
 
 func candidateVendorsForRuby(p pkg.Package) fieldCandidateSet {
 	metadata, ok := p.Metadata.(pkg.GemMetadata)

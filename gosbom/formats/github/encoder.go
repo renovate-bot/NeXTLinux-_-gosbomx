@@ -8,11 +8,11 @@ import (
 	"github.com/mholt/archiver/v3"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 // toGithubModel converts the provided SBOM to a GitHub dependency model
@@ -27,7 +27,7 @@ func toGithubModel(s *sbom.SBOM) DependencySnapshot {
 		// TODO allow property input to specify the Job, Sha, and Ref
 		Detector: DetectorMetadata{
 			Name:    internal.ApplicationName,
-			URL:     "https://github.com/nextlinux/syft",
+			URL:     "https://github.com/nextlinux/gosbom",
 			Version: v,
 		},
 		Metadata:  toSnapshotMetadata(s),
@@ -50,7 +50,7 @@ func toSnapshotMetadata(s *sbom.SBOM) Metadata {
 			})
 		}
 		purl := packageurl.NewPackageURL("generic", "", d.ID, d.VersionID, qualifiers, "")
-		out["syft:distro"] = purl.ToString()
+		out["gosbom:distro"] = purl.ToString()
 	}
 
 	return out
@@ -121,7 +121,7 @@ func toGithubManifests(s *sbom.SBOM) Manifests {
 			fs := filesystem(p)
 			if fs != "" {
 				manifest.Metadata = Metadata{
-					"syft:filesystem": fs,
+					"gosbom:filesystem": fs,
 				}
 			}
 			manifests[path] = manifest

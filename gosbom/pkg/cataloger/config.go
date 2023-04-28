@@ -1,9 +1,9 @@
 package cataloger
 
 import (
-	"github.com/nextlinux/syft/syft/pkg/cataloger/golang"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/java"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/kernel"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/golang"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/java"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/kernel"
 )
 
 // TODO: these field naming vs helper function naming schemes are inconsistent.

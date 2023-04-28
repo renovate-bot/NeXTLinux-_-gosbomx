@@ -15,10 +15,10 @@ import (
 	"github.com/gookit/color"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func generateJavaBuildFixture(t *testing.T, fixturePath string) {

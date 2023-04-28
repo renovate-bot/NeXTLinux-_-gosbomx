@@ -6,8 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
 )
 
 // ZipFileManifest is a collection of paths and their file metadata.

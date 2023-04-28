@@ -5,7 +5,7 @@
     <tools>
       <tool>
         <vendor>nextlinux</vendor>
-        <name>syft</name>
+        <name>gosbom</name>
         <version>v0.42.0-bogus</version>
       </tool>
     </tools>
@@ -25,11 +25,11 @@
       <cpe>cpe:2.3:*:some:package:2:*:*:*:*:*:*:*</cpe>
       <purl>a-purl-2</purl>
       <properties>
-        <property name="syft:package:foundBy">the-cataloger-1</property>
-        <property name="syft:package:language">python</property>
-        <property name="syft:package:metadataType">PythonPackageMetadata</property>
-        <property name="syft:package:type">python</property>
-        <property name="syft:location:0:path">/some/path/pkg1</property>
+        <property name="gosbom:package:foundBy">the-cataloger-1</property>
+        <property name="gosbom:package:language">python</property>
+        <property name="gosbom:package:metadataType">PythonPackageMetadata</property>
+        <property name="gosbom:package:type">python</property>
+        <property name="gosbom:location:0:path">/some/path/pkg1</property>
       </properties>
     </component>
     <component bom-ref="pkg:deb/debian/package-2@2.0.1?package-id=db4abfe497c180d3" type="library">
@@ -38,11 +38,11 @@
       <cpe>cpe:2.3:*:some:package:2:*:*:*:*:*:*:*</cpe>
       <purl>pkg:deb/debian/package-2@2.0.1</purl>
       <properties>
-        <property name="syft:package:foundBy">the-cataloger-2</property>
-        <property name="syft:package:metadataType">DpkgMetadata</property>
-        <property name="syft:package:type">deb</property>
-        <property name="syft:location:0:path">/some/path/pkg1</property>
-        <property name="syft:metadata:installedSize">0</property>
+        <property name="gosbom:package:foundBy">the-cataloger-2</property>
+        <property name="gosbom:package:metadataType">DpkgMetadata</property>
+        <property name="gosbom:package:type">deb</property>
+        <property name="gosbom:location:0:path">/some/path/pkg1</property>
+        <property name="gosbom:metadata:installedSize">0</property>
       </properties>
     </component>
     <component type="operating-system">
@@ -51,10 +51,10 @@
       <description>debian</description>
       <swid tagId="debian" name="debian" version="1.2.3"></swid>
       <properties>
-        <property name="syft:distro:id">debian</property>
-        <property name="syft:distro:idLike:0">like!</property>
-        <property name="syft:distro:prettyName">debian</property>
-        <property name="syft:distro:versionID">1.2.3</property>
+        <property name="gosbom:distro:id">debian</property>
+        <property name="gosbom:distro:idLike:0">like!</property>
+        <property name="gosbom:distro:prettyName">debian</property>
+        <property name="gosbom:distro:versionID">1.2.3</property>
       </properties>
     </component>
   </components>

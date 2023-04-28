@@ -3,7 +3,7 @@ package java
 import (
 	"testing"
 
-	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/internal/pkgtest"
 )
 
 func Test_ArchiveCataloger_Globs(t *testing.T) {

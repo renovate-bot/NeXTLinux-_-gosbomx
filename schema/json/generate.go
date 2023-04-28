@@ -12,13 +12,13 @@ import (
 
 	"github.com/invopop/jsonschema"
 
-	"github.com/nextlinux/syft/internal"
-	syftjsonModel "github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/internal"
+	gosbomjsonModel "github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 /*
-This method of creating the JSON schema only captures strongly typed fields for the purpose of integrations between syft
+This method of creating the JSON schema only captures strongly typed fields for the purpose of integrations between gosbom
 JSON output and integrations. The downside to this approach is that any values and types used on weakly typed fields
 are not captured (empty interfaces). This means that pkg.Package.Metadata is not validated at this time. This approach
 can be extended to include specific package metadata struct shapes in the future.
@@ -72,7 +72,7 @@ func build() *jsonschema.Schema {
 			return strings.TrimPrefix(r.Name(), "JSON")
 		},
 	}
-	documentSchema := reflector.ReflectFromType(reflect.TypeOf(&syftjsonModel.Document{}))
+	documentSchema := reflector.ReflectFromType(reflect.TypeOf(&gosbomjsonModel.Document{}))
 	metadataSchema := reflector.ReflectFromType(reflect.TypeOf(&artifactMetadataContainer{}))
 
 	// TODO: inject source definitions

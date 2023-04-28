@@ -5,8 +5,8 @@ import (
 
 	"github.com/CycloneDX/cyclonedx-go"
 
-	"github.com/nextlinux/syft/syft/formats/common/cyclonedxhelpers"
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/formats/common/cyclonedxhelpers"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 func encoder(output io.Writer, s sbom.SBOM) error {

@@ -5,9 +5,9 @@ import (
 
 	"github.com/jinzhu/copier"
 
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
 )
 
 // Collection represents a collection of Packages.

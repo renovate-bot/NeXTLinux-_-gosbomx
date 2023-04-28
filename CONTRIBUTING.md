@@ -33,11 +33,11 @@ This username and email address will matter later in this guide.
 
 ## Fork the repo
 
-You should fork the Gosbom repo using the "Fork" button at the top right of the Gosbom GitHub [site](https://github.com/nextlinux/syft/). You will be doing your development in your fork, then submit a pull request to Gosbom. There are many resources how to use GitHub effectively, we will not cover those here.
+You should fork the Gosbom repo using the "Fork" button at the top right of the Gosbom GitHub [site](https://github.com/nextlinux/gosbom/). You will be doing your development in your fork, then submit a pull request to Gosbom. There are many resources how to use GitHub effectively, we will not cover those here.
 
 ## Adding a feature or fix
 
-If you look at the Gosbom [Issue](https://github.com/nextlinux/syft/issues) there are plenty of bugs and feature requests. Maybe look at the [good first issue](https://github.com/nextlinux/syft/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) list if you're not sure where to start.
+If you look at the Gosbom [Issue](https://github.com/nextlinux/gosbom/issues) there are plenty of bugs and feature requests. Maybe look at the [good first issue](https://github.com/nextlinux/gosbom/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) list if you're not sure where to start.
 
 ## Commit guidelines
 

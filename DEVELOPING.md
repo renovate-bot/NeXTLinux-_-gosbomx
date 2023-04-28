@@ -11,9 +11,9 @@ After cloning the following step can help you get setup:
 1. run `make bootstrap` to download go mod dependencies, create the `/.tmp` dir, and download helper utilities.
 2. run `make` to view the selection of developer commands in the Makefile
 3. run `make build` to build the release snapshot binaries and packages
-4. for an even quicker start you can run `go run cmd/syft/main.go` to print the syft help.
-	- this command `go run cmd/syft/main.go alpine:latest` will compile and run syft against `alpine:latest`
-5. view the README or syft help output for more output options
+4. for an even quicker start you can run `go run cmd/gosbom/main.go` to print the gosbom help.
+	- this command `go run cmd/gosbom/main.go alpine:latest` will compile and run gosbom against `alpine:latest`
+5. view the README or gosbom help output for more output options
 
 The main make tasks for common static analysis and testing are `lint`, `format`, `lint-fix`, `unit`, `integration`, and `cli`.
 
@@ -25,14 +25,14 @@ Gosbom is used to generate a Software Bill of Materials (SBOM) from different ki
 
 ### Code organization for the cmd package
 
-Gosbom's entrypoint can be found in the `cmd` package at `cmd/syft/main.go`. `main.go` builds a new syft `cli` via `cli.New()` 
+Gosbom's entrypoint can be found in the `cmd` package at `cmd/gosbom/main.go`. `main.go` builds a new gosbom `cli` via `cli.New()` 
 and then executes the `cli` via `cli.Execute()`. The `cli` package is responsible for parsing command line arguments, 
-setting up the application context and configuration, and executing the application. Each of syft's commands 
+setting up the application context and configuration, and executing the application. Each of gosbom's commands 
 (e.g. `packages`, `attest`, `version`) are implemented as a `cobra.Command` in their respective `<command>.go` files. 
-They are registered in `syft/cli/commands/go`.
+They are registered in `gosbom/cli/commands/go`.
 ```
 .
-└── syft/
+└── gosbom/
     ├── cli/
     │   ├── attest/
     │   ├── attest.go
@@ -54,7 +54,7 @@ They are registered in `syft/cli/commands/go`.
 
 ```mermaid
 sequenceDiagram
-    participant main as cmd/syft/main
+    participant main as cmd/gosbom/main
     participant cli as cli.New()
     participant root as root.Execute()
     participant cmd as <command>.Execute()
@@ -75,37 +75,37 @@ sequenceDiagram
     Note right of cmd: Execute SINGLE command from USER
 ```
 
-### Code organization for syft library
+### Code organization for gosbom library
 
-Gosbom's core library (see, exported) functionality is implemented in the `syft` package. The `syft` package is responsible for organizing the core
+Gosbom's core library (see, exported) functionality is implemented in the `gosbom` package. The `gosbom` package is responsible for organizing the core
 SBOM data model, it's translated output formats, and the core SBOM generation logic.
 
 - analysis creates a static SBOM which can be encoded and decoded
 - format objects, should strive to not add or enrich data in encoding that could otherwise be done during analysis
-- package catalogers and their organization can be viewed/added to the `syft/pkg/cataloger` package 
-- file catalogers and their organization can be viewed/added to the `syft/file` package
+- package catalogers and their organization can be viewed/added to the `gosbom/pkg/cataloger` package 
+- file catalogers and their organization can be viewed/added to the `gosbom/file` package
 - The source package provides an abstraction to allow a user to loosely define a data source that can be cataloged
 
-#### Code example of syft as a library
+#### Code example of gosbom as a library
 
-Here is a gist of using syft as a library to generate a SBOM for a docker image: [link](https://gist.github.com/wagoodman/57ed59a6d57600c23913071b8470175b).
+Here is a gist of using gosbom as a library to generate a SBOM for a docker image: [link](https://gist.github.com/wagoodman/57ed59a6d57600c23913071b8470175b).
 The execution flow for the example is detailed below.
 
-#### Execution flow examples for the syft library
+#### Execution flow examples for the gosbom library
 
 ```mermaid
 sequenceDiagram
     participant source as source.New(ubuntu:latest)
     participant sbom as sbom.SBOM
-    participant catalog as syft.CatalogPackages(src)
-    participant encoder as syft.Encode(sbom, format)
+    participant catalog as gosbom.CatalogPackages(src)
+    participant encoder as gosbom.Encode(sbom, format)
 
     Note right of source: use "ubuntu:latest" as SBOM input
 
     source-->>+sbom: add source to SBOM struct
     source-->>+catalog: pass src to generate catalog
     catalog-->-sbom: add cataloging results onto SBOM
-    sbom-->>encoder: pass SBOM and format desiered to syft encoder
+    sbom-->>encoder: pass SBOM and format desiered to gosbom encoder
     encoder-->>source: return bytes that are the SBOM of the original input 
 
     Note right of catalog: cataloger configuration is done based on src
@@ -116,10 +116,10 @@ sequenceDiagram
 
 ##### Summary
 
-Catalogers are the way in which syft is able to identify and construct packages given some amount of source metadata.
+Catalogers are the way in which gosbom is able to identify and construct packages given some amount of source metadata.
 For example, Gosbom can locate and process `package-lock.json` files when performing filesystem scans. 
-See: [how to specify file globs](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/javascript/cataloger.go#L16-L21)
-and an implementation of the [package-lock.json parser](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/javascript/cataloger.go#L16-L21) for a quick review.
+See: [how to specify file globs](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/javascript/cataloger.go#L16-L21)
+and an implementation of the [package-lock.json parser](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/javascript/cataloger.go#L16-L21) for a quick review.
 
 From a high level catalogers have the following properties:
 
@@ -131,43 +131,43 @@ From a high level catalogers have the following properties:
 
 #### Building a new Cataloger
 
-Catalogers must fulfill the interface [found here](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger.go). 
+Catalogers must fulfill the interface [found here](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger.go). 
 This means that when building a new cataloger, the new struct must implement both method signatures of `Catalog` and `Name`.
 
-A top level view of the functions that construct all the catalogers can be found [here](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/cataloger.go).
+A top level view of the functions that construct all the catalogers can be found [here](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/cataloger.go).
 When an author has finished writing a new cataloger this is the spot to plug in the new catalog constructor.
 
-For a top level view of how the catalogers are used see [this function](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/catalog.go#L41-L100) as a reference. It ranges over all catalogers passed as an argument and invokes the `Catalog` method:
+For a top level view of how the catalogers are used see [this function](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/catalog.go#L41-L100) as a reference. It ranges over all catalogers passed as an argument and invokes the `Catalog` method:
 
 Each cataloger has its own `Catalog` method, but this does not mean that they are all vastly different.
-Take a look at the `apkdb` cataloger for alpine to see how it [constructs a generic.NewCataloger](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/apkdb/cataloger.go).
+Take a look at the `apkdb` cataloger for alpine to see how it [constructs a generic.NewCataloger](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/apkdb/cataloger.go).
 
-`generic.NewCataloger` is an abstraction syft uses to make writing common components easier. First, it takes the `catalogerName` to identify the cataloger.
+`generic.NewCataloger` is an abstraction gosbom uses to make writing common components easier. First, it takes the `catalogerName` to identify the cataloger.
 On the other side of the call it uses two key pieces which inform the cataloger how to identify and return packages, the `globPatterns` and the `parseFunction`:
 - The first piece is a `parseByGlob` matching pattern used to identify the files that contain the package metadata.
-See [here for the APK example](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/apk_metadata.go#L16-L41).
+See [here for the APK example](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/apk_metadata.go#L16-L41).
 - The other is a `parseFunction` which informs the cataloger what to do when it has found one of the above matches files.
-See this [link for an example](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/apkdb/parse_apk_db.go#L22-L102).
+See this [link for an example](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/apkdb/parse_apk_db.go#L22-L102).
 
 If you're unsure about using the `Generic Cataloger` and think the use case being filled requires something more custom
 just file an issue or ask in our slack, and we'd be more than happy to help on the design.
 
-Identified packages share a common struct so be sure that when the new cataloger is constructing a new package it is using the [`Package` struct](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/package.go#L16-L31).
+Identified packages share a common struct so be sure that when the new cataloger is constructing a new package it is using the [`Package` struct](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/package.go#L16-L31).
 
 Metadata Note: Identified packages are also assigned specific metadata that can be unique to their environment. 
-See [this folder](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg) for examples of the different metadata types.
+See [this folder](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg) for examples of the different metadata types.
 These are plugged into the `MetadataType` and `Metadata` fields in the above struct. `MetadataType` informs which type is being used. `Metadata` is an interface converted to that type.
 
 Finally, here is an example of where the package construction is done in the apk cataloger. The first link is where `newPackage` is called in the `parseFunction`. The second link shows the package construction:
-- [Call for new package](https://github.com/nextlinux/syft/blob/v0.70.0/syft/pkg/cataloger/apkdb/parse_apk_db.go#L106)
-- [APK Package Constructor](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/apkdb/package.go#L12-L27)
+- [Call for new package](https://github.com/nextlinux/gosbom/blob/v0.70.0/gosbom/pkg/cataloger/apkdb/parse_apk_db.go#L106)
+- [APK Package Constructor](https://github.com/nextlinux/gosbom/tree/v0.70.0/gosbom/pkg/cataloger/apkdb/package.go#L12-L27)
 
 If you have more questions about implementing a cataloger or questions about one you might be currently working
 always feel free to file an issue or reach out to us [on slack](https://nextlinux.com/slack).
 
 #### Searching for files
 
-All catalogers are provided an instance of the [`source.FileResolver`](https://github.com/nextlinux/syft/blob/v0.70.0/syft/source/file_resolver.go#L8) to interface with the image and search for files. The implementations for these 
+All catalogers are provided an instance of the [`source.FileResolver`](https://github.com/nextlinux/gosbom/blob/v0.70.0/gosbom/source/file_resolver.go#L8) to interface with the image and search for files. The implementations for these 
 abstractions leverage [`stereoscope`](https://github.com/nextlinux/stereoscope) in order to perform searching. Here is a 
 rough outline how that works:
 
@@ -185,7 +185,7 @@ rough outline how that works:
   only considers unit tests and no other forms of testing.
 
 - `integration`: located within `test/integration`, these tests focus on the behavior surfaced by the common library 
-  entrypoints from the `syft` package and make light assertions about the results surfaced. Additionally, these tests
+  entrypoints from the `gosbom` package and make light assertions about the results surfaced. Additionally, these tests
   tend to make diversity assertions for enum-like objects, ensuring that as enum values are added to a definition
   that integration tests will automatically fail if no test attempts to use that enum value. For more details see 
   the "Data diversity and freshness assertions" section below.
@@ -193,12 +193,12 @@ rough outline how that works:
 - `cli`: located with in `test/cli`, these are tests that test the correctness of application behavior from a 
   snapshot build. This should be used in cases where a unit or integration test will not do or if you are looking
   for in-depth testing of code in the `cmd/` package (such as testing the proper behavior of application configuration,
-  CLI switches, and glue code before syft library calls).
+  CLI switches, and glue code before gosbom library calls).
 
 - `acceptance`: located within `test/compare` and `test/install`, these are smoke-like tests that ensure that application  
   packaging and installation works as expected. For example, during release we provide RPM packages as a download 
   artifact. We also have an accompanying RPM acceptance test that installs the RPM from a snapshot build and ensures the 
-  output of a syft invocation matches canned expected output. New acceptance tests should be added for each release artifact
+  output of a gosbom invocation matches canned expected output. New acceptance tests should be added for each release artifact
   and architecture supported (when possible).
 
 ### Data diversity and freshness assertions
@@ -230,7 +230,7 @@ func TestCatalogPackages(t *testing.T) {
   }
   for _, test := range cases {
     t.Run(test.name, func (t *testing.T) {
-      // use inputFixturePath and assert that syft.CatalogPackages() returns the set of expected Package objects
+      // use inputFixturePath and assert that gosbom.CatalogPackages() returns the set of expected Package objects
       // ...
     })
   }
@@ -271,7 +271,7 @@ func TestCatalogPackages(t *testing.T) {
   
   for _, test := range cases {
     t.Run(test.name, func (t *testing.T) {
-      // use inputFixturePath and assert that syft.CatalogPackages() returns the set of expected Package objects
+      // use inputFixturePath and assert that gosbom.CatalogPackages() returns the set of expected Package objects
     	// ...
     	
     	// new stuff...
@@ -299,7 +299,7 @@ A similar case can be made for data freshness; if the quality of the results wil
 is not kept up to date then a test should be written (when possible) to assert any input data is not stale.
 
 An example of this is the static list of licenses that is stored in `internal/spdxlicense` for use by the SPDX 
-presenters. This list is updated and published periodically by an external group and syft can grab and update this
+presenters. This list is updated and published periodically by an external group and gosbom can grab and update this
 list by running `go generate ./...` from the root of the repo.
 
 An integration test has been written to grabs the latest license list version externally and compares that version

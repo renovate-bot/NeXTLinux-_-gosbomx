@@ -3,7 +3,7 @@ package golang
 import (
 	"testing"
 
-	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/internal/pkgtest"
 )
 
 func Test_Mod_Cataloger_Globs(t *testing.T) {

@@ -1,14 +1,14 @@
 package spdxjson
 
 import (
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 const ID sbom.FormatID = "spdx-json"
 
 var IDs = []sbom.FormatID{ID}
 
-// note: this format is LOSSY relative to the syftjson format
+// note: this format is LOSSY relative to the gosbomjson format
 
 func Format2_2() sbom.Format {
 	return sbom.NewFormat(

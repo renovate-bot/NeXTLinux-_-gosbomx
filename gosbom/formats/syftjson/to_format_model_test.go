@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"testing"
@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/nextlinux/stereoscope/pkg/file"
-	"github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Test_toSourceModel(t *testing.T) {

@@ -1,6 +1,6 @@
 package cpe
 
-import "github.com/nextlinux/syft/syft/pkg"
+import "github.com/nextlinux/gosbom/gosbom/pkg"
 
 func candidateVendorsForJavascript(p pkg.Package) fieldCandidateSet {
 	if p.MetadataType != pkg.NpmPackageJSONMetadataType {

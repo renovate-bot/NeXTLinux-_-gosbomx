@@ -12,15 +12,15 @@ import (
 	"golang.org/x/exp/maps"
 	"golang.org/x/exp/slices"
 
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/internal/spdxlicense"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/formats/common/util"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/internal/spdxlicense"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/formats/common/util"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 const (
@@ -155,8 +155,8 @@ func toPackages(catalog *pkg.Collection, sbom sbom.SBOM) (results []*spdx.Packag
 		license := License(p)
 
 		// two ways to get filesAnalyzed == true:
-		// 1. syft has generated a sha1 digest for the package itself - usually in the java cataloger
-		// 2. syft has generated a sha1 digest for the package's contents
+		// 1. gosbom has generated a sha1 digest for the package itself - usually in the java cataloger
+		// 2. gosbom has generated a sha1 digest for the package's contents
 		packageChecksums, filesAnalyzed := toPackageChecksums(p)
 
 		packageVerificationCode := newPackageVerificationCode(p, sbom)
@@ -321,7 +321,7 @@ func toPackageChecksums(p pkg.Package) ([]spdx.Checksum, bool) {
 	// we generate digest for some Java packages
 	// spdx.github.io/spdx-spec/package-information/#710-package-checksum-field
 	case pkg.JavaMetadata:
-		// if syft has generated the digest here then filesAnalyzed is true
+		// if gosbom has generated the digest here then filesAnalyzed is true
 		if len(meta.ArchiveDigests) > 0 {
 			filesAnalyzed = true
 			for _, digest := range meta.ArchiveDigests {

@@ -1,10 +1,10 @@
 package table
 
 import (
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
-const ID sbom.FormatID = "syft-table"
+const ID sbom.FormatID = "gosbom-table"
 
 func Format() sbom.Format {
 	return sbom.NewFormat(

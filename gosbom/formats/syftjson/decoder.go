@@ -1,12 +1,12 @@
-package syftjson
+package gosbomjson
 
 import (
 	"encoding/json"
 	"fmt"
 	"io"
 
-	"github.com/nextlinux/syft/syft/formats/syftjson/model"
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
 func decoder(reader io.Reader) (*sbom.SBOM, error) {
@@ -15,7 +15,7 @@ func decoder(reader io.Reader) (*sbom.SBOM, error) {
 	var doc model.Document
 	err := dec.Decode(&doc)
 	if err != nil {
-		return nil, fmt.Errorf("unable to decode syft-json: %w", err)
+		return nil, fmt.Errorf("unable to decode gosbom-json: %w", err)
 	}
 
 	return toGosbomModel(doc)

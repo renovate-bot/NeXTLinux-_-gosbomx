@@ -10,15 +10,15 @@
             "version": "4.1.73.Final",
             "properties": [
                 {
-                    "name": "syft:cpe23",
+                    "name": "gosbom:cpe23",
                     "value": "cpe:2.3:a:codec:codec:4.1.73.Final:*:*:*:*:*:*:*"
                 },
                 {
-                    "name": "syft:cpe23",
+                    "name": "gosbom:cpe23",
                     "value": "cpe:2.3:a:codec:netty-codec-http2:4.1.73.Final:*:*:*:*:*:*:*"
                 },
                 {
-                    "name": "syft:cpe23",
+                    "name": "gosbom:cpe23",
                     "value": "cpe:2.3:a:codec:netty_codec_http2:4.1.73.Final:*:*:*:*:*:*:*"
                 }
             ]

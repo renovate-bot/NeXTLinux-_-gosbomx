@@ -4,8 +4,8 @@ Package apkdb provides a concrete Cataloger implementation for Alpine DB files.
 package apkdb
 
 import (
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/generic"
 )
 
 const catalogerName = "apkdb-cataloger"

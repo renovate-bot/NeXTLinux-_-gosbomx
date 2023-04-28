@@ -15,9 +15,9 @@ import (
 	"github.com/wagoodman/jotframe/pkg/frame"
 
 	"github.com/nextlinux/gologger"
-	"github.com/nextlinux/syft/internal/log"
-	syftEvent "github.com/nextlinux/syft/syft/event"
-	"github.com/nextlinux/syft/ui"
+	"github.com/nextlinux/gosbom/internal/log"
+	gosbomEvent "github.com/nextlinux/gosbom/gosbom/event"
+	"github.com/nextlinux/gosbom/ui"
 )
 
 // ephemeralTerminalUI provides an "ephemeral" terminal user interface to display the application state dynamically.
@@ -76,12 +76,12 @@ func (h *ephemeralTerminalUI) Handle(event partybus.Event) error {
 			log.Errorf("unable to show %s event: %+v", event.Type, err)
 		}
 
-	case event.Type == syftEvent.AppUpdateAvailable:
+	case event.Type == gosbomEvent.AppUpdateAvailable:
 		if err := handleAppUpdateAvailable(ctx, h.frame, event, h.waitGroup); err != nil {
 			log.Errorf("unable to show %s event: %+v", event.Type, err)
 		}
 
-	case event.Type == syftEvent.Exit:
+	case event.Type == gosbomEvent.Exit:
 		// we need to close the screen now since signaling the sbom is ready means that we
 		// are about to write bytes to stdout, so we should reset the terminal state first
 		h.closeScreen(false)

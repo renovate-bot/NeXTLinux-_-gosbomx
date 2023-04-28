@@ -4,12 +4,12 @@ import (
 	"crypto"
 	"fmt"
 
-	"github.com/nextlinux/syft/internal/config"
-	"github.com/nextlinux/syft/syft"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/internal/config"
+	"github.com/nextlinux/gosbom/gosbom"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 type Task func(*sbom.Artifacts, *source.Source) ([]artifact.Relationship, error)
@@ -45,7 +45,7 @@ func generateCatalogPackagesTask(app *config.Application) (Task, error) {
 	}
 
 	task := func(results *sbom.Artifacts, src *source.Source) ([]artifact.Relationship, error) {
-		packageCatalog, relationships, theDistro, err := syft.CatalogPackages(src, app.ToCatalogerConfig())
+		packageCatalog, relationships, theDistro, err := gosbom.CatalogPackages(src, app.ToCatalogerConfig())
 
 		results.PackageCatalog = packageCatalog
 		results.LinuxDistribution = theDistro

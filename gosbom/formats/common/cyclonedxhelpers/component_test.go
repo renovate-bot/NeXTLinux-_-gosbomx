@@ -8,8 +8,8 @@ import (
 	"github.com/CycloneDX/cyclonedx-go"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Test_encodeComponentProperties(t *testing.T) {
@@ -50,15 +50,15 @@ func Test_encodeComponentProperties(t *testing.T) {
 				},
 			},
 			expected: &[]cyclonedx.Property{
-				{Name: "syft:package:foundBy", Value: "cataloger"},
-				{Name: "syft:location:0:path", Value: "test"},
-				{Name: "syft:metadata:gitCommitOfApkPort", Value: "97b1c2842faa3bfa30f5811ffbf16d5ff9f1a479"},
-				{Name: "syft:metadata:installedSize", Value: "4096"},
-				{Name: "syft:metadata:originPackage", Value: "libc-dev"},
-				{Name: "syft:metadata:provides:0", Value: "so:libc.so.1"},
-				{Name: "syft:metadata:pullChecksum", Value: "Q1p78yvTLG094tHE1+dToJGbmYzQE="},
-				{Name: "syft:metadata:pullDependencies:0", Value: "musl-utils"},
-				{Name: "syft:metadata:size", Value: "0"},
+				{Name: "gosbom:package:foundBy", Value: "cataloger"},
+				{Name: "gosbom:location:0:path", Value: "test"},
+				{Name: "gosbom:metadata:gitCommitOfApkPort", Value: "97b1c2842faa3bfa30f5811ffbf16d5ff9f1a479"},
+				{Name: "gosbom:metadata:installedSize", Value: "4096"},
+				{Name: "gosbom:metadata:originPackage", Value: "libc-dev"},
+				{Name: "gosbom:metadata:provides:0", Value: "so:libc.so.1"},
+				{Name: "gosbom:metadata:pullChecksum", Value: "Q1p78yvTLG094tHE1+dToJGbmYzQE="},
+				{Name: "gosbom:metadata:pullDependencies:0", Value: "musl-utils"},
+				{Name: "gosbom:metadata:size", Value: "0"},
 			},
 		},
 		{
@@ -77,10 +77,10 @@ func Test_encodeComponentProperties(t *testing.T) {
 				},
 			},
 			expected: &[]cyclonedx.Property{
-				{Name: "syft:package:metadataType", Value: "DpkgMetadata"},
-				{Name: "syft:metadata:installedSize", Value: "3036"},
-				{Name: "syft:metadata:source", Value: "tzdata-dev"},
-				{Name: "syft:metadata:sourceVersion", Value: "1.0"},
+				{Name: "gosbom:package:metadataType", Value: "DpkgMetadata"},
+				{Name: "gosbom:metadata:installedSize", Value: "3036"},
+				{Name: "gosbom:metadata:source", Value: "tzdata-dev"},
+				{Name: "gosbom:metadata:sourceVersion", Value: "1.0"},
 			},
 		},
 		{
@@ -98,12 +98,12 @@ func Test_encodeComponentProperties(t *testing.T) {
 				},
 			},
 			expected: &[]cyclonedx.Property{
-				{Name: "syft:package:language", Value: pkg.Go.String()},
-				{Name: "syft:package:metadataType", Value: "GolangBinMetadata"},
-				{Name: "syft:package:type", Value: "go-module"},
-				{Name: "syft:metadata:architecture", Value: "amd64"},
-				{Name: "syft:metadata:goCompiledVersion", Value: "1.17"},
-				{Name: "syft:metadata:h1Digest", Value: "h1:KlOXYy8wQWTUJYFgkUI40Lzr06ofg5IRXUK5C7qZt1k="},
+				{Name: "gosbom:package:language", Value: pkg.Go.String()},
+				{Name: "gosbom:package:metadataType", Value: "GolangBinMetadata"},
+				{Name: "gosbom:package:type", Value: "go-module"},
+				{Name: "gosbom:metadata:architecture", Value: "amd64"},
+				{Name: "gosbom:metadata:goCompiledVersion", Value: "1.17"},
+				{Name: "gosbom:metadata:h1Digest", Value: "h1:KlOXYy8wQWTUJYFgkUI40Lzr06ofg5IRXUK5C7qZt1k="},
 			},
 		},
 		{
@@ -119,10 +119,10 @@ func Test_encodeComponentProperties(t *testing.T) {
 				},
 			},
 			expected: &[]cyclonedx.Property{
-				{Name: "syft:package:language", Value: pkg.Go.String()},
-				{Name: "syft:package:metadataType", Value: "GolangModMetadata"},
-				{Name: "syft:package:type", Value: "go-module"},
-				{Name: "syft:metadata:h1Digest", Value: "h1:KlOXYy8wQWTUJYFgkUI40Lzr06ofg5IRXUK5C7qZt1k="},
+				{Name: "gosbom:package:language", Value: pkg.Go.String()},
+				{Name: "gosbom:package:metadataType", Value: "GolangModMetadata"},
+				{Name: "gosbom:package:type", Value: "go-module"},
+				{Name: "gosbom:metadata:h1Digest", Value: "h1:KlOXYy8wQWTUJYFgkUI40Lzr06ofg5IRXUK5C7qZt1k="},
 			},
 		},
 		{
@@ -146,12 +146,12 @@ func Test_encodeComponentProperties(t *testing.T) {
 				},
 			},
 			expected: &[]cyclonedx.Property{
-				{Name: "syft:package:metadataType", Value: "RpmMetadata"},
-				{Name: "syft:package:type", Value: "rpm"},
-				{Name: "syft:metadata:epoch", Value: "2"},
-				{Name: "syft:metadata:release", Value: "1"},
-				{Name: "syft:metadata:size", Value: "12406784"},
-				{Name: "syft:metadata:sourceRpm", Value: "dive-0.9.2-1.src.rpm"},
+				{Name: "gosbom:package:metadataType", Value: "RpmMetadata"},
+				{Name: "gosbom:package:type", Value: "rpm"},
+				{Name: "gosbom:metadata:epoch", Value: "2"},
+				{Name: "gosbom:metadata:release", Value: "1"},
+				{Name: "gosbom:metadata:size", Value: "12406784"},
+				{Name: "gosbom:metadata:sourceRpm", Value: "dive-0.9.2-1.src.rpm"},
 			},
 		},
 	}
@@ -182,7 +182,7 @@ func Test_encodeCompomentType(t *testing.T) {
 				Type:    cyclonedx.ComponentTypeLibrary,
 				Properties: &[]cyclonedx.Property{
 					{
-						Name:  "syft:package:type",
+						Name:  "gosbom:package:type",
 						Value: "go-module",
 					},
 				},
@@ -201,7 +201,7 @@ func Test_encodeCompomentType(t *testing.T) {
 				Type:    cyclonedx.ComponentTypeApplication,
 				Properties: &[]cyclonedx.Property{
 					{
-						Name:  "syft:package:type",
+						Name:  "gosbom:package:type",
 						Value: "binary",
 					},
 				},
@@ -297,7 +297,7 @@ func Test_decodeComponent(t *testing.T) {
 				BOMRef:     "pkg:rpm/centos/acl@2.2.53-1.el8?arch=x86_64&upstream=acl-2.2.53-1.el8.src.rpm&distro=centos-8",
 				Properties: &[]cyclonedx.Property{
 					{
-						Name:  "syft:package:metadataType",
+						Name:  "gosbom:package:metadataType",
 						Value: "RpmdbMetadata",
 					},
 				},
@@ -315,11 +315,11 @@ func Test_decodeComponent(t *testing.T) {
 				BOMRef:     "pkg:rpm/centos/acl@2.2.53-1.el8?arch=x86_64&upstream=acl-2.2.53-1.el8.src.rpm&distro=centos-8",
 				Properties: &[]cyclonedx.Property{
 					{
-						Name:  "syft:package:metadataType",
+						Name:  "gosbom:package:metadataType",
 						Value: "RpmMetadata",
 					},
 					{
-						Name:  "syft:metadata:release",
+						Name:  "gosbom:metadata:release",
 						Value: "some-release",
 					},
 				},

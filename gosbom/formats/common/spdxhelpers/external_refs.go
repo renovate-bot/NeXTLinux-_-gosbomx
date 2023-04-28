@@ -1,8 +1,8 @@
 package spdxhelpers
 
 import (
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
 )
 
 func ExternalRefs(p pkg.Package) (externalRefs []ExternalRef) {

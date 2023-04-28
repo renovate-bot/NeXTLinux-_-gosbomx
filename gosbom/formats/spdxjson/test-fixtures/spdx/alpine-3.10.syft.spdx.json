@@ -6,12 +6,12 @@
   "created": "2022-01-20T21:40:24.439211Z",
   "creators": [
    "Organization: Nextlinux, Inc",
-   "Tool: syft-[not provided]"
+   "Tool: gosbom-[not provided]"
   ],
   "licenseListVersion": "3.15"
  },
  "dataLicense": "CC0-1.0",
- "documentNamespace": "https://nextlinux.com/syft/image/alpine-3.10-204b304b-beb3-4413-9b38-d8a2e58e3dfb",
+ "documentNamespace": "https://nextlinux.com/gosbom/image/alpine-3.10-204b304b-beb3-4413-9b38-d8a2e58e3dfb",
  "packages": [
   {
    "SPDXID": "SPDXRef-a61243292e73923",

@@ -3,12 +3,12 @@ package integration
 import (
 	"testing"
 
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func TestRegression212ApkBufferSize(t *testing.T) {
-	// This is a regression test for issue #212 (https://github.com/nextlinux/syft/issues/212) in which the apk db could
+	// This is a regression test for issue #212 (https://github.com/nextlinux/gosbom/issues/212) in which the apk db could
 	// not be processed due to a scanner buffer that was too small
 	sbom, _ := catalogFixtureImage(t, "image-large-apk-data", source.SquashedScope, nil)
 

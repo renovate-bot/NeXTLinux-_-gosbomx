@@ -9,7 +9,7 @@
     "tools": [
       {
         "vendor": "nextlinux",
-        "name": "syft",
+        "name": "gosbom",
         "version": "v0.42.0-bogus"
       }
     ],
@@ -36,23 +36,23 @@
       "purl": "a-purl-2",
       "properties": [
         {
-          "name": "syft:package:foundBy",
+          "name": "gosbom:package:foundBy",
           "value": "the-cataloger-1"
         },
         {
-          "name": "syft:package:language",
+          "name": "gosbom:package:language",
           "value": "python"
         },
         {
-          "name": "syft:package:metadataType",
+          "name": "gosbom:package:metadataType",
           "value": "PythonPackageMetadata"
         },
         {
-          "name": "syft:package:type",
+          "name": "gosbom:package:type",
           "value": "python"
         },
         {
-          "name": "syft:location:0:path",
+          "name": "gosbom:location:0:path",
           "value": "/some/path/pkg1"
         }
       ]
@@ -66,23 +66,23 @@
       "purl": "pkg:deb/debian/package-2@2.0.1",
       "properties": [
         {
-          "name": "syft:package:foundBy",
+          "name": "gosbom:package:foundBy",
           "value": "the-cataloger-2"
         },
         {
-          "name": "syft:package:metadataType",
+          "name": "gosbom:package:metadataType",
           "value": "DpkgMetadata"
         },
         {
-          "name": "syft:package:type",
+          "name": "gosbom:package:type",
           "value": "deb"
         },
         {
-          "name": "syft:location:0:path",
+          "name": "gosbom:location:0:path",
           "value": "/some/path/pkg1"
         },
         {
-          "name": "syft:metadata:installedSize",
+          "name": "gosbom:metadata:installedSize",
           "value": "0"
         }
       ]
@@ -99,19 +99,19 @@
       },
       "properties": [
         {
-          "name": "syft:distro:id",
+          "name": "gosbom:distro:id",
           "value": "debian"
         },
         {
-          "name": "syft:distro:idLike:0",
+          "name": "gosbom:distro:idLike:0",
           "value": "like!"
         },
         {
-          "name": "syft:distro:prettyName",
+          "name": "gosbom:distro:prettyName",
           "value": "debian"
         },
         {
-          "name": "syft:distro:versionID",
+          "name": "gosbom:distro:versionID",
           "value": "1.2.3"
         }
       ]

@@ -7,12 +7,12 @@ import (
 	"github.com/CycloneDX/cyclonedx-go"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/formats/common"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/formats/common"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func GetValidator(format cyclonedx.BOMFileFormat) sbom.Validator {
@@ -89,9 +89,9 @@ func collectPackages(component *cyclonedx.Component, s *sbom.SBOM, idMap map[str
 	case cyclonedx.ComponentTypeApplication, cyclonedx.ComponentTypeFramework, cyclonedx.ComponentTypeLibrary:
 		p := decodeComponent(component)
 		idMap[component.BOMRef] = p
-		syftID := extractGosbomPacakgeID(component.BOMRef)
-		if syftID != "" {
-			idMap[syftID] = p
+		gosbomID := extractGosbomPacakgeID(component.BOMRef)
+		if gosbomID != "" {
+			idMap[gosbomID] = p
 		}
 		// TODO there must be a better way than needing to call this manually:
 		p.SetID()
@@ -184,7 +184,7 @@ func linuxReleaseFromOSComponent(component *cyclonedx.Component) *linux.Release 
 		for _, p := range *component.Properties {
 			values[p.Name] = p.Value
 		}
-		common.DecodeInto(&rel, values, "syft:distro", CycloneDXFields)
+		common.DecodeInto(&rel, values, "gosbom:distro", CycloneDXFields)
 	}
 
 	return rel

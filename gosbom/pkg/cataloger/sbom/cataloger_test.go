@@ -5,13 +5,13 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nextlinux/syft/syft/artifact"
-	"github.com/nextlinux/syft/syft/cpe"
-	"github.com/nextlinux/syft/syft/formats/syftjson"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/artifact"
+	"github.com/nextlinux/gosbom/gosbom/cpe"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func mustCPEs(s ...string) (c []cpe.CPE) {
@@ -38,7 +38,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "alpine-baselayout",
 			Version:   "3.2.0-r23",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"GPL-2.0-only"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/alpine-baselayout@3.2.0-r23?arch=x86_64&upstream=alpine-baselayout&distro=alpine-3.16.3",
@@ -55,7 +55,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "alpine-baselayout-data",
 			Version:   "3.2.0-r23",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"GPL-2.0-only"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/alpine-baselayout-data@3.2.0-r23?arch=x86_64&upstream=alpine-baselayout&distro=alpine-3.16.3",
@@ -76,7 +76,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "alpine-keys",
 			Version:   "2.4-r1",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"MIT"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/alpine-keys@2.4-r1?arch=x86_64&upstream=alpine-keys&distro=alpine-3.16.3",
@@ -93,7 +93,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "apk-tools",
 			Version:   "2.12.9-r3",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"GPL-2.0-only"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/apk-tools@2.12.9-r3?arch=x86_64&upstream=apk-tools&distro=alpine-3.16.3",
@@ -110,7 +110,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "busybox",
 			Version:   "1.35.0-r17",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"GPL-2.0-only"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/busybox@1.35.0-r17?arch=x86_64&upstream=busybox&distro=alpine-3.16.3",
@@ -122,7 +122,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "ca-certificates-bundle",
 			Version:   "20220614-r0",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"MPL-2.0", "AND", "MIT"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/ca-certificates-bundle@20220614-r0?arch=x86_64&upstream=ca-certificates&distro=alpine-3.16.3",
@@ -143,7 +143,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "libc-utils",
 			Version:   "0.7.2-r3",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"BSD-2-Clause", "AND", "BSD-3-Clause"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/libc-utils@0.7.2-r3?arch=x86_64&upstream=libc-dev&distro=alpine-3.16.3",
@@ -160,7 +160,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "libcrypto1.1",
 			Version:   "1.1.1s-r0",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"OpenSSL"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/libcrypto1.1@1.1.1s-r0?arch=x86_64&upstream=openssl&distro=alpine-3.16.3",
@@ -172,7 +172,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "libssl1.1",
 			Version:   "1.1.1s-r0",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"OpenSSL"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/libssl1.1@1.1.1s-r0?arch=x86_64&upstream=openssl&distro=alpine-3.16.3",
@@ -184,7 +184,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "musl",
 			Version:   "1.2.3-r1",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"MIT"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/musl@1.2.3-r1?arch=x86_64&upstream=musl&distro=alpine-3.16.3",
@@ -196,7 +196,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "musl-utils",
 			Version:   "1.2.3-r1",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"MIT", "BSD", "GPL2+"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/musl-utils@1.2.3-r1?arch=x86_64&upstream=musl&distro=alpine-3.16.3",
@@ -213,7 +213,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "scanelf",
 			Version:   "1.3.4-r0",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"GPL-2.0-only"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/scanelf@1.3.4-r0?arch=x86_64&upstream=pax-utils&distro=alpine-3.16.3",
@@ -225,7 +225,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "ssl_client",
 			Version:   "1.35.0-r17",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"GPL-2.0-only"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/ssl_client@1.35.0-r17?arch=x86_64&upstream=busybox&distro=alpine-3.16.3",
@@ -242,7 +242,7 @@ func Test_parseSBOM(t *testing.T) {
 			Name:      "zlib",
 			Version:   "1.2.12-r3",
 			Type:      "apk",
-			Locations: source.NewLocationSet(source.NewLocation("sbom.syft.json")),
+			Locations: source.NewLocationSet(source.NewLocation("sbom.gosbom.json")),
 			Licenses:  []string{"Zlib"},
 			FoundBy:   "sbom-cataloger",
 			PURL:      "pkg:apk/alpine/zlib@1.2.12-r3?arch=x86_64&upstream=zlib&distro=alpine-3.16.3",
@@ -258,7 +258,7 @@ func Test_parseSBOM(t *testing.T) {
 		expectedRelationships = append(expectedRelationships, artifact.Relationship{
 			From: p,
 			To: source.Coordinates{
-				RealPath: "sbom.syft.json",
+				RealPath: "sbom.gosbom.json",
 			},
 			Type: artifact.DescribedByRelationship,
 		})
@@ -273,9 +273,9 @@ func Test_parseSBOM(t *testing.T) {
 		wantErr           require.ErrorAssertionFunc
 	}{
 		{
-			name:              "parse syft JSON",
-			format:            syftjson.Format(),
-			fixture:           "test-fixtures/alpine/syft-json",
+			name:              "parse gosbom JSON",
+			format:            gosbomjson.Format(),
+			fixture:           "test-fixtures/alpine/gosbom-json",
 			wantPkgs:          expectedPkgs,
 			wantRelationships: expectedRelationships,
 		},
@@ -303,7 +303,7 @@ func Test_Cataloger_Globs(t *testing.T) {
 			expected: []string{
 				"bom",
 				"sbom",
-				"app.syft.json",
+				"app.gosbom.json",
 				"app.bom",
 				"app.sbom",
 				"app.cdx",

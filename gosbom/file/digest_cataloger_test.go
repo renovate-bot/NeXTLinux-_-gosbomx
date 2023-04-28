@@ -13,7 +13,7 @@ import (
 
 	"github.com/nextlinux/stereoscope/pkg/file"
 	"github.com/nextlinux/stereoscope/pkg/imagetest"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func testDigests(t testing.TB, root string, files []string, hashes ...crypto.Hash) map[source.Coordinates][]Digest {

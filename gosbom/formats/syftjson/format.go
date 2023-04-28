@@ -1,11 +1,11 @@
-package syftjson
+package gosbomjson
 
 import (
-	"github.com/nextlinux/syft/internal"
-	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/gosbom/internal"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
 )
 
-const ID sbom.FormatID = "syft-json"
+const ID sbom.FormatID = "gosbom-json"
 
 func Format() sbom.Format {
 	return sbom.NewFormat(
@@ -13,6 +13,6 @@ func Format() sbom.Format {
 		encoder,
 		decoder,
 		validator,
-		ID, "json", "syft",
+		ID, "json", "gosbom",
 	)
 }

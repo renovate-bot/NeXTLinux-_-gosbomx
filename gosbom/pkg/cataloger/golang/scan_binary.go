@@ -6,8 +6,8 @@ import (
 	"io"
 	"runtime/debug"
 
-	"github.com/nextlinux/syft/internal/log"
-	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/unionreader"
+	"github.com/nextlinux/gosbom/internal/log"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger/internal/unionreader"
 )
 
 // scanFile scans file to try to report the Go and module versions.

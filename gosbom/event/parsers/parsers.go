@@ -1,5 +1,5 @@
 /*
-Package parsers provides parser helpers to extract payloads for each event type that the syft library publishes onto the event bus.
+Package parsers provides parser helpers to extract payloads for each event type that the gosbom library publishes onto the event bus.
 */
 package parsers
 
@@ -10,10 +10,10 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/go-progress"
 
-	"github.com/nextlinux/syft/syft/event"
-	"github.com/nextlinux/syft/syft/event/monitor"
-	"github.com/nextlinux/syft/syft/file"
-	"github.com/nextlinux/syft/syft/pkg/cataloger"
+	"github.com/nextlinux/gosbom/gosbom/event"
+	"github.com/nextlinux/gosbom/gosbom/event/monitor"
+	"github.com/nextlinux/gosbom/gosbom/file"
+	"github.com/nextlinux/gosbom/gosbom/pkg/cataloger"
 )
 
 type ErrBadPayload struct {

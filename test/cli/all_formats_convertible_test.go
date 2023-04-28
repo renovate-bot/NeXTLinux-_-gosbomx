@@ -22,12 +22,12 @@ func TestAllFormatsConvertable(t *testing.T) {
 		template string
 		env      map[string]string
 	}{
-		{to: "syft-json", from: "spdx-json"},
-		{to: "syft-json", from: "cyclonedx-json"},
-		{to: "spdx-json", from: "syft-json"},
-		{to: "template", from: "syft-json", template: "test-fixtures/csv.template"},
+		{to: "gosbom-json", from: "spdx-json"},
+		{to: "gosbom-json", from: "cyclonedx-json"},
+		{to: "spdx-json", from: "gosbom-json"},
+		{to: "template", from: "gosbom-json", template: "test-fixtures/csv.template"},
 		{to: "spdx-json", from: "cyclonedx-json"},
-		{to: "cyclonedx-json", from: "syft-json"},
+		{to: "cyclonedx-json", from: "gosbom-json"},
 		{to: "cyclonedx-json", from: "spdx-json"},
 	}
 
@@ -39,7 +39,7 @@ func TestAllFormatsConvertable(t *testing.T) {
 				t.Log("STDOUT:\n", stdout)
 				t.Log("STDERR:\n", stderr)
 				t.Log("COMMAND:", strings.Join(cmd.Args, " "))
-				t.Fatalf("failure executing syft creating an sbom")
+				t.Fatalf("failure executing gosbom creating an sbom")
 				return
 			}
 

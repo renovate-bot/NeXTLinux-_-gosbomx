@@ -16,7 +16,7 @@ func TestConvertCmd(t *testing.T) {
 		from string
 		to   string
 	}{
-		{from: "syft-json", to: "spdx-tag-value"},
+		{from: "gosbom-json", to: "spdx-tag-value"},
 	}
 
 	for _, test := range tests {
@@ -27,7 +27,7 @@ func TestConvertCmd(t *testing.T) {
 				t.Log("STDOUT:\n", stdout)
 				t.Log("STDERR:\n", stderr)
 				t.Log("COMMAND:", strings.Join(cmd.Args, " "))
-				t.Fatalf("failure executing syft creating an sbom")
+				t.Fatalf("failure executing gosbom creating an sbom")
 				return
 			}
 

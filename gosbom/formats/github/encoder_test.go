@@ -7,10 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/nextlinux/packageurl-go"
-	"github.com/nextlinux/syft/syft/linux"
-	"github.com/nextlinux/syft/syft/pkg"
-	"github.com/nextlinux/syft/syft/sbom"
-	"github.com/nextlinux/syft/syft/source"
+	"github.com/nextlinux/gosbom/gosbom/linux"
+	"github.com/nextlinux/gosbom/gosbom/pkg"
+	"github.com/nextlinux/gosbom/gosbom/sbom"
+	"github.com/nextlinux/gosbom/gosbom/source"
 )
 
 func Test_toGithubModel(t *testing.T) {
@@ -79,12 +79,12 @@ func Test_toGithubModel(t *testing.T) {
 	expected := DependencySnapshot{
 		Version: 0,
 		Detector: DetectorMetadata{
-			Name:    "syft",
+			Name:    "gosbom",
 			Version: "0.0.0-dev",
-			URL:     "https://github.com/nextlinux/syft",
+			URL:     "https://github.com/nextlinux/gosbom",
 		},
 		Metadata: Metadata{
-			"syft:distro": "pkg:generic/ubuntu@18.04?like=debian",
+			"gosbom:distro": "pkg:generic/ubuntu@18.04?like=debian",
 		},
 		Scanned: actual.Scanned,
 		Manifests: Manifests{
@@ -94,7 +94,7 @@ func Test_toGithubModel(t *testing.T) {
 					SourceLocation: "ubuntu:18.04:/usr/lib",
 				},
 				Metadata: Metadata{
-					"syft:filesystem": "fsid-1",
+					"gosbom:filesystem": "fsid-1",
 				},
 				Resolved: DependencyGraph{
 					"pkg:generic/pkg-1@1.0.1": DependencyNode{
@@ -115,7 +115,7 @@ func Test_toGithubModel(t *testing.T) {
 					SourceLocation: "ubuntu:18.04:/etc",
 				},
 				Metadata: Metadata{
-					"syft:filesystem": "fsid-1",
+					"gosbom:filesystem": "fsid-1",
 				},
 				Resolved: DependencyGraph{
 					"pkg:generic/pkg-3@3.0.3": DependencyNode{

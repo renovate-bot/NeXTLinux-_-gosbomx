@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"github.com/go-test/deep"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/nextlinux/syft/syft/formats/internal/testutils"
+	"github.com/nextlinux/gosbom/gosbom/formats/internal/testutils"
 )
 
 func TestEncodeDecodeCycle(t *testing.T) {

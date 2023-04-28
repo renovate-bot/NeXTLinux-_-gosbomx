@@ -1,4 +1,4 @@
-package syftjson
+package gosbomjson
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/nextlinux/syft/syft/formats/syftjson/model"
+	"github.com/nextlinux/gosbom/gosbom/formats/gosbomjson/model"
 )
 
 func validator(reader io.Reader) error {
@@ -24,8 +24,8 @@ func validator(reader io.Reader) error {
 
 	// note: we accept all schema versions
 	// TODO: add per-schema version parsing
-	if strings.Contains(doc.Schema.URL, "nextlinux/syft") {
+	if strings.Contains(doc.Schema.URL, "nextlinux/gosbom") {
 		return nil
 	}
-	return fmt.Errorf("could not extract syft schema")
+	return fmt.Errorf("could not extract gosbom schema")
 }
