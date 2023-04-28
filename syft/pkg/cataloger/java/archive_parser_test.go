@@ -15,10 +15,10 @@ import (
 	"github.com/gookit/color"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/internal/pkgtest"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func generateJavaBuildFixture(t *testing.T, fixturePath string) {
@@ -204,7 +204,7 @@ func TestParseJar(t *testing.T) {
 				"example-java-app-maven": {
 					Name:         "example-java-app-maven",
 					Version:      "0.1.0",
-					PURL:         "pkg:maven/org.anchore/example-java-app-maven@0.1.0",
+					PURL:         "pkg:maven/org.nextlinux/example-java-app-maven@0.1.0",
 					Licenses:     []string{},
 					Language:     pkg.Java,
 					Type:         pkg.JavaPkg,
@@ -223,8 +223,8 @@ func TestParseJar(t *testing.T) {
 							},
 						},
 						PomProperties: &pkg.PomProperties{
-							Path:       "META-INF/maven/org.anchore/example-java-app-maven/pom.properties",
-							GroupID:    "org.anchore",
+							Path:       "META-INF/maven/org.nextlinux/example-java-app-maven/pom.properties",
+							GroupID:    "org.nextlinux",
 							ArtifactID: "example-java-app-maven",
 							Version:    "0.1.0",
 						},

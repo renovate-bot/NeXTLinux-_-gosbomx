@@ -3,10 +3,10 @@ package javascript
 import (
 	"testing"
 
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/internal/pkgtest"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func TestParsePnpmLock(t *testing.T) {

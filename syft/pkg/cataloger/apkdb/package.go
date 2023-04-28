@@ -3,10 +3,10 @@ package apkdb
 import (
 	"strings"
 
-	"github.com/anchore/packageurl-go"
-	"github.com/anchore/syft/syft/linux"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/packageurl-go"
+	"github.com/nextlinux/syft/syft/linux"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func newPackage(d pkg.ApkMetadata, release *linux.Release, locations ...source.Location) pkg.Package {

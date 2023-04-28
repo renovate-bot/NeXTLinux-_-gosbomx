@@ -3,11 +3,11 @@
  "dataLicense": "CC0-1.0",
  "SPDXID": "SPDXRef-DOCUMENT",
  "name": "user-image-input",
- "documentNamespace": "https://anchore.com/syft/image/user-image-input-ce98f51f-b483-4e93-9a15-5a8a16d35de6",
+ "documentNamespace": "https://nextlinux.com/syft/image/user-image-input-ce98f51f-b483-4e93-9a15-5a8a16d35de6",
  "creationInfo": {
   "licenseListVersion": "3.19",
   "creators": [
-   "Organization: Anchore, Inc",
+   "Organization: Nextlinux, Inc",
    "Tool: syft-v0.42.0-bogus"
   ],
   "created": "2023-01-20T21:41:03Z"

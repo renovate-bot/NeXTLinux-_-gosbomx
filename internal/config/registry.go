@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/anchore/stereoscope/pkg/image"
+	"github.com/nextlinux/stereoscope/pkg/image"
 )
 
 type RegistryCredentials struct {

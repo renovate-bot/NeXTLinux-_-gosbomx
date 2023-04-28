@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/anchore/stereoscope/pkg/image"
+	"github.com/nextlinux/stereoscope/pkg/image"
 )
 
 func TestDetectScheme(t *testing.T) {

@@ -2,22 +2,22 @@
     <img src="https://user-images.githubusercontent.com/5199289/136844524-1527b09f-c5cb-4aa9-be54-5aa92a6086c1.png" width="271" alt="Cute pink owl syft logo">
 </p>
 
-[![Validations](https://github.com/anchore/syft/actions/workflows/validations.yaml/badge.svg)](https://github.com/anchore/syft/actions/workflows/validations.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/anchore/syft)](https://goreportcard.com/report/github.com/anchore/syft)
-[![GitHub release](https://img.shields.io/github/release/anchore/syft.svg)](https://github.com/anchore/syft/releases/latest)
-[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/anchore/syft.svg)](https://github.com/anchore/syft)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/anchore/syft/blob/main/LICENSE)
-[![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://anchore.com/slack)
+[![Validations](https://github.com/nextlinux/syft/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/syft/actions/workflows/validations.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/syft)](https://goreportcard.com/report/github.com/nextlinux/syft)
+[![GitHub release](https://img.shields.io/github/release/nextlinux/syft.svg)](https://github.com/nextlinux/syft/releases/latest)
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/nextlinux/syft.svg)](https://github.com/nextlinux/syft)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/syft/blob/main/LICENSE)
+[![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://nextlinux.com/slack)
 
-A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Grype](https://github.com/anchore/grype).
+A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Grype](https://github.com/nextlinux/grype).
 
 ### Join our community meetings!
 
 - Calendar: https://calendar.google.com/calendar/u/0/r?cid=Y182OTM4dGt0MjRtajI0NnNzOThiaGtnM29qNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
-- Agenda: https://docs.google.com/document/d/1ZtSAa6fj2a6KRWviTn3WoJm09edvrNUp4Iz_dOjjyY8/edit?usp=sharing (join [this group](https://groups.google.com/g/anchore-oss-community) for write access)
+- Agenda: https://docs.google.com/document/d/1ZtSAa6fj2a6KRWviTn3WoJm09edvrNUp4Iz_dOjjyY8/edit?usp=sharing (join [this group](https://groups.google.com/g/nextlinux-oss-community) for write access)
 - All are welcome!
 
-For commercial support options with Syft or Grype, please [contact Anchore](https://get.anchore.com/contact/)
+For commercial support options with Syft or Grype, please [contact Nextlinux](https://get.nextlinux.com/contact/)
 
 ![syft-demo](https://user-images.githubusercontent.com/590471/90277200-2a253000-de33-11ea-893f-32c219eea11a.gif)
 
@@ -25,7 +25,7 @@ For commercial support options with Syft or Grype, please [contact Anchore](http
 - Generates SBOMs for container images, filesystems, archives, and more to discover packages and libraries
 - Supports OCI, Docker and [Singularity](https://github.com/sylabs/singularity) image formats
 - Linux distribution identification
-- Works seamlessly with [Grype](https://github.com/anchore/grype) (a fast, modern vulnerability scanner)
+- Works seamlessly with [Grype](https://github.com/nextlinux/grype) (a fast, modern vulnerability scanner)
 - Able to create signed SBOM attestations using the [in-toto specification](https://github.com/in-toto/attestation/blob/main/spec/README.md)
 - Convert between SBOM formats, such as CycloneDX, SPDX, and Syft's own format.
 
@@ -61,18 +61,18 @@ For commercial support options with Syft or Grype, please [contact Anchore](http
 
 ### Recommended
 ```bash
-curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+curl -sSfL https://raw.githubusercontent.com/nextlinux/syft/main/install.sh | sh -s -- -b /usr/local/bin
 ```
 
 ... or, you can specify a release version and destination directory for the installation:
 
 ```
-curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b <DESTINATION_DIR> <RELEASE_VERSION>
+curl -sSfL https://raw.githubusercontent.com/nextlinux/syft/main/install.sh | sh -s -- -b <DESTINATION_DIR> <RELEASE_VERSION>
 ```
 
 ### Chocolatey
 
-The chocolatey distribution of syft is community maintained and not distributed by the anchore team
+The chocolatey distribution of syft is community maintained and not distributed by the nextlinux team
 
 ```powershell
 choco install syft -y
@@ -146,7 +146,7 @@ If an image source is not provided and cannot be detected from the given referen
 If docker is not present, then the Podman daemon is attempted next, followed by reaching out directly to the image registry last.
 
 
-This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](https://github.com/anchore/syft#configuration) for more details).
+This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](https://github.com/nextlinux/syft#configuration) for more details).
 
 ### Default Cataloger Configuration by scan type
 
@@ -292,7 +292,7 @@ An example `config.json` looks something like this:
 You can run the following command as an example. It details the mount/environment configuration a container needs to access a private registry:
 
 ```
-docker run -v ./config.json:/config/config.json -e "DOCKER_CONFIG=/config" anchore/syft:latest  <private_image>
+docker run -v ./config.json:/config/config.json -e "DOCKER_CONFIG=/config" nextlinux/syft:latest  <private_image>
 ```
 
 ### Docker Credentials in Kubernetes
@@ -327,7 +327,7 @@ Here's a simple workflow to mount this config file as a secret into a container 
       name: syft-k8s-usage
     spec:
       containers:
-        - image: anchore/syft:latest
+        - image: nextlinux/syft:latest
           name: syft-private-registry-demo
           env:
             - name: DOCKER_CONFIG
@@ -655,7 +655,7 @@ log:
 
 `syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]`
 
-SBOMs themselves can serve as input to different analysis tools. [Grype](https://github.com/anchore/grype), a vulnerability scanner CLI tool from Anchore, is one such tool. Publishers of container images can use attestations to enable their consumers to trust Syft-generated SBOM descriptions of those container images. To create and provide these attestations, image publishers can run `syft attest` in conjunction with the [cosign](https://github.com/sigstore/cosign) tool to attach SBOM attestations to their images.
+SBOMs themselves can serve as input to different analysis tools. [Grype](https://github.com/nextlinux/grype), a vulnerability scanner CLI tool from Nextlinux, is one such tool. Publishers of container images can use attestations to enable their consumers to trust Syft-generated SBOM descriptions of those container images. To create and provide these attestations, image publishers can run `syft attest` in conjunction with the [cosign](https://github.com/sigstore/cosign) tool to attach SBOM attestations to their images.
 
 #### Example attestation
 Note for the following example replace `docker.io/image:latest` with an image you own. You should also have push access to

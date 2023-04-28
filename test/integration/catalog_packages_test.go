@@ -9,12 +9,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/stereoscope/pkg/imagetest"
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/linux"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/stereoscope/pkg/imagetest"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/linux"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func BenchmarkImagePackageCatalogers(b *testing.B) {

@@ -8,11 +8,11 @@ import (
 	rpmdb "github.com/knqyf263/go-rpmdb/pkg"
 	"github.com/sassoftware/go-rpmutils"
 
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/file"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/generic"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/file"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 // parseRpm parses a single RPM

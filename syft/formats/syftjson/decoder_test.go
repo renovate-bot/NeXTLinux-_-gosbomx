@@ -8,7 +8,7 @@ import (
 	"github.com/go-test/deep"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/anchore/syft/syft/formats/internal/testutils"
+	"github.com/nextlinux/syft/syft/formats/internal/testutils"
 )
 
 func TestEncodeDecodeCycle(t *testing.T) {

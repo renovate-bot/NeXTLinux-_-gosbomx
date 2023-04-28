@@ -8,17 +8,17 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/syft/cmd/syft/cli/convert"
-	"github.com/anchore/syft/internal/config"
-	"github.com/anchore/syft/syft/formats"
-	"github.com/anchore/syft/syft/formats/cyclonedxjson"
-	"github.com/anchore/syft/syft/formats/cyclonedxxml"
-	"github.com/anchore/syft/syft/formats/spdxjson"
-	"github.com/anchore/syft/syft/formats/spdxtagvalue"
-	"github.com/anchore/syft/syft/formats/syftjson"
-	"github.com/anchore/syft/syft/formats/table"
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/cmd/syft/cli/convert"
+	"github.com/nextlinux/syft/internal/config"
+	"github.com/nextlinux/syft/syft/formats"
+	"github.com/nextlinux/syft/syft/formats/cyclonedxjson"
+	"github.com/nextlinux/syft/syft/formats/cyclonedxxml"
+	"github.com/nextlinux/syft/syft/formats/spdxjson"
+	"github.com/nextlinux/syft/syft/formats/spdxtagvalue"
+	"github.com/nextlinux/syft/syft/formats/syftjson"
+	"github.com/nextlinux/syft/syft/formats/table"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 // TestConvertCmd tests if the converted SBOM is a valid document according

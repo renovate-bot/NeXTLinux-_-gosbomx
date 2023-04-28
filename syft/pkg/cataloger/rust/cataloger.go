@@ -4,8 +4,8 @@ Package rust provides a concrete Cataloger implementation for Cargo.lock files.
 package rust
 
 import (
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/pkg/cataloger/generic"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
 )
 
 // NewCargoLockCataloger returns a new Rust Cargo lock file cataloger object.

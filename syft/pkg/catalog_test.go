@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 type expectedIndexes struct {

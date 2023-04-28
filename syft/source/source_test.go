@@ -21,9 +21,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/stereoscope/pkg/image"
-	"github.com/anchore/stereoscope/pkg/imagetest"
-	"github.com/anchore/syft/syft/artifact"
+	"github.com/nextlinux/stereoscope/pkg/image"
+	"github.com/nextlinux/stereoscope/pkg/imagetest"
+	"github.com/nextlinux/syft/syft/artifact"
 )
 
 func TestParseInput(t *testing.T) {

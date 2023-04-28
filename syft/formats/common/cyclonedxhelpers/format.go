@@ -6,14 +6,14 @@ import (
 	"github.com/CycloneDX/cyclonedx-go"
 	"github.com/google/uuid"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/linux"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/linux"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func ToFormatModel(s sbom.SBOM) *cyclonedx.BOM {
@@ -115,7 +115,7 @@ func toBomDescriptor(name, version string, srcMetadata source.Metadata) *cyclone
 		Timestamp: time.Now().Format(time.RFC3339),
 		Tools: &[]cyclonedx.Tool{
 			{
-				Vendor:  "anchore",
+				Vendor:  "nextlinux",
 				Name:    name,
 				Version: version,
 			},

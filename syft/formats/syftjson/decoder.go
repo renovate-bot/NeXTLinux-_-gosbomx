@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/anchore/syft/syft/formats/syftjson/model"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/formats/syftjson/model"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 func decoder(reader io.Reader) (*sbom.SBOM, error) {

@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/generic"
-	"github.com/anchore/syft/syft/pkg/cataloger/internal/unionreader"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/unionreader"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 const modinfoName = ".modinfo"

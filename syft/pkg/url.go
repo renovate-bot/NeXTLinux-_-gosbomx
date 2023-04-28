@@ -4,8 +4,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/anchore/packageurl-go"
-	"github.com/anchore/syft/syft/linux"
+	"github.com/nextlinux/packageurl-go"
+	"github.com/nextlinux/syft/syft/linux"
 )
 
 const (

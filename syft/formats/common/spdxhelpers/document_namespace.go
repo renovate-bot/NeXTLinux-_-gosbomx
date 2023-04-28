@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 const (
@@ -43,7 +43,7 @@ func DocumentNamespace(name string, srcMetadata source.Metadata) string {
 
 	u := url.URL{
 		Scheme: "https",
-		Host:   "anchore.com",
+		Host:   "nextlinux.com",
 		Path:   path.Join(internal.ApplicationName, identifier),
 	}
 

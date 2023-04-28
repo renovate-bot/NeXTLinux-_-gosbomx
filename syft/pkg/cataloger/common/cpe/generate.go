@@ -10,9 +10,9 @@ import (
 	"github.com/facebookincubator/nvdtools/wfn"
 	"github.com/scylladb/go-set/strset"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/pkg"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/pkg"
 )
 
 // knownVendors contains vendor strings that are known to exist in

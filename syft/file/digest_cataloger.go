@@ -11,12 +11,12 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/go-progress"
 
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/internal/bus"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/event"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/internal/bus"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 var errUndigestableFile = errors.New("undigestable file")

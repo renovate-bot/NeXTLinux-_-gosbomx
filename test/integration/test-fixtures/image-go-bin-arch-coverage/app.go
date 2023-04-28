@@ -13,6 +13,6 @@ var test = html.ErrBufferExceeded
 
 func main() {
 	t := term.NewTerminal(os.Stdout, "foo")
-	t.Write([]byte("hello anchore"))
+	t.Write([]byte("hello nextlinux"))
 	t.Write([]byte(fmt.Sprintf("%v", test)))
 }

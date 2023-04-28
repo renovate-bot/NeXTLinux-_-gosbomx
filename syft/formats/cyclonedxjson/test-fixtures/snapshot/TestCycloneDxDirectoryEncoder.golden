@@ -8,7 +8,7 @@
     "timestamp": "timestamp:redacted",
     "tools": [
       {
-        "vendor": "anchore",
+        "vendor": "nextlinux",
         "name": "syft",
         "version": "v0.42.0-bogus"
       }

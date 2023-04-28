@@ -5,8 +5,8 @@ import (
 	"io"
 	"text/tabwriter"
 
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func encoder(output io.Writer, s sbom.SBOM) error {

@@ -8,7 +8,7 @@ import (
 	"github.com/scylladb/go-set/strset"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func Test_DocumentName(t *testing.T) {

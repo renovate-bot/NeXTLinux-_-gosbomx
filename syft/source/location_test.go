@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/anchore/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/file"
 )
 
 func TestLocation_ID(t *testing.T) {

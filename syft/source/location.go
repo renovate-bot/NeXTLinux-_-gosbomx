@@ -5,8 +5,8 @@ import (
 
 	"github.com/hashicorp/go-multierror"
 
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/stereoscope/pkg/image"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/image"
 )
 
 // Location represents a path relative to a particular filesystem resolved to a specific file.Reference. This struct is used as a key

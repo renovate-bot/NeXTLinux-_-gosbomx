@@ -6,8 +6,8 @@ import (
 
 	"github.com/spdx/tools-golang/tagvalue"
 
-	"github.com/anchore/syft/syft/formats/common/spdxhelpers"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/formats/common/spdxhelpers"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 func decoder(reader io.Reader) (*sbom.SBOM, error) {

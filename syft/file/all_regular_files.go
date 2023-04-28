@@ -1,9 +1,9 @@
 package file
 
 import (
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func allRegularFiles(resolver source.FileResolver) (locations []source.Location) {

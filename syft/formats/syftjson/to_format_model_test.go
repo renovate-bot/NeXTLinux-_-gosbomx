@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/syft/syft/formats/syftjson/model"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/syft/syft/formats/syftjson/model"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func Test_toSourceModel(t *testing.T) {

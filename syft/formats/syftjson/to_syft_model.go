@@ -7,16 +7,16 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	stereoscopeFile "github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/file"
-	"github.com/anchore/syft/syft/formats/syftjson/model"
-	"github.com/anchore/syft/syft/linux"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	stereoscopeFile "github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/file"
+	"github.com/nextlinux/syft/syft/formats/syftjson/model"
+	"github.com/nextlinux/syft/syft/linux"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func toSyftModel(doc model.Document) (*sbom.SBOM, error) {

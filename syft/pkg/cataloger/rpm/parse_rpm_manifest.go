@@ -6,11 +6,11 @@ import (
 	"io"
 	"strings"
 
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/generic"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/generic"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 // Parses an RPM manifest file, as used in Mariner distroless containers, and returns the Packages listed

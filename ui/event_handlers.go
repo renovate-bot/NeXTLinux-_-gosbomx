@@ -18,11 +18,11 @@ import (
 	"github.com/wagoodman/go-progress/format"
 	"github.com/wagoodman/jotframe/pkg/frame"
 
-	stereoEventParsers "github.com/anchore/stereoscope/pkg/event/parsers"
-	"github.com/anchore/stereoscope/pkg/image/docker"
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/internal/ui/components"
-	syftEventParsers "github.com/anchore/syft/syft/event/parsers"
+	stereoEventParsers "github.com/nextlinux/stereoscope/pkg/event/parsers"
+	"github.com/nextlinux/stereoscope/pkg/image/docker"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/internal/ui/components"
+	syftEventParsers "github.com/nextlinux/syft/syft/event/parsers"
 )
 
 const maxBarWidth = 50
@@ -491,7 +491,7 @@ func FileDigestsCatalogerStartedHandler(ctx context.Context, fr *frame.Frame, ev
 	return err
 }
 
-// ImportStartedHandler shows the intermittent upload progress to Anchore Enterprise.
+// ImportStartedHandler shows the intermittent upload progress to Nextlinux Enterprise.
 func ImportStartedHandler(ctx context.Context, fr *frame.Frame, event partybus.Event, wg *sync.WaitGroup) error {
 	host, prog, err := syftEventParsers.ParseImportStarted(event)
 	if err != nil {

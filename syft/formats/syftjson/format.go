@@ -1,8 +1,8 @@
 package syftjson
 
 import (
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 const ID sbom.FormatID = "syft-json"

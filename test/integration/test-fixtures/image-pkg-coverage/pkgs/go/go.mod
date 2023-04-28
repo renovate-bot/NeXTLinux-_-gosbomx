@@ -1,4 +1,4 @@
-module github.com/anchore/syft
+module github.com/nextlinux/syft
 
 go 1.14
 

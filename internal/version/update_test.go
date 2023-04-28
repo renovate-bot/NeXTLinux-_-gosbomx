@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	hashiVersion "github.com/anchore/go-version"
+	hashiVersion "github.com/nextlinux/go-version"
 )
 
 func TestIsUpdateAvailable(t *testing.T) {

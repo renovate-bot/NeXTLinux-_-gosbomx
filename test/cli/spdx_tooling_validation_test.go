@@ -11,7 +11,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/stereoscope/pkg/imagetest"
+	"github.com/nextlinux/stereoscope/pkg/imagetest"
 )
 
 func TestSpdxValidationTooling(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
 
-	"github.com/anchore/go-logger"
+	"github.com/nextlinux/gologger"
 )
 
 // logging contains all logging-related configuration options available to the user via the application config.

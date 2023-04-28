@@ -1,9 +1,9 @@
 package haskell
 
 import (
-	"github.com/anchore/packageurl-go"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/packageurl-go"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func newPackage(name, version string, m *pkg.HackageMetadata, locations ...source.Location) pkg.Package {

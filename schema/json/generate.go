@@ -12,9 +12,9 @@ import (
 
 	"github.com/invopop/jsonschema"
 
-	"github.com/anchore/syft/internal"
-	syftjsonModel "github.com/anchore/syft/syft/formats/syftjson/model"
-	"github.com/anchore/syft/syft/pkg"
+	"github.com/nextlinux/syft/internal"
+	syftjsonModel "github.com/nextlinux/syft/syft/formats/syftjson/model"
+	"github.com/nextlinux/syft/syft/pkg"
 )
 
 /*

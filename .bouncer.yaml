@@ -9,7 +9,7 @@ permit:
 
 ignore-packages:
   # packageurl-go is released under the MIT license located in the root of the repo at /mit.LICENSE
-  - github.com/anchore/packageurl-go
+  - github.com/nextlinux/packageurl-go
 
   # both of these dependencies are specified as Apache-2.0 in their respective GitHub READMEs
   - github.com/alibabacloud-go/cr-20160607/client

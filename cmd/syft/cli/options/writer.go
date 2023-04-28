@@ -6,10 +6,10 @@ import (
 
 	"github.com/hashicorp/go-multierror"
 
-	"github.com/anchore/syft/syft/formats"
-	"github.com/anchore/syft/syft/formats/table"
-	"github.com/anchore/syft/syft/formats/template"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/formats"
+	"github.com/nextlinux/syft/syft/formats/table"
+	"github.com/nextlinux/syft/syft/formats/template"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 // makeWriter creates a sbom.Writer for output or returns an error. this will either return a valid writer

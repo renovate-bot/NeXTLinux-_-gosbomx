@@ -5,10 +5,10 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/anchore/syft/syft/formats/internal/testutils"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/formats/internal/testutils"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 var updateSpdxTagValue = flag.Bool("update-spdx-tv", false, "update the *.golden files for spdx-tv encoders")
@@ -89,7 +89,7 @@ func spdxTagValueRedactor(s []byte) []byte {
 	s = regexp.MustCompile(`Created: .*`).ReplaceAll(s, []byte("redacted"))
 
 	// each SBOM reports a unique documentNamespace when generated, this is not useful for snapshot testing
-	s = regexp.MustCompile(`DocumentNamespace: https://anchore.com/syft/.*`).ReplaceAll(s, []byte("redacted"))
+	s = regexp.MustCompile(`DocumentNamespace: https://nextlinux.com/syft/.*`).ReplaceAll(s, []byte("redacted"))
 
 	// the license list will be updated periodically, the value here should not be directly tested in snapshot tests
 	return regexp.MustCompile(`LicenseListVersion: .*`).ReplaceAll(s, []byte("redacted"))

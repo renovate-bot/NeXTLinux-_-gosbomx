@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/stereoscope/pkg/imagetest"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/imagetest"
 )
 
 func TestImageSquashResolver_FilesByPath(t *testing.T) {

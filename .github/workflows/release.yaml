@@ -128,20 +128,20 @@ jobs:
         run: make ci-release
         env:
           # for mac signing and notarization...
-          QUILL_SIGN_P12: ${{ secrets.ANCHORE_APPLE_DEVELOPER_ID_CERT_CHAIN }}
-          QUILL_SIGN_PASSWORD: ${{ secrets.ANCHORE_APPLE_DEVELOPER_ID_CERT_PASS }}
+          QUILL_SIGN_P12: ${{ secrets.NEXTLINUX_APPLE_DEVELOPER_ID_CERT_CHAIN }}
+          QUILL_SIGN_PASSWORD: ${{ secrets.NEXTLINUX_APPLE_DEVELOPER_ID_CERT_PASS }}
           QUILL_NOTARY_ISSUER: ${{ secrets.APPLE_NOTARY_ISSUER }}
           QUILL_NOTARY_KEY_ID: ${{ secrets.APPLE_NOTARY_KEY_ID }}
           QUILL_NOTARY_KEY: ${{ secrets.APPLE_NOTARY_KEY }}
           # for creating the release (requires write access to packages and content)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # for updating brew formula in anchore/homebrew-syft
-          GITHUB_BREW_TOKEN: ${{ secrets.ANCHORE_GIT_READ_TOKEN }}
+          # for updating brew formula in nextlinux/homebrew-syft
+          GITHUB_BREW_TOKEN: ${{ secrets.NEXTLINUX_GIT_READ_TOKEN }}
           # for updating the VERSION file in S3...
           AWS_ACCESS_KEY_ID: ${{ secrets.TOOLBOX_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TOOLBOX_AWS_SECRET_ACCESS_KEY }}
 
-      - uses: anchore/sbom-action@v0
+      - uses: nextlinux/sbom-action@v0
         continue-on-error: true
         with:
           artifact-name: sbom.spdx.json
@@ -151,7 +151,7 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,workflow,action,eventName
-          text: "A new Syft release has been published: https://github.com/anchore/syft/releases/tag/${{ github.event.inputs.version }}"
+          text: "A new Syft release has been published: https://github.com/nextlinux/syft/releases/tag/${{ github.event.inputs.version }}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_TOOLBOX_WEBHOOK_URL }}
         if: ${{ success() }}

@@ -12,8 +12,8 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/jotframe/pkg/frame"
 
-	stereoscopeEvent "github.com/anchore/stereoscope/pkg/event"
-	syftEvent "github.com/anchore/syft/syft/event"
+	stereoscopeEvent "github.com/nextlinux/stereoscope/pkg/event"
+	syftEvent "github.com/nextlinux/syft/syft/event"
 )
 
 // Handler is an aggregated event handler for the set of supported events (PullDockerImage, ReadImage, FetchImage, PackageCatalogerStarted)

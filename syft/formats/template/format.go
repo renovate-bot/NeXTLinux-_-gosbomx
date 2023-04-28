@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/anchore/syft/syft/formats/syftjson"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/formats/syftjson"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 const ID sbom.FormatID = "template"

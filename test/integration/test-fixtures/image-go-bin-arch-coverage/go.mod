@@ -1,4 +1,4 @@
-module github.com/anchore/test
+module github.com/nextlinux/test
 
 go 1.17
 

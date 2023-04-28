@@ -11,13 +11,13 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/anchore/packageurl-go"
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/internal/unionreader"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/packageurl-go"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/unionreader"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 var emptyPURL = packageurl.PackageURL{}

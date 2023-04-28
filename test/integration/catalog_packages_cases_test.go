@@ -1,6 +1,6 @@
 package integration
 
-import "github.com/anchore/syft/syft/pkg"
+import "github.com/nextlinux/syft/syft/pkg"
 
 type testCase struct {
 	name        string

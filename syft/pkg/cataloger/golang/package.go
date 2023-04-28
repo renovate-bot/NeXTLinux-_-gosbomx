@@ -5,10 +5,10 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/anchore/packageurl-go"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/packageurl-go"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func (c *goBinaryCataloger) newGoBinaryPackage(resolver source.FileResolver, dep *debug.Module, mainModule, goVersion, architecture string, buildSettings map[string]string, locations ...source.Location) pkg.Package {

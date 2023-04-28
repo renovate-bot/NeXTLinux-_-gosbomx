@@ -7,8 +7,8 @@ import (
 	"io"
 	"regexp"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func catalogLocationByLine(resolver source.FileResolver, location source.Location, patterns map[string]*regexp.Regexp) ([]SearchResult, error) {

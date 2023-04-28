@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func TestContentsCataloger(t *testing.T) {

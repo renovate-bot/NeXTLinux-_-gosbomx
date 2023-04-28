@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/anchore/stereoscope/pkg/imagetest"
+	"github.com/nextlinux/stereoscope/pkg/imagetest"
 )
 
 // We have schema validation mechanims in schema/cyclonedx/

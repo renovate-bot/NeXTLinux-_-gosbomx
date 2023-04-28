@@ -1,8 +1,8 @@
 package binary
 
 import (
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/pkg"
 )
 
 var defaultClassifiers = []classifier{

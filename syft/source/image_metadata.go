@@ -1,6 +1,6 @@
 package source
 
-import "github.com/anchore/stereoscope/pkg/image"
+import "github.com/nextlinux/stereoscope/pkg/image"
 
 // ImageMetadata represents all static metadata that defines what a container image is. This is useful to later describe
 // "what" was cataloged without needing the more complicated stereoscope Image objects or FileResolver objects.

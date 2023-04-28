@@ -10,17 +10,17 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/formats/cyclonedxjson"
-	"github.com/anchore/syft/syft/formats/cyclonedxxml"
-	"github.com/anchore/syft/syft/formats/github"
-	"github.com/anchore/syft/syft/formats/spdxjson"
-	"github.com/anchore/syft/syft/formats/spdxtagvalue"
-	"github.com/anchore/syft/syft/formats/syftjson"
-	"github.com/anchore/syft/syft/formats/table"
-	"github.com/anchore/syft/syft/formats/template"
-	"github.com/anchore/syft/syft/formats/text"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/formats/cyclonedxjson"
+	"github.com/nextlinux/syft/syft/formats/cyclonedxxml"
+	"github.com/nextlinux/syft/syft/formats/github"
+	"github.com/nextlinux/syft/syft/formats/spdxjson"
+	"github.com/nextlinux/syft/syft/formats/spdxtagvalue"
+	"github.com/nextlinux/syft/syft/formats/syftjson"
+	"github.com/nextlinux/syft/syft/formats/table"
+	"github.com/nextlinux/syft/syft/formats/template"
+	"github.com/nextlinux/syft/syft/formats/text"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 func Formats() []sbom.Format {

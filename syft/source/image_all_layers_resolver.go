@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/stereoscope/pkg/filetree"
-	"github.com/anchore/stereoscope/pkg/image"
-	"github.com/anchore/syft/internal/log"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/filetree"
+	"github.com/nextlinux/stereoscope/pkg/image"
+	"github.com/nextlinux/syft/internal/log"
 )
 
 var _ FileResolver = (*imageAllLayersResolver)(nil)

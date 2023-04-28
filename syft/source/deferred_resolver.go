@@ -3,7 +3,7 @@ package source
 import (
 	"io"
 
-	"github.com/anchore/syft/internal/log"
+	"github.com/nextlinux/syft/internal/log"
 )
 
 func NewDeferredResolverFromSource(creator func() (Source, error)) *DeferredResolver {

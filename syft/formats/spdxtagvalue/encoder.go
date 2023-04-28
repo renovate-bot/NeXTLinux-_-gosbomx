@@ -8,8 +8,8 @@ import (
 	"github.com/spdx/tools-golang/spdx/v2/v2_2"
 	"github.com/spdx/tools-golang/tagvalue"
 
-	"github.com/anchore/syft/syft/formats/common/spdxhelpers"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/formats/common/spdxhelpers"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 func encoder2_3(output io.Writer, s sbom.SBOM) error {

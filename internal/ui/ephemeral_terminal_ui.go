@@ -14,10 +14,10 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/jotframe/pkg/frame"
 
-	"github.com/anchore/go-logger"
-	"github.com/anchore/syft/internal/log"
-	syftEvent "github.com/anchore/syft/syft/event"
-	"github.com/anchore/syft/ui"
+	"github.com/nextlinux/gologger"
+	"github.com/nextlinux/syft/internal/log"
+	syftEvent "github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/syft/ui"
 )
 
 // ephemeralTerminalUI provides an "ephemeral" terminal user interface to display the application state dynamically.

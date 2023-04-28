@@ -1,7 +1,7 @@
 package spdxhelpers
 
 import (
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func DocumentName(srcMetadata source.Metadata) string {

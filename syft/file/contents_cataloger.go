@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 type ContentsCataloger struct {

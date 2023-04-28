@@ -18,10 +18,10 @@ import (
 	digest "github.com/opencontainers/go-digest"
 	"github.com/spf13/afero"
 
-	"github.com/anchore/stereoscope"
-	"github.com/anchore/stereoscope/pkg/image"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/artifact"
+	"github.com/nextlinux/stereoscope"
+	"github.com/nextlinux/stereoscope/pkg/image"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/artifact"
 )
 
 // Source is an object that captures the data source to be cataloged, configuration, and a specific resolver used
@@ -436,7 +436,7 @@ func calculateChainID(lm []LayerMetadata) string {
 	}
 
 	// DiffID(L0) = digest of layer 0
-	// https://github.com/anchore/stereoscope/blob/1b1b744a919964f38d14e1416fb3f25221b761ce/pkg/image/layer_metadata.go#L19-L32
+	// https://github.com/nextlinux/stereoscope/blob/1b1b744a919964f38d14e1416fb3f25221b761ce/pkg/image/layer_metadata.go#L19-L32
 	chainID := lm[0].Digest
 	id := chain(chainID, lm[1:])
 

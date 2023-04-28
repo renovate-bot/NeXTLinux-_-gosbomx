@@ -10,10 +10,10 @@ import (
 	"github.com/wagoodman/go-partybus"
 	"github.com/wagoodman/go-progress"
 
-	"github.com/anchore/syft/syft/event"
-	"github.com/anchore/syft/syft/event/monitor"
-	"github.com/anchore/syft/syft/file"
-	"github.com/anchore/syft/syft/pkg/cataloger"
+	"github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/syft/syft/event/monitor"
+	"github.com/nextlinux/syft/syft/file"
+	"github.com/nextlinux/syft/syft/pkg/cataloger"
 )
 
 type ErrBadPayload struct {

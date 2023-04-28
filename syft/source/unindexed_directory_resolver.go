@@ -15,7 +15,7 @@ import (
 	"github.com/spf13/afero"
 	"golang.org/x/exp/slices"
 
-	"github.com/anchore/syft/internal/log"
+	"github.com/nextlinux/syft/internal/log"
 )
 
 type UnindexedDirectoryResolver struct {

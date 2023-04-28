@@ -4,12 +4,12 @@ import (
 	"crypto"
 	"fmt"
 
-	"github.com/anchore/syft/internal/config"
-	"github.com/anchore/syft/syft"
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/file"
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal/config"
+	"github.com/nextlinux/syft/syft"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/file"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 type Task func(*sbom.Artifacts, *source.Source) ([]artifact.Relationship, error)

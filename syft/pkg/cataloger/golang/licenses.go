@@ -19,10 +19,10 @@ import (
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/storage/memory"
 
-	"github.com/anchore/syft/internal/licenses"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/syft/event"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal/licenses"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/syft/event"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 type goLicenses struct {

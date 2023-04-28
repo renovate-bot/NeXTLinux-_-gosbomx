@@ -8,7 +8,7 @@ import (
 	"github.com/scylladb/go-set/strset"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func Test_documentNamespace(t *testing.T) {
@@ -35,7 +35,7 @@ func Test_documentNamespace(t *testing.T) {
 					ManifestDigest: "digest",
 				},
 			},
-			expected: "https://anchore.com/syft/image/my-name-",
+			expected: "https://nextlinux.com/syft/image/my-name-",
 		},
 		{
 			name:      "directory",
@@ -44,7 +44,7 @@ func Test_documentNamespace(t *testing.T) {
 				Scheme: source.DirectoryScheme,
 				Path:   "some/path/to/place",
 			},
-			expected: "https://anchore.com/syft/dir/my-name-",
+			expected: "https://nextlinux.com/syft/dir/my-name-",
 		},
 		{
 			name:      "file",
@@ -53,7 +53,7 @@ func Test_documentNamespace(t *testing.T) {
 				Scheme: source.FileScheme,
 				Path:   "some/path/to/place",
 			},
-			expected: "https://anchore.com/syft/file/my-name-",
+			expected: "https://nextlinux.com/syft/file/my-name-",
 		},
 	}
 	for _, test := range tests {

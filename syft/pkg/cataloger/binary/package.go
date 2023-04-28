@@ -3,9 +3,9 @@ package binary
 import (
 	"reflect"
 
-	"github.com/anchore/syft/syft/cpe"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/cpe"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func newPackage(classifier classifier, location source.Location, matchMetadata map[string]string) *pkg.Package {

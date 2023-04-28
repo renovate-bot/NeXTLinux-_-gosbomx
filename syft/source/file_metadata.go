@@ -1,8 +1,8 @@
 package source
 
 import (
-	"github.com/anchore/stereoscope/pkg/file"
-	"github.com/anchore/stereoscope/pkg/image"
+	"github.com/nextlinux/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/image"
 )
 
 type FileMetadata = file.Metadata

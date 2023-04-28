@@ -3,8 +3,8 @@ package ui
 import (
 	"github.com/wagoodman/go-partybus"
 
-	"github.com/anchore/syft/internal/log"
-	syftEvent "github.com/anchore/syft/syft/event"
+	"github.com/nextlinux/syft/internal/log"
+	syftEvent "github.com/nextlinux/syft/syft/event"
 )
 
 type loggerUI struct {

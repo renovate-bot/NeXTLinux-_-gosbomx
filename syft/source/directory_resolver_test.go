@@ -19,7 +19,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/file"
 )
 
 func TestDirectoryResolver_FilesByPath_relativeRoot(t *testing.T) {

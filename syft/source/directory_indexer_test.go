@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/wagoodman/go-progress"
 
-	"github.com/anchore/stereoscope/pkg/file"
+	"github.com/nextlinux/stereoscope/pkg/file"
 )
 
 type indexerMock struct {

@@ -3,10 +3,10 @@ package rpm
 import (
 	"testing"
 
-	"github.com/anchore/syft/syft/file"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/pkg/cataloger/internal/pkgtest"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/file"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/pkg/cataloger/internal/pkgtest"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func TestParseRpmFiles(t *testing.T) {

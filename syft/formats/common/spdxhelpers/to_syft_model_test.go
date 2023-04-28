@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 func TestToSyftModel(t *testing.T) {
@@ -199,15 +199,15 @@ func TestExtractSourceFromNamespaces(t *testing.T) {
 		expected  source.Scheme
 	}{
 		{
-			namespace: "https://anchore.com/syft/file/d42b01d0-7325-409b-b03f-74082935c4d3",
+			namespace: "https://nextlinux.com/syft/file/d42b01d0-7325-409b-b03f-74082935c4d3",
 			expected:  source.FileScheme,
 		},
 		{
-			namespace: "https://anchore.com/syft/image/d42b01d0-7325-409b-b03f-74082935c4d3",
+			namespace: "https://nextlinux.com/syft/image/d42b01d0-7325-409b-b03f-74082935c4d3",
 			expected:  source.ImageScheme,
 		},
 		{
-			namespace: "https://anchore.com/syft/dir/d42b01d0-7325-409b-b03f-74082935c4d3",
+			namespace: "https://nextlinux.com/syft/dir/d42b01d0-7325-409b-b03f-74082935c4d3",
 			expected:  source.DirectoryScheme,
 		},
 		{

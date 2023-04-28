@@ -12,15 +12,15 @@ import (
 	"golang.org/x/exp/maps"
 	"golang.org/x/exp/slices"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/internal/log"
-	"github.com/anchore/syft/internal/spdxlicense"
-	"github.com/anchore/syft/syft/artifact"
-	"github.com/anchore/syft/syft/file"
-	"github.com/anchore/syft/syft/formats/common/util"
-	"github.com/anchore/syft/syft/pkg"
-	"github.com/anchore/syft/syft/sbom"
-	"github.com/anchore/syft/syft/source"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/internal/log"
+	"github.com/nextlinux/syft/internal/spdxlicense"
+	"github.com/nextlinux/syft/syft/artifact"
+	"github.com/nextlinux/syft/syft/file"
+	"github.com/nextlinux/syft/syft/formats/common/util"
+	"github.com/nextlinux/syft/syft/pkg"
+	"github.com/nextlinux/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/source"
 )
 
 const (
@@ -106,7 +106,7 @@ func ToFormatModel(s sbom.SBOM) *spdx.Document {
 			// Cardinality: mandatory, one or many
 			Creators: []spdx.Creator{
 				{
-					Creator:     "Anchore, Inc",
+					Creator:     "Nextlinux, Inc",
 					CreatorType: "Organization",
 				},
 				{

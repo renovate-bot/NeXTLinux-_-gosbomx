@@ -1,7 +1,7 @@
 package pkg
 
 import (
-	"github.com/anchore/packageurl-go"
+	"github.com/nextlinux/packageurl-go"
 )
 
 // Type represents a Package Type for or within a language ecosystem (there may be multiple package types within a language ecosystem)

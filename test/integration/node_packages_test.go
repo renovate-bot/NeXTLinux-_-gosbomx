@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/anchore/syft/internal"
-	"github.com/anchore/syft/syft/pkg"
+	"github.com/nextlinux/syft/internal"
+	"github.com/nextlinux/syft/syft/pkg"
 )
 
 func TestNpmPackageLockDirectory(t *testing.T) {

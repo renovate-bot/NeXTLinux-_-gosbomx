@@ -3,8 +3,8 @@ package syft
 import (
 	"io"
 
-	"github.com/anchore/syft/syft/formats"
-	"github.com/anchore/syft/syft/sbom"
+	"github.com/nextlinux/syft/syft/formats"
+	"github.com/nextlinux/syft/syft/sbom"
 )
 
 // TODO: deprecated, moved to syft/formats/formats.go. will be removed in v1.0.0
