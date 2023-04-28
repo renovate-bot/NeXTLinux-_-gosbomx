@@ -1,1 +1,0 @@
-See the gosbom/cataloger/java/test-fixtures/java-builds dir to generate test fixtures and copy to here manually.
