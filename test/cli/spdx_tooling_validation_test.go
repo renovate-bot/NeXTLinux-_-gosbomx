@@ -26,9 +26,9 @@ func TestSpdxValidationTooling(t *testing.T) {
 	}
 
 	env := map[string]string{
-		"SYFT_FILE_METADATA_CATALOGER_ENABLED": "true",
-		"SYFT_FILE_CONTENTS_CATALOGER_ENABLED": "true",
-		"SYFT_FILE_METADATA_DIGESTS":           "sha1",
+		"GOSBOM_FILE_METADATA_CATALOGER_ENABLED": "true",
+		"GOSBOM_FILE_CONTENTS_CATALOGER_ENABLED": "true",
+		"GOSBOM_FILE_METADATA_DIGESTS":           "sha1",
 	}
 
 	tests := []struct {

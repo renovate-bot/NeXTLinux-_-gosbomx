@@ -39,10 +39,10 @@ else
 fi
 
 # run syft
-SYFT_PATH="${DISTDIR}/darwin-build_darwin_amd64_v1/syft"
-chmod 755 "${SYFT_PATH}"
-"${SYFT_PATH}" version
-SYFT_CHECK_FOR_APP_UPDATE=0 "${SYFT_PATH}" packages docker-archive:${TEST_IMAGE_TAR} -vv -o json > "${REPORT}"
+GOSBOM_PATH="${DISTDIR}/darwin-build_darwin_amd64_v1/syft"
+chmod 755 "${GOSBOM_PATH}"
+"${GOSBOM_PATH}" version
+GOSBOM_CHECK_FOR_APP_UPDATE=0 "${GOSBOM_PATH}" packages docker-archive:${TEST_IMAGE_TAR} -vv -o json > "${REPORT}"
 
 # keep the generated report around
 mkdir -p ${RESULTSDIR}

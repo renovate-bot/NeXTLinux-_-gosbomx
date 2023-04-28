@@ -36,7 +36,7 @@ func TestPowerUserCmdFlags(t *testing.T) {
 			name: "content-cataloger-wired-up",
 			args: []string{"power-user", "docker-archive:" + secretsFixture},
 			env: map[string]string{
-				"SYFT_FILE_CONTENTS_GLOBS": "/api-key.txt",
+				"GOSBOM_FILE_CONTENTS_GLOBS": "/api-key.txt",
 			},
 			assertions: []traitAssertion{
 				assertInOutput(`"contents": "c29tZV9BcEkta0V5ID0gIjEyMzQ1QTdhOTAxYjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MCIK"`), // proof of the content cataloger
@@ -57,7 +57,7 @@ func TestPowerUserCmdFlags(t *testing.T) {
 		{
 			name: "default-secrets-results-w-reveal-values",
 			env: map[string]string{
-				"SYFT_SECRETS_REVEAL_VALUES": "true",
+				"GOSBOM_SECRETS_REVEAL_VALUES": "true",
 			},
 			args: []string{"power-user", "docker-archive:" + secretsFixture},
 			assertions: []traitAssertion{
@@ -78,7 +78,7 @@ func TestPowerUserCmdFlags(t *testing.T) {
 		{
 			name: "default-secrets-dir-results-w-reveal-values",
 			env: map[string]string{
-				"SYFT_SECRETS_REVEAL_VALUES": "true",
+				"GOSBOM_SECRETS_REVEAL_VALUES": "true",
 			},
 			args: []string{"power-user", "dir:test-fixtures/image-secrets-dir"},
 			assertions: []traitAssertion{

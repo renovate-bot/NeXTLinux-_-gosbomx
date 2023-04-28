@@ -36,7 +36,7 @@ docker run --rm \
     -v /var/run/docker.sock://var/run/docker.sock \
     -v /${PWD}:/src \
     -v ${WORK_DIR}:${WORK_DIR} \
-    -e SYFT_CHECK_FOR_APP_UPDATE=0 \
+    -e GOSBOM_CHECK_FOR_APP_UPDATE=0 \
     -w /src \
     ubuntu:latest \
         /bin/bash -x -c "\

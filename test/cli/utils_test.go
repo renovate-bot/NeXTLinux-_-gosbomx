@@ -128,7 +128,7 @@ func runSyftInDocker(t testing.TB, env map[string]string, image string, args ...
 			"run",
 			"-t",
 			"-e",
-			"SYFT_CHECK_FOR_APP_UPDATE=false",
+			"GOSBOM_CHECK_FOR_APP_UPDATE=false",
 			"-v",
 			fmt.Sprintf("%s:/syft", getSyftBinaryLocationByOS(t, "linux")),
 			image,
@@ -161,7 +161,7 @@ func runSyftCommand(t testing.TB, env map[string]string, expectError bool, args 
 	}
 
 	// we should not have tests reaching out for app update checks
-	env["SYFT_CHECK_FOR_APP_UPDATE"] = "false"
+	env["GOSBOM_CHECK_FOR_APP_UPDATE"] = "false"
 
 	timeout := func() {
 		select {
@@ -216,7 +216,7 @@ func runCommandObj(t testing.TB, cmd *exec.Cmd, env map[string]string, expectErr
 	}
 
 	// we should not have tests reaching out for app update checks
-	env["SYFT_CHECK_FOR_APP_UPDATE"] = "false"
+	env["GOSBOM_CHECK_FOR_APP_UPDATE"] = "false"
 
 	timeout := func() {
 		select {
@@ -295,9 +295,9 @@ func getSyftCommand(t testing.TB, args ...string) *exec.Cmd {
 }
 
 func getSyftBinaryLocation(t testing.TB) string {
-	if os.Getenv("SYFT_BINARY_LOCATION") != "" {
-		// SYFT_BINARY_LOCATION is the absolute path to the snapshot binary
-		return os.Getenv("SYFT_BINARY_LOCATION")
+	if os.Getenv("GOSBOM_BINARY_LOCATION") != "" {
+		// GOSBOM_BINARY_LOCATION is the absolute path to the snapshot binary
+		return os.Getenv("GOSBOM_BINARY_LOCATION")
 	}
 	return getSyftBinaryLocationByOS(t, runtime.GOOS)
 }

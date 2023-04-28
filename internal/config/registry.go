@@ -34,10 +34,10 @@ func (cfg registry) loadDefaultValues(v *viper.Viper) {
 func (cfg *registry) parseConfigValues() error {
 	// there may be additional credentials provided by env var that should be appended to the set of credentials
 	authority, username, password, token :=
-		os.Getenv("SYFT_REGISTRY_AUTH_AUTHORITY"),
-		os.Getenv("SYFT_REGISTRY_AUTH_USERNAME"),
-		os.Getenv("SYFT_REGISTRY_AUTH_PASSWORD"),
-		os.Getenv("SYFT_REGISTRY_AUTH_TOKEN")
+		os.Getenv("GOSBOM_REGISTRY_AUTH_AUTHORITY"),
+		os.Getenv("GOSBOM_REGISTRY_AUTH_USERNAME"),
+		os.Getenv("GOSBOM_REGISTRY_AUTH_PASSWORD"),
+		os.Getenv("GOSBOM_REGISTRY_AUTH_TOKEN")
 
 	if hasNonEmptyCredentials(username, password, token) {
 		// note: we prepend the credentials such that the environment variables take precedence over on-disk configuration.

@@ -27,7 +27,7 @@ func TestRootCmdAliasesToPackagesSubcommand(t *testing.T) {
 		{
 			name: "respond-to-output-binding",
 			env: map[string]string{
-				"SYFT_OUTPUT": "text",
+				"GOSBOM_OUTPUT": "text",
 			},
 			assertions: []traitAssertion{
 				assertInOutput("[Image]"),
@@ -127,7 +127,7 @@ func TestLogFile(t *testing.T) {
 		{
 			name: "env-var-log-file-name",
 			args: []string{"-vv", request},
-			env:  map[string]string{"SYFT_LOG_FILE": envLogFile},
+			env:  map[string]string{"GOSBOM_LOG_FILE": envLogFile},
 			assertions: []traitAssertion{
 				func(tb testing.TB, stdout, stderr string, rc int) {
 					tb.Helper()
