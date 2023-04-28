@@ -21,11 +21,11 @@ See `make help` for all the current make tasks.
 
 ## Architecture
 
-Syft is used to generate a Software Bill of Materials (SBOM) from different kinds of input.
+Gosbom is used to generate a Software Bill of Materials (SBOM) from different kinds of input.
 
 ### Code organization for the cmd package
 
-Syft's entrypoint can be found in the `cmd` package at `cmd/syft/main.go`. `main.go` builds a new syft `cli` via `cli.New()` 
+Gosbom's entrypoint can be found in the `cmd` package at `cmd/syft/main.go`. `main.go` builds a new syft `cli` via `cli.New()` 
 and then executes the `cli` via `cli.Execute()`. The `cli` package is responsible for parsing command line arguments, 
 setting up the application context and configuration, and executing the application. Each of syft's commands 
 (e.g. `packages`, `attest`, `version`) are implemented as a `cobra.Command` in their respective `<command>.go` files. 
@@ -77,7 +77,7 @@ sequenceDiagram
 
 ### Code organization for syft library
 
-Syft's core library (see, exported) functionality is implemented in the `syft` package. The `syft` package is responsible for organizing the core
+Gosbom's core library (see, exported) functionality is implemented in the `syft` package. The `syft` package is responsible for organizing the core
 SBOM data model, it's translated output formats, and the core SBOM generation logic.
 
 - analysis creates a static SBOM which can be encoded and decoded
@@ -112,12 +112,12 @@ sequenceDiagram
 ```
 
 
-### Syft Catalogers
+### Gosbom Catalogers
 
 ##### Summary
 
 Catalogers are the way in which syft is able to identify and construct packages given some amount of source metadata.
-For example, Syft can locate and process `package-lock.json` files when performing filesystem scans. 
+For example, Gosbom can locate and process `package-lock.json` files when performing filesystem scans. 
 See: [how to specify file globs](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/javascript/cataloger.go#L16-L21)
 and an implementation of the [package-lock.json parser](https://github.com/nextlinux/syft/tree/v0.70.0/syft/pkg/cataloger/javascript/cataloger.go#L16-L21) for a quick review.
 

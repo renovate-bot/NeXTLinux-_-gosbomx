@@ -127,7 +127,7 @@ func TestByName(t *testing.T) {
 			want: cyclonedxxml.ID,
 		},
 
-		// Syft Table
+		// Gosbom Table
 		{
 			name: "table",
 			want: table.ID,
@@ -137,7 +137,7 @@ func TestByName(t *testing.T) {
 			want: table.ID,
 		},
 
-		// Syft Text
+		// Gosbom Text
 		{
 			name: "text",
 			want: text.ID,
@@ -147,7 +147,7 @@ func TestByName(t *testing.T) {
 			want: text.ID,
 		},
 
-		// Syft JSON
+		// Gosbom JSON
 		{
 			name: "json",
 			want: syftjson.ID,
@@ -171,7 +171,7 @@ func TestByName(t *testing.T) {
 			want: github.ID,
 		},
 
-		// Syft template
+		// Gosbom template
 		{
 			name: "template",
 			want: template.ID,

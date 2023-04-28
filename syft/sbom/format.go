@@ -54,10 +54,10 @@ func (f format) String() string {
 	return fmt.Sprintf("%s@%s", f.ID(), f.version)
 }
 
-// Decoder is a function that can convert an SBOM document of a specific format from a reader into Syft native objects.
+// Decoder is a function that can convert an SBOM document of a specific format from a reader into Gosbom native objects.
 type Decoder func(reader io.Reader) (*SBOM, error)
 
-// Encoder is a function that can transform Syft native objects into an SBOM document of a specific format written to the given writer.
+// Encoder is a function that can transform Gosbom native objects into an SBOM document of a specific format written to the given writer.
 type Encoder func(io.Writer, SBOM) error
 
 // Validator reads the SBOM from the given reader and assesses whether the document conforms to the specific SBOM format.

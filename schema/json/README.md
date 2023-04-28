@@ -6,7 +6,7 @@ This is the JSON schema for output from the JSON presenters (`syft packages <img
 - the `Document` struct definition within `internal/presenters/poweruser/json_document.go` that governs the overall document shape
 - the `artifactMetadataContainer` struct definition within `schema/json/generate.go` that governs the allowable shapes of `pkg.Package.Metadata`
 
-With regard to testing the JSON schema, integration test cases provided by the developer are used as examples to validate that JSON output from Syft is always valid relative to the `schema/json/schema-$VERSION.json` file.
+With regard to testing the JSON schema, integration test cases provided by the developer are used as examples to validate that JSON output from Gosbom is always valid relative to the `schema/json/schema-$VERSION.json` file.
 
 ## Versioning
 

@@ -1,6 +1,6 @@
-# Syft Contributors
+# Gosbom Contributors
 
-The following Syft components were contributed by external authors/organizations.
+The following Gosbom components were contributed by external authors/organizations.
 
 ## GraalVM Native Image
 

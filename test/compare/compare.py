@@ -10,7 +10,7 @@ Metadata = collections.namedtuple("Metadata", "metadata sources")
 Package = collections.namedtuple("Package", "name type version")
 
 
-class Syft:
+class Gosbom:
     def __init__(self, report_path):
         self.report_path = report_path
 
@@ -48,10 +48,10 @@ def print_rows(rows):
 
 
 def main(baseline_report, new_report):
-    report1_obj = Syft(report_path=baseline_report)
+    report1_obj = Gosbom(report_path=baseline_report)
     report1_packages, report1_metadata = report1_obj.packages()
 
-    report2_obj = Syft(report_path=new_report)
+    report2_obj = Gosbom(report_path=new_report)
     report2_packages, report2_metadata = report2_obj.packages()
 
     if len(report2_packages) == 0 or len(report1_packages) == 0:
@@ -156,9 +156,9 @@ class colors:
 
 
 if __name__ == "__main__":
-    print("\nComparing two Syft reports...\n")
+    print("\nComparing two Gosbom reports...\n")
     if len(sys.argv) != 3:
-        sys.exit("please provide two Syft json files")
+        sys.exit("please provide two Gosbom json files")
 
     rc = main(sys.argv[1], sys.argv[2])
     sys.exit(rc)

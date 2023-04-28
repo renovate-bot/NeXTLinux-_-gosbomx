@@ -1,10 +1,10 @@
-[#](#) Contributing to Syft
+[#](#) Contributing to Gosbom
 
 If you are looking to contribute to this project and want to open a GitHub pull request ("PR"), there are a few guidelines of what we are looking for in patches. Make sure you go through this document and ensure that your code proposal is aligned.
 
 ## Setting up your environment
 
-Before you can contribute to Syft, you need to configure your development environment.
+Before you can contribute to Gosbom, you need to configure your development environment.
 
 ### Debian setup
 
@@ -33,15 +33,15 @@ This username and email address will matter later in this guide.
 
 ## Fork the repo
 
-You should fork the Syft repo using the "Fork" button at the top right of the Syft GitHub [site](https://github.com/nextlinux/syft/). You will be doing your development in your fork, then submit a pull request to Syft. There are many resources how to use GitHub effectively, we will not cover those here.
+You should fork the Gosbom repo using the "Fork" button at the top right of the Gosbom GitHub [site](https://github.com/nextlinux/syft/). You will be doing your development in your fork, then submit a pull request to Gosbom. There are many resources how to use GitHub effectively, we will not cover those here.
 
 ## Adding a feature or fix
 
-If you look at the Syft [Issue](https://github.com/nextlinux/syft/issues) there are plenty of bugs and feature requests. Maybe look at the [good first issue](https://github.com/nextlinux/syft/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) list if you're not sure where to start.
+If you look at the Gosbom [Issue](https://github.com/nextlinux/syft/issues) there are plenty of bugs and feature requests. Maybe look at the [good first issue](https://github.com/nextlinux/syft/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) list if you're not sure where to start.
 
 ## Commit guidelines
 
-In the Syft project we like commits and pull requests (PR) to be easy to understand and review. Open source thrives best when everything happening is over documented and small enough to be understood.
+In the Gosbom project we like commits and pull requests (PR) to be easy to understand and review. Open source thrives best when everything happening is over documented and small enough to be understood.
 
 ### Granular commits
 
@@ -133,7 +133,7 @@ You can also run `make all` to run a more extensive test suite, but there is add
 
 ## Pull Request
 
-If you made it this far and all the tests are passing, it's time to submit a Pull Request (PR) for Syft. Submitting a PR is always a scary moment as what happens next can be an unknown. The Syft project strives to be easy to work with, we appreciate all contributions. Nobody is going to yell at you or try to make you feel bad. We love contributions and know how scary that first PR can be.
+If you made it this far and all the tests are passing, it's time to submit a Pull Request (PR) for Gosbom. Submitting a PR is always a scary moment as what happens next can be an unknown. The Gosbom project strives to be easy to work with, we appreciate all contributions. Nobody is going to yell at you or try to make you feel bad. We love contributions and know how scary that first PR can be.
 
 ### PR Title and Description
 
@@ -149,6 +149,6 @@ It's very likely the reviewer will have questions and suggestions for changes to
 
 ## Document your changes
 
-And lastly, when proposed changes are modifying user-facing functionality or output, it is expected the PR will include updates to the documentation as well. Syft is not a project that is heavy on documentation. This will mostly be updating the README and help for the tool.
+And lastly, when proposed changes are modifying user-facing functionality or output, it is expected the PR will include updates to the documentation as well. Gosbom is not a project that is heavy on documentation. This will mostly be updating the README and help for the tool.
 
 If nobody knows new features exist, they can't use them!
