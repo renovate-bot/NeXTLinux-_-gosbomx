@@ -200,7 +200,7 @@ func Test_decode(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			sbom, err := ToSyftModel(&test.input)
+			sbom, err := ToGosbomModel(&test.input)
 			assert.NoError(t, err)
 
 		test:
@@ -264,12 +264,12 @@ func Test_missingDataDecode(t *testing.T) {
 		SpecVersion: cyclonedx.SpecVersion1_4,
 	}
 
-	_, err := ToSyftModel(bom)
+	_, err := ToGosbomModel(bom)
 	assert.NoError(t, err)
 
 	bom.Metadata = &cyclonedx.Metadata{}
 
-	_, err = ToSyftModel(bom)
+	_, err = ToGosbomModel(bom)
 	assert.NoError(t, err)
 
 	pkg := decodeComponent(&cyclonedx.Component{

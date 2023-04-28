@@ -70,7 +70,7 @@ func TestSpdxValidationTooling(t *testing.T) {
 
 				args = append(args, "--file", sbomPath)
 
-				cmd, _, stderr := runSyft(t, test.env, args...)
+				cmd, _, stderr := runGosbom(t, test.env, args...)
 				if cmd.ProcessState.ExitCode() != 0 {
 					t.Fatalf("failed to run syft: %s", stderr)
 				}

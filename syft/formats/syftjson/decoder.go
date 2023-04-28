@@ -18,5 +18,5 @@ func decoder(reader io.Reader) (*sbom.SBOM, error) {
 		return nil, fmt.Errorf("unable to decode syft-json: %w", err)
 	}
 
-	return toSyftModel(doc)
+	return toGosbomModel(doc)
 }

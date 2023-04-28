@@ -19,27 +19,27 @@ import (
 	"github.com/nextlinux/syft/syft/source"
 )
 
-func toSyftModel(doc model.Document) (*sbom.SBOM, error) {
+func toGosbomModel(doc model.Document) (*sbom.SBOM, error) {
 	idAliases := make(map[string]string)
 
-	catalog := toSyftCatalog(doc.Artifacts, idAliases)
+	catalog := toGosbomCatalog(doc.Artifacts, idAliases)
 
-	fileArtifacts := toSyftFiles(doc.Files)
+	fileArtifacts := toGosbomFiles(doc.Files)
 
 	return &sbom.SBOM{
 		Artifacts: sbom.Artifacts{
 			PackageCatalog:    catalog,
 			FileMetadata:      fileArtifacts.FileMetadata,
 			FileDigests:       fileArtifacts.FileDigests,
-			LinuxDistribution: toSyftLinuxRelease(doc.Distro),
+			LinuxDistribution: toGosbomLinuxRelease(doc.Distro),
 		},
-		Source:        *toSyftSourceData(doc.Source),
-		Descriptor:    toSyftDescriptor(doc.Descriptor),
-		Relationships: toSyftRelationships(&doc, catalog, doc.ArtifactRelationships, idAliases),
+		Source:        *toGosbomSourceData(doc.Source),
+		Descriptor:    toGosbomDescriptor(doc.Descriptor),
+		Relationships: toGosbomRelationships(&doc, catalog, doc.ArtifactRelationships, idAliases),
 	}, nil
 }
 
-func toSyftFiles(files []model.File) sbom.Artifacts {
+func toGosbomFiles(files []model.File) sbom.Artifacts {
 	ret := sbom.Artifacts{
 		FileMetadata: make(map[source.Coordinates]source.FileMetadata),
 		FileDigests:  make(map[source.Coordinates][]file.Digest),
@@ -62,7 +62,7 @@ func toSyftFiles(files []model.File) sbom.Artifacts {
 				Size:            f.Metadata.Size,
 				UserID:          f.Metadata.UserID,
 				GroupID:         f.Metadata.GroupID,
-				Type:            toSyftFileType(f.Metadata.Type),
+				Type:            toGosbomFileType(f.Metadata.Type),
 				IsDir:           fm.IsDir(),
 				Mode:            fm,
 				MIMEType:        f.Metadata.MIMEType,
@@ -80,7 +80,7 @@ func toSyftFiles(files []model.File) sbom.Artifacts {
 	return ret
 }
 
-func toSyftFileType(ty string) stereoscopeFile.Type {
+func toGosbomFileType(ty string) stereoscopeFile.Type {
 	switch ty {
 	case "SymbolicLink":
 		return stereoscopeFile.TypeSymLink
@@ -105,7 +105,7 @@ func toSyftFileType(ty string) stereoscopeFile.Type {
 	}
 }
 
-func toSyftLinuxRelease(d model.LinuxRelease) *linux.Release {
+func toGosbomLinuxRelease(d model.LinuxRelease) *linux.Release {
 	if cmp.Equal(d, model.LinuxRelease{}) {
 		return nil
 	}
@@ -131,7 +131,7 @@ func toSyftLinuxRelease(d model.LinuxRelease) *linux.Release {
 	}
 }
 
-func toSyftRelationships(doc *model.Document, catalog *pkg.Collection, relationships []model.Relationship, idAliases map[string]string) []artifact.Relationship {
+func toGosbomRelationships(doc *model.Document, catalog *pkg.Collection, relationships []model.Relationship, idAliases map[string]string) []artifact.Relationship {
 	idMap := make(map[string]interface{})
 
 	for _, p := range catalog.Sorted() {
@@ -143,7 +143,7 @@ func toSyftRelationships(doc *model.Document, catalog *pkg.Collection, relations
 	}
 
 	// set source metadata in identifier map
-	idMap[doc.Source.ID] = toSyftSource(doc.Source)
+	idMap[doc.Source.ID] = toGosbomSource(doc.Source)
 
 	for _, f := range doc.Files {
 		idMap[f.ID] = f.Location
@@ -151,7 +151,7 @@ func toSyftRelationships(doc *model.Document, catalog *pkg.Collection, relations
 
 	var out []artifact.Relationship
 	for _, r := range relationships {
-		syftRelationship := toSyftRelationship(idMap, r, idAliases)
+		syftRelationship := toGosbomRelationship(idMap, r, idAliases)
 		if syftRelationship != nil {
 			out = append(out, *syftRelationship)
 		}
@@ -159,15 +159,15 @@ func toSyftRelationships(doc *model.Document, catalog *pkg.Collection, relations
 	return out
 }
 
-func toSyftSource(s model.Source) *source.Source {
+func toGosbomSource(s model.Source) *source.Source {
 	newSrc := &source.Source{
-		Metadata: *toSyftSourceData(s),
+		Metadata: *toGosbomSourceData(s),
 	}
 	newSrc.SetID()
 	return newSrc
 }
 
-func toSyftRelationship(idMap map[string]interface{}, relationship model.Relationship, idAliases map[string]string) *artifact.Relationship {
+func toGosbomRelationship(idMap map[string]interface{}, relationship model.Relationship, idAliases map[string]string) *artifact.Relationship {
 	id := func(id string) string {
 		aliased, ok := idAliases[id]
 		if ok {
@@ -209,7 +209,7 @@ func toSyftRelationship(idMap map[string]interface{}, relationship model.Relatio
 	}
 }
 
-func toSyftDescriptor(d model.Descriptor) sbom.Descriptor {
+func toGosbomDescriptor(d model.Descriptor) sbom.Descriptor {
 	return sbom.Descriptor{
 		Name:          d.Name,
 		Version:       d.Version,
@@ -217,7 +217,7 @@ func toSyftDescriptor(d model.Descriptor) sbom.Descriptor {
 	}
 }
 
-func toSyftSourceData(s model.Source) *source.Metadata {
+func toGosbomSourceData(s model.Source) *source.Metadata {
 	switch s.Type {
 	case "directory":
 		path, ok := s.Target.(string)
@@ -256,15 +256,15 @@ func toSyftSourceData(s model.Source) *source.Metadata {
 	return nil
 }
 
-func toSyftCatalog(pkgs []model.Package, idAliases map[string]string) *pkg.Collection {
+func toGosbomCatalog(pkgs []model.Package, idAliases map[string]string) *pkg.Collection {
 	catalog := pkg.NewCollection()
 	for _, p := range pkgs {
-		catalog.Add(toSyftPackage(p, idAliases))
+		catalog.Add(toGosbomPackage(p, idAliases))
 	}
 	return catalog
 }
 
-func toSyftPackage(p model.Package, idAliases map[string]string) pkg.Package {
+func toGosbomPackage(p model.Package, idAliases map[string]string) pkg.Package {
 	var cpes []cpe.CPE
 	for _, c := range p.CPEs {
 		value, err := cpe.New(c)

@@ -135,7 +135,7 @@ func TestPackagesCmdFlags(t *testing.T) {
 		{
 			// we want to make certain that syft can catalog a single go binary and get a SBOM report that is not empty
 			name: "catalog-single-go-binary",
-			args: []string{"packages", "-o", "json", getSyftBinaryLocation(t)},
+			args: []string{"packages", "-o", "json", getGosbomBinaryLocation(t)},
 			assertions: []traitAssertion{
 				assertJsonReport,
 				assertStdoutLengthGreaterThan(1000),
@@ -246,7 +246,7 @@ func TestPackagesCmdFlags(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			cmd, stdout, stderr := runSyft(t, test.env, test.args...)
+			cmd, stdout, stderr := runGosbom(t, test.env, test.args...)
 			for _, traitFn := range test.assertions {
 				traitFn(t, stdout, stderr, cmd.ProcessState.ExitCode())
 			}
@@ -328,7 +328,7 @@ func TestRegistryAuth(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			cmd, stdout, stderr := runSyft(t, test.env, test.args...)
+			cmd, stdout, stderr := runGosbom(t, test.env, test.args...)
 			for _, traitAssertionFn := range test.assertions {
 				traitAssertionFn(t, stdout, stderr, cmd.ProcessState.ExitCode())
 			}

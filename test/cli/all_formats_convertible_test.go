@@ -34,7 +34,7 @@ func TestAllFormatsConvertable(t *testing.T) {
 	for _, test := range tests {
 		t.Run(fmt.Sprintf("from %s to %s", test.from, test.to), func(t *testing.T) {
 			sbomArgs := []string{"dir:./test-fixtures/image-pkg-coverage", "-o", test.from}
-			cmd, stdout, stderr := runSyft(t, test.env, sbomArgs...)
+			cmd, stdout, stderr := runGosbom(t, test.env, sbomArgs...)
 			if cmd.ProcessState.ExitCode() != 0 {
 				t.Log("STDOUT:\n", stdout)
 				t.Log("STDERR:\n", stderr)
@@ -51,7 +51,7 @@ func TestAllFormatsConvertable(t *testing.T) {
 			if test.template != "" {
 				convertArgs = append(convertArgs, "--template", test.template)
 			}
-			cmd, stdout, stderr = runSyft(t, test.env, convertArgs...)
+			cmd, stdout, stderr = runGosbom(t, test.env, convertArgs...)
 			for _, traitFn := range assertions {
 				traitFn(t, stdout, stderr, cmd.ProcessState.ExitCode())
 			}

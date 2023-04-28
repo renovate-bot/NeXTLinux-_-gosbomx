@@ -122,7 +122,7 @@ func runCycloneDXInDocker(t testing.TB, env map[string]string, image string, f *
 	return cmd, stdout, stderr
 }
 
-func runSyftInDocker(t testing.TB, env map[string]string, image string, args ...string) (*exec.Cmd, string, string) {
+func runGosbomInDocker(t testing.TB, env map[string]string, image string, args ...string) (*exec.Cmd, string, string) {
 	allArgs := append(
 		[]string{
 			"run",
@@ -130,7 +130,7 @@ func runSyftInDocker(t testing.TB, env map[string]string, image string, args ...
 			"-e",
 			"GOSBOM_CHECK_FOR_APP_UPDATE=false",
 			"-v",
-			fmt.Sprintf("%s:/syft", getSyftBinaryLocationByOS(t, "linux")),
+			fmt.Sprintf("%s:/syft", getGosbomBinaryLocationByOS(t, "linux")),
 			image,
 			"/syft",
 		},
@@ -141,21 +141,21 @@ func runSyftInDocker(t testing.TB, env map[string]string, image string, args ...
 	return cmd, stdout, stderr
 }
 
-func runSyft(t testing.TB, env map[string]string, args ...string) (*exec.Cmd, string, string) {
-	return runSyftCommand(t, env, true, args...)
+func runGosbom(t testing.TB, env map[string]string, args ...string) (*exec.Cmd, string, string) {
+	return runGosbomCommand(t, env, true, args...)
 }
 
-func runSyftSafe(t testing.TB, env map[string]string, args ...string) (*exec.Cmd, string, string) {
-	return runSyftCommand(t, env, false, args...)
+func runGosbomSafe(t testing.TB, env map[string]string, args ...string) (*exec.Cmd, string, string) {
+	return runGosbomCommand(t, env, false, args...)
 }
 
-func runSyftCommand(t testing.TB, env map[string]string, expectError bool, args ...string) (*exec.Cmd, string, string) {
+func runGosbomCommand(t testing.TB, env map[string]string, expectError bool, args ...string) (*exec.Cmd, string, string) {
 	cancel := make(chan bool, 1)
 	defer func() {
 		cancel <- true
 	}()
 
-	cmd := getSyftCommand(t, args...)
+	cmd := getGosbomCommand(t, args...)
 	if env == nil {
 		env = make(map[string]string)
 	}
@@ -190,7 +190,7 @@ func runSyftCommand(t testing.TB, env map[string]string, expectError bool, args 
 
 		// this probably indicates a timeout... lets run it again with more verbosity to help debug issues
 		args = append(args, "-vv")
-		cmd = getSyftCommand(t, args...)
+		cmd = getGosbomCommand(t, args...)
 
 		go timeout()
 		stdout, stderr, err = runCommand(cmd, env)
@@ -290,19 +290,19 @@ func envMapToSlice(env map[string]string) (envList []string) {
 	return
 }
 
-func getSyftCommand(t testing.TB, args ...string) *exec.Cmd {
-	return exec.Command(getSyftBinaryLocation(t), args...)
+func getGosbomCommand(t testing.TB, args ...string) *exec.Cmd {
+	return exec.Command(getGosbomBinaryLocation(t), args...)
 }
 
-func getSyftBinaryLocation(t testing.TB) string {
+func getGosbomBinaryLocation(t testing.TB) string {
 	if os.Getenv("GOSBOM_BINARY_LOCATION") != "" {
 		// GOSBOM_BINARY_LOCATION is the absolute path to the snapshot binary
 		return os.Getenv("GOSBOM_BINARY_LOCATION")
 	}
-	return getSyftBinaryLocationByOS(t, runtime.GOOS)
+	return getGosbomBinaryLocationByOS(t, runtime.GOOS)
 }
 
-func getSyftBinaryLocationByOS(t testing.TB, goOS string) string {
+func getGosbomBinaryLocationByOS(t testing.TB, goOS string) string {
 	// note: for amd64 we need to update the snapshot location with the v1 suffix
 	// see : https://goreleaser.com/customization/build/#why-is-there-a-_v1-suffix-on-amd64-builds
 	archPath := runtime.GOARCH

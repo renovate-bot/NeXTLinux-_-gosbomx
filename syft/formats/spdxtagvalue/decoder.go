@@ -16,5 +16,5 @@ func decoder(reader io.Reader) (*sbom.SBOM, error) {
 		return nil, fmt.Errorf("unable to decode spdx-tag-value: %w", err)
 	}
 
-	return spdxhelpers.ToSyftModel(doc)
+	return spdxhelpers.ToGosbomModel(doc)
 }

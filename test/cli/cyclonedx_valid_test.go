@@ -48,7 +48,7 @@ func TestValidCycloneDX(t *testing.T) {
 				args = append(args, a)
 			}
 
-			cmd, stdout, stderr := runSyft(t, nil, args...)
+			cmd, stdout, stderr := runGosbom(t, nil, args...)
 			for _, traitFn := range test.assertions {
 				traitFn(t, stdout, stderr, cmd.ProcessState.ExitCode())
 			}

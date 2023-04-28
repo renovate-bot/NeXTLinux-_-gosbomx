@@ -22,7 +22,7 @@ func TestConvertCmd(t *testing.T) {
 	for _, test := range tests {
 		t.Run(fmt.Sprintf("from %s to %s", test.from, test.to), func(t *testing.T) {
 			sbomArgs := []string{"dir:./test-fixtures/image-pkg-coverage", "-o", test.from}
-			cmd, stdout, stderr := runSyft(t, nil, sbomArgs...)
+			cmd, stdout, stderr := runGosbom(t, nil, sbomArgs...)
 			if cmd.ProcessState.ExitCode() != 0 {
 				t.Log("STDOUT:\n", stdout)
 				t.Log("STDERR:\n", stderr)
@@ -32,7 +32,7 @@ func TestConvertCmd(t *testing.T) {
 			}
 
 			convertArgs := []string{"convert", "-", "-o", test.to}
-			cmd = getSyftCommand(t, convertArgs...)
+			cmd = getGosbomCommand(t, convertArgs...)
 
 			cmd.Stdin = strings.NewReader(stdout)
 			stdout, stderr = runCommandObj(t, cmd, nil, false)

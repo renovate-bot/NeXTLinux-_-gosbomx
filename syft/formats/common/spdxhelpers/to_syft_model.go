@@ -20,9 +20,9 @@ import (
 	"github.com/nextlinux/syft/syft/source"
 )
 
-func ToSyftModel(doc *spdx.Document) (*sbom.SBOM, error) {
+func ToGosbomModel(doc *spdx.Document) (*sbom.SBOM, error) {
 	if doc == nil {
-		return nil, errors.New("cannot convert SPDX document to Syft model because document is nil")
+		return nil, errors.New("cannot convert SPDX document to Gosbom model because document is nil")
 	}
 
 	spdxIDMap := make(map[string]interface{})
@@ -40,18 +40,18 @@ func ToSyftModel(doc *spdx.Document) (*sbom.SBOM, error) {
 		},
 	}
 
-	collectSyftPackages(s, spdxIDMap, doc)
+	collectGosbomPackages(s, spdxIDMap, doc)
 
-	collectSyftFiles(s, spdxIDMap, doc)
+	collectGosbomFiles(s, spdxIDMap, doc)
 
-	s.Relationships = toSyftRelationships(spdxIDMap, doc)
+	s.Relationships = toGosbomRelationships(spdxIDMap, doc)
 
 	return s, nil
 }
 
 // NOTE(jonas): SPDX doesn't inform what an SBOM is about,
 // image, directory, for example. This is our best effort to determine
-// the scheme. Syft-generated SBOMs have in the namespace
+// the scheme. Gosbom-generated SBOMs have in the namespace
 // field a type encoded, which we try to identify here.
 func extractSchemeFromNamespace(ns string) source.Scheme {
 	u, err := url.Parse(ns)
@@ -106,17 +106,17 @@ func findLinuxReleaseByPURL(doc *spdx.Document) *linux.Release {
 	return nil
 }
 
-func collectSyftPackages(s *sbom.SBOM, spdxIDMap map[string]interface{}, doc *spdx.Document) {
+func collectGosbomPackages(s *sbom.SBOM, spdxIDMap map[string]interface{}, doc *spdx.Document) {
 	for _, p := range doc.Packages {
-		syftPkg := toSyftPackage(p)
+		syftPkg := toGosbomPackage(p)
 		spdxIDMap[string(p.PackageSPDXIdentifier)] = syftPkg
 		s.Artifacts.PackageCatalog.Add(*syftPkg)
 	}
 }
 
-func collectSyftFiles(s *sbom.SBOM, spdxIDMap map[string]interface{}, doc *spdx.Document) {
+func collectGosbomFiles(s *sbom.SBOM, spdxIDMap map[string]interface{}, doc *spdx.Document) {
 	for _, f := range doc.Files {
-		l := toSyftLocation(f)
+		l := toGosbomLocation(f)
 		spdxIDMap[string(f.FileSPDXIdentifier)] = l
 
 		s.Artifacts.FileMetadata[l.Coordinates] = toFileMetadata(f)
@@ -135,7 +135,7 @@ func toFileDigests(f *spdx.File) (digests []file.Digest) {
 }
 
 func toFileMetadata(f *spdx.File) (meta source.FileMetadata) {
-	// FIXME Syft is currently lossy due to the SPDX 2.2.1 spec not supporting arbitrary mimetypes
+	// FIXME Gosbom is currently lossy due to the SPDX 2.2.1 spec not supporting arbitrary mimetypes
 	for _, typ := range f.FileTypes {
 		switch FileType(typ) {
 		case ImageFileType:
@@ -156,7 +156,7 @@ func toFileMetadata(f *spdx.File) (meta source.FileMetadata) {
 	return meta
 }
 
-func toSyftRelationships(spdxIDMap map[string]interface{}, doc *spdx.Document) []artifact.Relationship {
+func toGosbomRelationships(spdxIDMap map[string]interface{}, doc *spdx.Document) []artifact.Relationship {
 	var out []artifact.Relationship
 	for _, r := range doc.Relationships {
 		// FIXME what to do with r.RefA.DocumentRefID and  r.RefA.SpecialID
@@ -211,7 +211,7 @@ func toSyftRelationships(spdxIDMap map[string]interface{}, doc *spdx.Document) [
 	return out
 }
 
-func toSyftCoordinates(f *spdx.File) source.Coordinates {
+func toGosbomCoordinates(f *spdx.File) source.Coordinates {
 	const layerIDPrefix = "layerID: "
 	var fileSystemID string
 	if strings.Index(f.FileComment, layerIDPrefix) == 0 {
@@ -226,8 +226,8 @@ func toSyftCoordinates(f *spdx.File) source.Coordinates {
 	}
 }
 
-func toSyftLocation(f *spdx.File) *source.Location {
-	l := source.NewVirtualLocationFromCoordinates(toSyftCoordinates(f), f.FileName)
+func toGosbomLocation(f *spdx.File) *source.Location {
+	l := source.NewVirtualLocationFromCoordinates(toGosbomCoordinates(f), f.FileName)
 	return &l
 }
 
@@ -272,7 +272,7 @@ func extractPkgInfo(p *spdx.Package) pkgInfo {
 	}
 }
 
-func toSyftPackage(p *spdx.Package) *pkg.Package {
+func toGosbomPackage(p *spdx.Package) *pkg.Package {
 	info := extractPkgInfo(p)
 	metadataType, metadata := extractMetadata(p, info)
 	sP := pkg.Package{

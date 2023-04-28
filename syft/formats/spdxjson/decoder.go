@@ -16,5 +16,5 @@ func decoder(reader io.Reader) (s *sbom.SBOM, err error) {
 		return nil, fmt.Errorf("unable to decode spdx-json: %w", err)
 	}
 
-	return spdxhelpers.ToSyftModel(doc)
+	return spdxhelpers.ToGosbomModel(doc)
 }

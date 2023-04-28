@@ -29,7 +29,7 @@ func TestAllFormatsExpressible(t *testing.T) {
 				args = append(args, "-t", "test-fixtures/csv.template")
 			}
 
-			cmd, stdout, stderr := runSyft(t, nil, args...)
+			cmd, stdout, stderr := runGosbom(t, nil, args...)
 			for _, traitFn := range commonAssertions {
 				traitFn(t, stdout, stderr, cmd.ProcessState.ExitCode())
 			}
