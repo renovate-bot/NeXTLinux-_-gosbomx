@@ -5,7 +5,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/gosbom/blob/main/LICENSE)
 [![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://nextlinux.com/slack)
 
-A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Grype](https://github.com/nextlinux/gosbom).
+A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Gosbom](https://github.com/nextlinux/gosbom).
 
 #### Execution flow
 
