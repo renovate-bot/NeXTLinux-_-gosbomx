@@ -32,31 +32,6 @@ sequenceDiagram
     Note right of cmd: Execute SINGLE command from USER
 ```
 
-#### Code example of gosbom as a library
-
-Here is a gist of using gosbom as a library to generate a SBOM for a docker image: [link](https://gist.github.com/wagoodman/57ed59a6d57600c23913071b8470175b).
-The execution flow for the example is detailed below.
-
-#### Execution flow examples for the gosbom library
-
-```mermaid
-sequenceDiagram
-    participant source as source.New(ubuntu:latest)
-    participant sbom as sbom.SBOM
-    participant catalog as gosbom.CatalogPackages(src)
-    participant encoder as gosbom.Encode(sbom, format)
-
-    Note right of source: use "ubuntu:latest" as SBOM input
-
-    source-->>+sbom: add source to SBOM struct
-    source-->>+catalog: pass src to generate catalog
-    catalog-->-sbom: add cataloging results onto SBOM
-    sbom-->>encoder: pass SBOM and format desiered to gosbom encoder
-    encoder-->>source: return bytes that are the SBOM of the original input 
-
-    Note right of catalog: cataloger configuration is done based on src
-```
-
 ## Features
 - Generates SBOMs for container images, filesystems, archives, and more to discover packages and libraries
 - Supports OCI, Docker and [Singularity](https://github.com/sylabs/singularity) image formats
@@ -147,6 +122,31 @@ The above output includes only software that is visible in the container (i.e., 
 
 ```
 gosbom <image> --scope all-layers
+```
+
+#### Code example of gosbom as a library
+
+Here is a gist of using gosbom as a library to generate a SBOM for a docker image: [link](https://gist.github.com/wagoodman/57ed59a6d57600c23913071b8470175b).
+The execution flow for the example is detailed below.
+
+#### Execution flow examples for the gosbom library
+
+```mermaid
+sequenceDiagram
+    participant source as source.New(ubuntu:latest)
+    participant sbom as sbom.SBOM
+    participant catalog as gosbom.CatalogPackages(src)
+    participant encoder as gosbom.Encode(sbom, format)
+
+    Note right of source: use "ubuntu:latest" as SBOM input
+
+    source-->>+sbom: add source to SBOM struct
+    source-->>+catalog: pass src to generate catalog
+    catalog-->-sbom: add cataloging results onto SBOM
+    sbom-->>encoder: pass SBOM and format desiered to gosbom encoder
+    encoder-->>source: return bytes that are the SBOM of the original input 
+
+    Note right of catalog: cataloger configuration is done based on src
 ```
 
 ### Supported sources
