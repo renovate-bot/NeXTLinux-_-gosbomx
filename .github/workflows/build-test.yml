@@ -33,7 +33,7 @@ jobs:
 
       - name: Build
         run: go build .
-        working-directory: ./
+        working-directory: cmd/gosbom/
 
       - name: Test
         env:
