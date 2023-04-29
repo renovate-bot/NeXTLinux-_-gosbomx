@@ -1,3 +1,12 @@
+[![Validations](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/gosbom)](https://goreportcard.com/report/github.com/nextlinux/gosbom)
+[![GitHub release](https://img.shields.io/github/release/nextlinux/gosbom.svg)](https://github.com/nextlinux/gosbom/releases/latest)
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/nextlinux/gosbom.svg)](https://github.com/nextlinux/gosbom)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/gosbom/blob/main/LICENSE)
+[![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://nextlinux.com/slack)
+
+A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Grype](https://github.com/nextlinux/gosbom).
+
 #### Execution flow
 
 ```mermaid
@@ -22,25 +31,6 @@ sequenceDiagram
 
     Note right of cmd: Execute SINGLE command from USER
 ```
-
-[![Validations](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/gosbom)](https://goreportcard.com/report/github.com/nextlinux/gosbom)
-[![GitHub release](https://img.shields.io/github/release/nextlinux/gosbom.svg)](https://github.com/nextlinux/gosbom/releases/latest)
-[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/nextlinux/gosbom.svg)](https://github.com/nextlinux/gosbom)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/nextlinux/gosbom/blob/main/LICENSE)
-[![Slack Invite](https://img.shields.io/badge/Slack-Join-blue?logo=slack)](https://nextlinux.com/slack)
-
-A CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Exceptional for vulnerability detection when used with a scanner like [Grype](https://github.com/nextlinux/grype).
-
-### Join our community meetings!
-
-- Calendar: https://calendar.google.com/calendar/u/0/r?cid=Y182OTM4dGt0MjRtajI0NnNzOThiaGtnM29qNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
-- Agenda: https://docs.google.com/document/d/1ZtSAa6fj2a6KRWviTn3WoJm09edvrNUp4Iz_dOjjyY8/edit?usp=sharing (join [this group](https://groups.google.com/g/nextlinux-oss-community) for write access)
-- All are welcome!
-
-For commercial support options with Gosbom or Grype, please [contact Nextlinux](https://get.nextlinux.com/contact/)
-
-![gosbom-demo](https://user-images.githubusercontent.com/590471/90277200-2a253000-de33-11ea-893f-32c219eea11a.gif)
 
 ## Features
 - Generates SBOMs for container images, filesystems, archives, and more to discover packages and libraries
