@@ -6,7 +6,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/nextlinux/packageurl-go"
+	"github.com/package-url/packageurl-go"
 	"github.com/nextlinux/gosbom/internal/log"
 	"github.com/nextlinux/gosbom/gosbom/pkg"
 	"github.com/nextlinux/gosbom/gosbom/source"

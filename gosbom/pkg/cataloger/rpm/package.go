@@ -7,7 +7,7 @@ import (
 
 	rpmdb "github.com/knqyf263/go-rpmdb/pkg"
 
-	"github.com/nextlinux/packageurl-go"
+	"github.com/package-url/packageurl-go"
 	"github.com/nextlinux/gosbom/gosbom/linux"
 	"github.com/nextlinux/gosbom/gosbom/pkg"
 	"github.com/nextlinux/gosbom/gosbom/source"

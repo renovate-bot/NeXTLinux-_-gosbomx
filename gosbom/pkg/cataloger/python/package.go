@@ -3,7 +3,7 @@ package python
 import (
 	"fmt"
 
-	"github.com/nextlinux/packageurl-go"
+	"github.com/package-url/packageurl-go"
 	"github.com/nextlinux/gosbom/gosbom/pkg"
 	"github.com/nextlinux/gosbom/gosbom/source"
 )
