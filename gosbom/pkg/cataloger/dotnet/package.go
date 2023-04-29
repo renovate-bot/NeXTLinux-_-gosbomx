@@ -3,7 +3,7 @@ package dotnet
 import (
 	"strings"
 
-	"github.com/nextlinux/packageurl-go"
+	"github.com/package-url/packageurl-go"
 	"github.com/nextlinux/gosbom/gosbom/pkg"
 	"github.com/nextlinux/gosbom/gosbom/source"
 )
@@ -48,7 +48,7 @@ func packageURL(m pkg.DotnetDepsMetadata) string {
 		// This originally was packageurl.TypeDotnet, but this isn't a valid PURL type, according to:
 		// https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst
 		// Some history:
-		//   https://github.com/nextlinux/packageurl-go/pull/8 added the type to Nextlinux's fork
+		//   https://github.com/package-url/packageurl-go/pull/8 added the type to Nextlinux's fork
 		//   due to this PR: https://github.com/nextlinux/gosbom/pull/951
 		// There were questions about "dotnet" being the right purlType at the time, but it was
 		// acknowledged that scanning a dotnet file does not necessarily mean the packages found
