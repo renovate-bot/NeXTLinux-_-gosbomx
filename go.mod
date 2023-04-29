@@ -36,6 +36,7 @@ require (
 	github.com/nextlinux/stereoscope v0.0.0-20230423100046-6356a276e976
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/opencontainers/go-digest v1.0.0
+	github.com/package-url/packageurl-go v0.1.0
 	github.com/pelletier/go-toml v1.9.5
 	github.com/sassoftware/go-rpmutils v0.2.0
 	github.com/scylladb/go-set v1.0.2
@@ -110,7 +111,6 @@ require (
 	github.com/mitchellh/reflectwalk v1.0.0 // indirect
 	github.com/nwaples/rardecode v1.1.0 // indirect
 	github.com/opencontainers/image-spec v1.1.0-rc2.0.20221005185240-3a7f492d3f1b // indirect
-	github.com/package-url/packageurl-go v0.1.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
