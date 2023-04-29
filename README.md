@@ -1,6 +1,27 @@
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/5199289/136844524-1527b09f-c5cb-4aa9-be54-5aa92a6086c1.png" width="271" alt="Cute pink owl gosbom logo">
-</p>
+#### Execution flow
+
+```mermaid
+sequenceDiagram
+    participant main as cmd/gosbom/main
+    participant cli as cli.New()
+    participant root as root.Execute()
+    participant cmd as <command>.Execute()
+
+    main->>+cli: 
+
+    Note right of cli: wire ALL CLI commands
+    Note right of cli: add flags for ALL commands
+
+    cli-->>-main:  root command 
+
+    main->>+root: 
+    root->>+cmd: 
+    cmd-->>-root: (error)  
+
+    root-->>-main: (error) 
+
+    Note right of cmd: Execute SINGLE command from USER
+```
 
 [![Validations](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml/badge.svg)](https://github.com/nextlinux/gosbom/actions/workflows/validations.yaml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nextlinux/gosbom)](https://goreportcard.com/report/github.com/nextlinux/gosbom)
